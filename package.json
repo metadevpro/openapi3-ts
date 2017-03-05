@@ -1,0 +1,59 @@
+{
+  "name": "openapi3-ts",
+  "version": "0.0.1",
+  "description": "TS Model for OpenAPI 3.0.x spec",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/metadevpro/openapi3-ts.git"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "rimraf dist && npm run lint && tsc -p tsconfig.json",
+    "build:w": "tsc -p tsconfig.json -w",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "test:tdd": "mocha --reporter min --compilers ts:ts-node/register --bail \"src/**/*.spec.ts\" --watch",
+    "test": "mocha --recursive --compilers ts:ts-node/register --bail \"src/**/*.spec.ts\"",
+    "cover": "nyc npm test"
+  },
+  "keywords": [
+    "openapi",
+    "ts"
+  ],
+  "author": "Pedro J. Molina / Metadev",
+  "license": "MIT",
+  "nyc": {
+    "include": [
+      "src/*.ts",
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "node_modules",
+      "typings",
+      "src/**/*.spec.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "json",
+      "html"
+    ],
+    "all": true
+  },  
+  "devDependencies": {
+    "@types/chai": "^3.4.35",
+    "@types/mocha": "^2.2.39",
+    "@types/node": "^7.0.5",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "nyc": "^10.1.2",
+    "rimraf": "^2.6.1",
+    "ts-node": "^2.1.0",
+    "tslint": "^4.5.1",
+    "typescript": "^2.2.1"
+  }
+}
