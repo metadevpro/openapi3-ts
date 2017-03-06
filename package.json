@@ -1,7 +1,7 @@
 {
   "name": "openapi3-ts",
   "version": "0.1.0",
-  "description": "TS Model for OpenAPI 3.0.x spec",
+  "description": "TS Model & utils for OpenAPI 3.0.x specification.",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -17,8 +17,9 @@
     "cover": "nyc npm test"
   },
   "keywords": [
-    "openapi",
-    "ts"
+    "openapi3",
+    "ts",
+    "typescript"
   ],
   "author": "Pedro J. Molina / Metadev",
   "license": "MIT",
