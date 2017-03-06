@@ -1,6 +1,6 @@
 {
   "name": "openapi3-ts",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "TS Model for OpenAPI 3.0.x spec",
   "main": "index.js",
   "repository": {
@@ -12,8 +12,8 @@
     "build": "rimraf dist && npm run lint && tsc -p tsconfig.json",
     "build:w": "tsc -p tsconfig.json -w",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
-    "test:tdd": "mocha --reporter min --compilers ts:ts-node/register --bail \"src/**/*.spec.ts\" --watch",
-    "test": "mocha --recursive --compilers ts:ts-node/register --bail \"src/**/*.spec.ts\"",
+    "test:tdd": "mocha --reporter min --compilers ts:ts-node/register \"src/**/*.spec.ts\" --watch",
+    "test": "mocha --recursive --compilers ts:ts-node/register \"src/**/*.spec.ts\"",
     "cover": "nyc npm test"
   },
   "keywords": [
@@ -30,7 +30,8 @@
     "exclude": [
       "node_modules",
       "typings",
-      "src/**/*.spec.ts"
+      "src/**/*.spec.ts",
+      "src/**/index.ts"
     ],
     "extension": [
       ".ts"
@@ -40,7 +41,8 @@
     ],
     "reporter": [
       "json",
-      "html"
+      "html",
+      "text"
     ],
     "all": true
   },  

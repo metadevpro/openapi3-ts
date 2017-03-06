@@ -10,7 +10,8 @@
     "preserveConstEnums": true,
     "noEmitHelpers": true,
     "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": "src",
+    "declaration": true
   },
   "compileOnSave": true,
   "buildOnSave": true,

@@ -1,0 +1,7 @@
+node_modules/
+coverage/
+.nyc_output/
+*.log
+
+# Include dist/ in npm package
+!dist/
