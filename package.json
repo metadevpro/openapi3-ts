@@ -31,8 +31,7 @@
     "exclude": [
       "node_modules",
       "typings",
-      "src/**/*.spec.ts",
-      "src/**/index.ts"
+      "src/**/*.spec.ts"
     ],
     "extension": [
       ".ts"
