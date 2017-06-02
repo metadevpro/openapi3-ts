@@ -3,6 +3,7 @@
   "version": "0.1.1",
   "description": "TS Model & utils for OpenAPI 3.0.x specification.",
   "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/metadevpro/openapi3-ts.git"
