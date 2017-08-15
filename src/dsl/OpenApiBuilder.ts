@@ -14,7 +14,8 @@ export class OpenApiBuilder {
         this.rootDoc = {
             openapi: "3.0.0",
             info: {
-                title: "app"
+                title: "app",
+                version: "version"
             },
             paths:  {},
             components:  {
