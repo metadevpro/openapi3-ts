@@ -8,7 +8,8 @@ describe("OpenApiBuilder", () => {
         expect(OpenApiBuilder.create().getSpec()).eql({
             openapi: "3.0.0",
             info: {
-                title: "app"
+                title: "app",
+                version: "version"
             },
             paths:  {},
             components:  {

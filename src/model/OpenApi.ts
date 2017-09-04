@@ -19,7 +19,7 @@ export interface InfoObject extends ISpecificationExtension {
     termsOfService?: string;
     contact?: ContactObject;
     license?: LicenseObject;
-    version?: string;
+    version: string;
 }
 export interface ContactObject extends ISpecificationExtension {
     name: string;
@@ -240,4 +240,3 @@ export interface ScopesObject extends ISpecificationExtension {
 export interface SecurityRequirementObject {
     [name: string]: [string];
 }
-
