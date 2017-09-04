@@ -192,13 +192,13 @@ export interface SchemaObject extends ISpecificationExtension {
     deprecated?: boolean;
 
     type?: string;
-    allOf?: SchemaObject | ReferenceObject;
-    oneOf?: SchemaObject | ReferenceObject;
-    anyOf?: SchemaObject | ReferenceObject;
+    allOf?: (SchemaObject | ReferenceObject)[];
+    oneOf?: (SchemaObject | ReferenceObject)[];
+    anyOf?: (SchemaObject | ReferenceObject)[];
     not?: SchemaObject | ReferenceObject;
     items?: SchemaObject | ReferenceObject;
-    properties?: SchemaObject | ReferenceObject;
-    additionalProperties?: SchemaObject | ReferenceObject;
+    properties?: {[propertyName: string]: (SchemaObject | ReferenceObject)};
+    additionalProperties?: (SchemaObject | ReferenceObject)[];
     description?: string;
     format?: string;
     default?: any;
