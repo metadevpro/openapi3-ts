@@ -106,7 +106,7 @@ export interface ParameterObject extends ISpecificationExtension {
 }
 export interface RequestBodyObject extends ISpecificationExtension {
     description?: string;
-    content?: ContentObject;
+    content: ContentObject;
     required?: boolean;
 }
 export interface ContentObject {
