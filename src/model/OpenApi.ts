@@ -8,7 +8,7 @@ export interface OpenAPIObject extends ISpecificationExtension {
     info: InfoObject;
     servers?: ServerObject[];
     paths: {[path: string]: PathObject };
-    components: ComponentsObject;
+    components?: ComponentsObject;
     security?: SecurityRequirementObject;
     tags?: TagObject[];
     externalDocs?: ExternalDocumentationObject;
@@ -41,15 +41,15 @@ export interface ServerVariableObject extends ISpecificationExtension {
     description?: string;
 }
 export interface ComponentsObject extends ISpecificationExtension {
-    schemas: { [schema: string]: SchemaObject };
-    responses: { [response: string]: ResponseObject };
-    parameters: { [parameter: string]: ParameterObject };
-    examples: { [example: string]: ExampleObject };
-    requestBodies: { [request: string]: RequestBodyObject };
-    headers: { [heaer: string]: HeaderObject };
-    securitySchemes: { [securityScheme: string]: SecuritySchemeObject };
-    links: { [link: string]: LinkObject };
-    callbacks: { [callback: string]: CallbackObject };
+    schemas?: { [schema: string]: SchemaObject };
+    responses?: { [response: string]: ResponseObject };
+    parameters?: { [parameter: string]: ParameterObject };
+    examples?: { [example: string]: ExampleObject };
+    requestBodies?: { [request: string]: RequestBodyObject };
+    headers?: { [heaer: string]: HeaderObject };
+    securitySchemes?: { [securityScheme: string]: SecuritySchemeObject };
+    links?: { [link: string]: LinkObject };
+    callbacks?: { [callback: string]: CallbackObject };
 }
 export interface PathObject extends ISpecificationExtension {
     // [path: string]: PathItemObject;
