@@ -85,8 +85,8 @@ export interface OperationObject extends ISpecificationExtension {
     servers?: ServerObject;
 }
 export interface ExternalDocumentationObject extends ISpecificationExtension {
+    description?: string;
     url: string;
-    description: string;
 }
 export interface ParameterObject extends ISpecificationExtension {
     name: string;
