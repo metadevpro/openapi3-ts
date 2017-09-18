@@ -33,7 +33,7 @@ export interface LicenseObject extends ISpecificationExtension {
 export interface ServerObject extends ISpecificationExtension {
     url: string;
     description?: string;
-    variables: { [v: string]: ServerVariableObject };
+    variables?: { [v: string]: ServerVariableObject };
 }
 export interface ServerVariableObject extends ISpecificationExtension {
     enum?: string[] | boolean[] | number[];
