@@ -28,7 +28,7 @@ export interface ContactObject extends ISpecificationExtension {
 }
 export interface LicenseObject extends ISpecificationExtension {
     name: string;
-    url: string;
+    url?: string;
 }
 export interface ServerObject extends ISpecificationExtension {
     url: string;
