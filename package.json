@@ -13,6 +13,7 @@
     "build": "rimraf dist && npm run lint && tsc -p tsconfig.json",
     "build:w": "tsc -p tsconfig.json -w",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "prepublish": "npm run build",
     "test:tdd": "mocha --recursive --reporter min --compilers ts:ts-node/register --require source-map-support/register \"src/**/*.spec.ts\" --watch",
     "test": "mocha --recursive --compilers ts:ts-node/register --require source-map-support/register \"src/**/*.spec.ts\"",
     "cover": "nyc npm test"
