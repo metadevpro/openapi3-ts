@@ -90,7 +90,7 @@ export interface ExternalDocumentationObject extends ISpecificationExtension {
 }
 export interface ParameterObject extends ISpecificationExtension {
     name: string;
-    in: "query" | "header" | "path" | "cookie";
+    in: string; // "query" | "header" | "path" | "cookie";
     description?: string;
     required?: boolean;
     deprecated?: boolean;
