@@ -76,8 +76,8 @@ export interface OperationObject extends ISpecificationExtension {
     description?: string;
     externalDocs?: ExternalDocumentationObject;
     operationId?: string;
-    parameters?: [ ParameterObject | ReferenceObject ];
-    requestBody?: [ RequestBodyObject | ReferenceObject ];
+    parameters?: (ParameterObject | ReferenceObject)[];
+    requestBody?: RequestBodyObject | ReferenceObject;
     responses: ResponsesObject;
     callbacks?: CallbacksObject;
     deprecated?: boolean;
@@ -100,7 +100,7 @@ export interface ParameterObject extends ISpecificationExtension {
     explode?: boolean;
     allowReserved?: boolean;
     schema?: SchemaObject | ReferenceObject;
-    examples?: [ ExampleObject | ReferenceObject ];
+    examples?: { [param: string]: ExampleObject | ReferenceObject };
     example?: ExampleObject | ReferenceObject;
     content?: ContentObject;
 }
@@ -131,7 +131,7 @@ export interface EncodingPropertyObject {
     [key: string]: any;   // (any) = Hack for allowing ISpecificationExtension
 }
 export interface ResponsesObject extends ISpecificationExtension {
-    default: ResponseObject | ReferenceObject;
+    default?: ResponseObject | ReferenceObject;
 
     // [statuscode: string]: ResponseObject | ReferenceObject;
     [statuscode: string]: ResponseObject | ReferenceObject | any;   // (any) = Hack for allowing ISpecificationExtension
