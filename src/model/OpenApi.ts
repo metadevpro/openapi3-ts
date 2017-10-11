@@ -101,7 +101,7 @@ export interface ParameterObject extends ISpecificationExtension {
     allowReserved?: boolean;
     schema?: SchemaObject | ReferenceObject;
     examples?: { [param: string]: ExampleObject | ReferenceObject };
-    example?: ExampleObject | ReferenceObject;
+    example?: any;
     content?: ContentObject;
 }
 export interface RequestBodyObject extends ISpecificationExtension {
