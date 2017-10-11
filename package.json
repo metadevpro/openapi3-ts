@@ -1,6 +1,6 @@
 {
   "name": "openapi3-ts",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "TS Model & utils for OpenAPI 3.0.x specification.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
