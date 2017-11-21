@@ -55,6 +55,7 @@ export interface PathObject extends ISpecificationExtension {
     // [path: string]: PathItemObject;
     [path: string]: PathItemObject | any;   // Hack for allowing ISpecificationExtension
 }
+
 export interface PathItemObject extends ISpecificationExtension {
     $ref?: string;
     summary?: string;
