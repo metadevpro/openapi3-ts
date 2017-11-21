@@ -1,7 +1,19 @@
 // Typed interfaces for OpenAPI 3.0.0-RC
 // see https://github.com/OAI/OpenAPI-Specification/blob/3.0.0-rc0/versions/3.0.md
 
-import { ISpecificationExtension } from "./SpecificationExtension";
+import { ISpecificationExtension, SpecificationExtension } from "./SpecificationExtension";
+
+export function getExtension(obj: ISpecificationExtension, extensionName: string): any {
+    if (SpecificationExtension.isValidExtension(extensionName)) {
+        return obj[extensionName];
+    }
+    return undefined;
+}
+export function addExtension(obj: ISpecificationExtension, extensionName: string, extension: any): void {
+    if (SpecificationExtension.isValidExtension(extensionName)) {
+        obj[extensionName] = extension;
+    }
+}
 
 export interface OpenAPIObject extends ISpecificationExtension {
     openapi: string;
@@ -54,6 +66,12 @@ export interface ComponentsObject extends ISpecificationExtension {
 export interface PathObject extends ISpecificationExtension {
     // [path: string]: PathItemObject;
     [path: string]: PathItemObject | any;   // Hack for allowing ISpecificationExtension
+}
+export function getPath(pathObject: PathObject, path: string): PathItemObject {
+    if (SpecificationExtension.isValidExtension(path)) {
+        return undefined;
+    }
+    return pathObject[path] as PathItemObject;
 }
 
 export interface PathItemObject extends ISpecificationExtension {

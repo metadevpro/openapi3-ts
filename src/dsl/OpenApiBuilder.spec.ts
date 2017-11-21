@@ -227,11 +227,48 @@ describe("OpenApiBuilder", () => {
     });
     it("addServer", () => {
         let s1: oa.ServerObject = {
-           url: "htto://api.quixote.org",
+           url: "http://api.quixote.org",
            variables: {}
         };
         let sut = OpenApiBuilder.create().addServer(s1).rootDoc;
         expect(sut.servers[0]).eql(s1);
+    });
+
+    it("getPath", () => {
+        let path1 = {
+            get: {
+                responses: {
+                    default: {
+                        description: "object created"
+                    }
+                }
+            }
+        };
+        const sut = OpenApiBuilder.create()
+                                .addPath('/service7', path1)
+                                .rootDoc;
+        oa.addExtension(sut.paths, 'x-my-extension', 42);
+
+        expect(oa.getPath(sut.paths, '/service7')).eql(path1);
+        expect(oa.getPath(sut.paths, '/service56')).eql(undefined);
+    });
+    it("getExtension", () => {
+        let path1 = {
+            get: {
+                responses: {
+                    default: {
+                        description: "object created"
+                    }
+                }
+            }
+        };
+        const sut = OpenApiBuilder.create()
+                                .addPath('/service7', path1)
+                                .rootDoc;
+        oa.addExtension(sut.paths, 'x-my-extension', 42);
+
+        expect(oa.getExtension(sut.paths, 'x-my-extension')).eql(42);
+        expect(oa.getExtension(sut.paths, 'x-other')).eql(undefined);
     });
 
     describe("Serialize", () => {
