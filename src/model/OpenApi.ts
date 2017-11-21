@@ -68,7 +68,7 @@ export interface PathItemObject extends ISpecificationExtension {
     patch?: OperationObject;
     trace?: OperationObject;
     servers?: ServerObject;
-    parameters?: { [param: string]: ParameterObject };
+    parameters?: (ParameterObject | ReferenceObject)[];
 }
 export interface OperationObject extends ISpecificationExtension {
     tags?: string[];
