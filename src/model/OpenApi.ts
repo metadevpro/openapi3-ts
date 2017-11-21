@@ -19,7 +19,7 @@ export interface OpenAPIObject extends ISpecificationExtension {
     openapi: string;
     info: InfoObject;
     servers?: ServerObject[];
-    paths: {[path: string]: PathObject };
+    paths: PathObject;
     components?: ComponentsObject;
     security?: SecurityRequirementObject;
     tags?: TagObject[];
