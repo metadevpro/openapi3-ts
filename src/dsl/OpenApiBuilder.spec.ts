@@ -244,14 +244,5 @@ describe("OpenApiBuilder", () => {
 `{"openapi":"3.0.0","info":{"title":"app9","version":"5.6.7"},"paths":{},"components":{"schemas":{},"responses":{},"parameters":{},"examples":{},"requestBodies":{},"headers":{},"securitySchemes":{},"links":{},"callbacks":{}},"tags":[],"servers":[]}`
 );
         });
-        xit("getSpecAsJson", () => {
-            let sut = OpenApiBuilder.create()
-                                    .addTitle("app9")
-                                    .addVersion("5.6.7")
-                                    .getSpecAsYaml();
-            expect(sut).eql(
-``
-);
-        });
     });
 });
