@@ -1,9 +1,6 @@
 # OpenApi3-TS
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/metadevpro/openapi3-ts.svg)](https://greenkeeper.io/)
-
 TypeScript library to help building OpenAPI 3.0.x compliant API contracts.
-
 
 [![Build Status](https://travis-ci.org/metadevpro/openapi3-ts.svg?branch=master)](https://travis-ci.org/metadevpro/openapi3-ts)
 [![Coverage Status](https://coveralls.io/repos/github/metadevpro/openapi3-ts/badge.svg?branch=master)](https://coveralls.io/github/metadevpro/openapi3-ts?branch=master)
@@ -11,6 +8,7 @@ TypeScript library to help building OpenAPI 3.0.x compliant API contracts.
 [![bitHound Overall Score](https://www.bithound.io/github/metadevpro/openapi3-ts/badges/score.svg)](https://www.bithound.io/github/metadevpro/openapi3-ts)
 [![Known Vulnerabilities](https://snyk.io/test/github/metadevpro/openapi3-ts/badge.svg)](https://snyk.io/test/github/metadevpro/openapi3-ts)
 [![npm version](https://badge.fury.io/js/openapi3-ts.svg)](http://badge.fury.io/js/openapi3-ts)
+[![Greenkeeper badge](https://badges.greenkeeper.io/metadevpro/openapi3-ts.svg)](https://greenkeeper.io/)
 
 [![NPM](https://nodei.co/npm/openapi3-ts.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/openapi3-ts/)
 
