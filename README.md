@@ -1,5 +1,7 @@
 # OpenApi3-TS
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/metadevpro/openapi3-ts.svg)](https://greenkeeper.io/)
+
 TypeScript library to help building OpenAPI 3.0.x compliant API contracts.
 
 
