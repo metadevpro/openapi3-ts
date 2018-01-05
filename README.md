@@ -29,7 +29,10 @@ npm i --save openapi3-ts
 
 * OpenAPI spec 3.0.0. [https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md)
 
+## License
+Licensed under the MIT License.
+
 ## Credits
 **Contact:** Pedro J. Molina | github: [pjmolina](https://github.com/pjmolina) | twitter: [pmolinam](https://twitter.com/pmolinam)
 
-(c) 2017. Metadev S.L. [https://metadev.pro](https://metadev.pro)
+(c) 2017-2018. [Pedro J. Molina](http://pjmolina.com) at Metadev S.L. [https://metadev.pro](https://metadev.pro)
