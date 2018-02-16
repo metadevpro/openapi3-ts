@@ -269,5 +269,5 @@ export interface ScopesObject extends ISpecificationExtension {
     [scope: string]: any; // Hack for allowing ISpecificationExtension
 }
 export interface SecurityRequirementObject {
-    [name: string]: [string];
+    [name: string]: string[];
 }
