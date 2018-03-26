@@ -230,6 +230,23 @@ export interface SchemaObject extends ISpecificationExtension {
     description?: string;
     format?: string;
     default?: any;
+
+    title?: string;
+    multipleOf?: number;
+    maximum?: number;
+    exclusiveMaximum?: boolean;
+    minimum?: number;
+    exclusiveMinimum?: boolean;
+    maxLength?: number;
+    minLength?: number;
+    pattern?: string;
+    maxItems?: number;
+    minItems?: number;
+    uniqueItems?: boolean;
+    maxProperties?: number;
+    minProperties?: number;
+    required?: string[];
+    enum?: any[];
 }
 export interface DiscriminatorObject {
     propertyName: string;
