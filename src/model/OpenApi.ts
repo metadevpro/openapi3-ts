@@ -21,7 +21,7 @@ export interface OpenAPIObject extends ISpecificationExtension {
     servers?: ServerObject[];
     paths: PathObject;
     components?: ComponentsObject;
-    security?: SecurityRequirementObject;
+    security?: SecurityRequirementObject[];
     tags?: TagObject[];
     externalDocs?: ExternalDocumentationObject;
 }
@@ -100,7 +100,7 @@ export interface OperationObject extends ISpecificationExtension {
     responses: ResponsesObject;
     callbacks?: CallbacksObject;
     deprecated?: boolean;
-    security?: SecurityRequirementObject;
+    security?: SecurityRequirementObject[];
     servers?: ServerObject;
 }
 export interface ExternalDocumentationObject extends ISpecificationExtension {
