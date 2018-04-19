@@ -19,7 +19,7 @@ export interface OpenAPIObject extends ISpecificationExtension {
     openapi: string;
     info: InfoObject;
     servers?: ServerObject[];
-    paths: PathObject;
+    paths: PathsObject;
     components?: ComponentsObject;
     security?: SecurityRequirementObject[];
     tags?: TagObject[];
@@ -63,15 +63,27 @@ export interface ComponentsObject extends ISpecificationExtension {
     links?: { [link: string]: LinkObject };
     callbacks?: { [callback: string]: CallbackObject };
 }
-export interface PathObject extends ISpecificationExtension {
+
+/**
+ * Rename it to Paths Object to be consistent with the spec
+ * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#pathsObject
+ */
+export interface PathsObject extends ISpecificationExtension {
     // [path: string]: PathItemObject;
     [path: string]: PathItemObject | any;   // Hack for allowing ISpecificationExtension
 }
-export function getPath(pathObject: PathObject, path: string): PathItemObject {
+
+/**
+ * @deprecated
+ * Create a type alias for backward compatibility
+ */
+export type PathObject = PathsObject;
+
+export function getPath(pathsObject: PathsObject, path: string): PathItemObject {
     if (SpecificationExtension.isValidExtension(path)) {
         return undefined;
     }
-    return pathObject[path] as PathItemObject;
+    return pathsObject[path] as PathItemObject;
 }
 
 export interface PathItemObject extends ISpecificationExtension {
@@ -273,6 +285,11 @@ export interface SchemaObject extends ISpecificationExtension {
     required?: string[];
     enum?: any[];
 }
+
+export interface SchemasObject {
+    [schema: string]: SchemaObject;
+}
+
 export interface DiscriminatorObject {
     propertyName: string;
     mapping?: {[key: string]: string };
