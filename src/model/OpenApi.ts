@@ -107,15 +107,40 @@ export interface ExternalDocumentationObject extends ISpecificationExtension {
     description?: string;
     url: string;
 }
+
+/**
+ * The location of a parameter.
+ * Possible values are "query", "header", "path" or "cookie".
+ * Specification:
+ * https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#parameter-locations
+ */
+export type ParameterLocation = 'query' | 'header' | 'path' | 'cookie';
+
+/**
+ * The style of a parameter.
+ * Describes how the parameter value will be serialized.
+ * (serialization is not implemented yet)
+ * Specification:
+ * https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#style-values
+ */
+export type ParameterStyle =
+  | 'matrix'
+  | 'label'
+  | 'form'
+  | 'simple'
+  | 'spaceDelimited'
+  | 'pipeDelimited'
+  | 'deepObject';
+
 export interface ParameterObject extends ISpecificationExtension {
     name: string;
-    in: string; // "query" | "header" | "path" | "cookie";
+    in: ParameterLocation; // "query" | "header" | "path" | "cookie";
     description?: string;
     required?: boolean;
     deprecated?: boolean;
     allowEmptyValue?: boolean;
 
-    style?: string; // "matrix" | "label" | "form" | "simple" | "spaceDelimited" | "pipeDelimited" | "deepObject";
+    style?: ParameterStyle; // "matrix" | "label" | "form" | "simple" | "spaceDelimited" | "pipeDelimited" | "deepObject";
     explode?: boolean;
     allowReserved?: boolean;
     schema?: SchemaObject | ReferenceObject;
