@@ -125,7 +125,7 @@ describe("OpenApiBuilder", () => {
     it("addParameter", () => {
         let par5 = {
             name: "id",
-            in:   "header",
+            in:   "header" as oa.ParameterLocation,
             schema: {
                 $ref: "#/components/schemas/id"
             }
