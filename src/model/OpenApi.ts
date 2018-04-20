@@ -136,7 +136,7 @@ export type ParameterLocation = 'query' | 'header' | 'path' | 'cookie';
  * https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#style-values
  */
 export type ParameterStyle =
-  | 'matrix'
+    'matrix'
   | 'label'
   | 'form'
   | 'simple'
@@ -302,8 +302,14 @@ export interface XmlObject extends ISpecificationExtension {
     attribute?: boolean;
     wrapped?: boolean;
 }
+export type SecuritySchemeType =
+      "apiKey"
+    | "http"
+    | "oauth2"
+    | "openIdConnect";
+
 export interface SecuritySchemeObject extends ISpecificationExtension {
-    type: string;  // Valid values are "apiKey", "http", "oauth2", "openIdConnect".
+    type: SecuritySchemeType;
     description?: string;
     name?: string;              // required only for apiKey
     in?: string;                // required only for apiKey
