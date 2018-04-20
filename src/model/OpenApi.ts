@@ -19,7 +19,7 @@ export interface OpenAPIObject extends ISpecificationExtension {
     openapi: string;
     info: InfoObject;
     servers?: ServerObject[];
-    paths: PathObject;
+    paths: PathsObject;
     components?: ComponentsObject;
     security?: SecurityRequirementObject[];
     tags?: TagObject[];
@@ -63,15 +63,27 @@ export interface ComponentsObject extends ISpecificationExtension {
     links?: { [link: string]: LinkObject };
     callbacks?: { [callback: string]: CallbackObject };
 }
-export interface PathObject extends ISpecificationExtension {
+
+/**
+ * Rename it to Paths Object to be consistent with the spec
+ * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#pathsObject
+ */
+export interface PathsObject extends ISpecificationExtension {
     // [path: string]: PathItemObject;
     [path: string]: PathItemObject | any;   // Hack for allowing ISpecificationExtension
 }
-export function getPath(pathObject: PathObject, path: string): PathItemObject {
+
+/**
+ * @deprecated
+ * Create a type alias for backward compatibility
+ */
+export type PathObject = PathsObject;
+
+export function getPath(pathsObject: PathsObject, path: string): PathItemObject {
     if (SpecificationExtension.isValidExtension(path)) {
         return undefined;
     }
-    return pathObject[path] as PathItemObject;
+    return pathsObject[path] as PathItemObject;
 }
 
 export interface PathItemObject extends ISpecificationExtension {
@@ -107,15 +119,40 @@ export interface ExternalDocumentationObject extends ISpecificationExtension {
     description?: string;
     url: string;
 }
+
+/**
+ * The location of a parameter.
+ * Possible values are "query", "header", "path" or "cookie".
+ * Specification:
+ * https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#parameter-locations
+ */
+export type ParameterLocation = 'query' | 'header' | 'path' | 'cookie';
+
+/**
+ * The style of a parameter.
+ * Describes how the parameter value will be serialized.
+ * (serialization is not implemented yet)
+ * Specification:
+ * https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#style-values
+ */
+export type ParameterStyle =
+  | 'matrix'
+  | 'label'
+  | 'form'
+  | 'simple'
+  | 'spaceDelimited'
+  | 'pipeDelimited'
+  | 'deepObject';
+
 export interface ParameterObject extends ISpecificationExtension {
     name: string;
-    in: string; // "query" | "header" | "path" | "cookie";
+    in: ParameterLocation; // "query" | "header" | "path" | "cookie";
     description?: string;
     required?: boolean;
     deprecated?: boolean;
     allowEmptyValue?: boolean;
 
-    style?: string; // "matrix" | "label" | "form" | "simple" | "spaceDelimited" | "pipeDelimited" | "deepObject";
+    style?: ParameterStyle; // "matrix" | "label" | "form" | "simple" | "spaceDelimited" | "pipeDelimited" | "deepObject";
     explode?: boolean;
     allowReserved?: boolean;
     schema?: SchemaObject | ReferenceObject;
@@ -248,6 +285,11 @@ export interface SchemaObject extends ISpecificationExtension {
     required?: string[];
     enum?: any[];
 }
+
+export interface SchemasObject {
+    [schema: string]: SchemaObject;
+}
+
 export interface DiscriminatorObject {
     propertyName: string;
     mapping?: {[key: string]: string };
