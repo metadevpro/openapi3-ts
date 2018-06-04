@@ -118,7 +118,7 @@ export interface ParameterObject extends ISpecificationExtension {
     style?: string; // "matrix" | "label" | "form" | "simple" | "spaceDelimited" | "pipeDelimited" | "deepObject";
     explode?: boolean;
     allowReserved?: boolean;
-    schema?: SchemaObject | ReferenceObject;
+    schema: SchemaObject | ReferenceObject;
     examples?: { [param: string]: ExampleObject | ReferenceObject };
     example?: any;
     content?: ContentObject;
