@@ -27,7 +27,7 @@ npm i --save openapi3-ts
 
 ## References
 
-* OpenAPI spec 3.0.0. [https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md)
+* OpenAPI spec 3.0.1. [https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md)
 
 ## License
 Licensed under the MIT License.
