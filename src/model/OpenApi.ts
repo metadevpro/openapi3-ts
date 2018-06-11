@@ -98,7 +98,7 @@ export interface PathItemObject extends ISpecificationExtension {
     head?: OperationObject;
     patch?: OperationObject;
     trace?: OperationObject;
-    servers?: ServerObject;
+    servers?: ServerObject[];
     parameters?: (ParameterObject | ReferenceObject)[];
 }
 export interface OperationObject extends ISpecificationExtension {
@@ -113,7 +113,7 @@ export interface OperationObject extends ISpecificationExtension {
     callbacks?: CallbacksObject;
     deprecated?: boolean;
     security?: SecurityRequirementObject[];
-    servers?: ServerObject;
+    servers?: ServerObject[];
 }
 export interface ExternalDocumentationObject extends ISpecificationExtension {
     description?: string;
