@@ -1,6 +1,6 @@
 import "mocha";
 import { expect } from "chai";
-import { OpenApiBuilder } from "./OpenApiBuilder";
+import { OpenApiBuilder } from ".";
 import * as oa from "../model";
 
 describe("OpenApiBuilder", () => {
@@ -42,6 +42,33 @@ describe("OpenApiBuilder", () => {
     it("addOpenApiVersion invalid", (done) => {
         try {
             let sut = OpenApiBuilder.create().addOpenApiVersion("a.b.4").rootDoc;
+            done("failed");
+        }
+        catch (err) {
+            done();
+        }
+    });
+    it("addOpenApiVersion empty", (done) => {
+        try {
+            let sut = OpenApiBuilder.create().addOpenApiVersion("").rootDoc;
+            done("failed");
+        }
+        catch (err) {
+            done();
+        }
+    });
+    it("addOpenApiVersion null", (done) => {
+        try {
+            let sut = OpenApiBuilder.create().addOpenApiVersion(null).rootDoc;
+            done("failed");
+        }
+        catch (err) {
+            done();
+        }
+    });
+    it("addOpenApiVersion lower than 3", (done) => {
+        try {
+            let sut = OpenApiBuilder.create().addOpenApiVersion("2.5.6").rootDoc;
             done("failed");
         }
         catch (err) {
@@ -252,6 +279,23 @@ describe("OpenApiBuilder", () => {
         expect(oa.getPath(sut.paths, '/service7')).eql(path1);
         expect(oa.getPath(sut.paths, '/service56')).eql(undefined);
     });
+    it("get invalid Path", () => {
+        let path1 = {
+            get: {
+                responses: {
+                    default: {
+                        description: "object created"
+                    }
+                }
+            }
+        };
+        const sut = OpenApiBuilder.create()
+                                .addPath('/service7', path1)
+                                .rootDoc;
+        oa.addExtension(sut.paths, 'x-my-extension', 42);
+
+        expect(oa.getPath(sut.paths, 'x-path')).eql(undefined);
+    });
     it("getExtension", () => {
         let path1 = {
             get: {
@@ -270,6 +314,23 @@ describe("OpenApiBuilder", () => {
         expect(oa.getExtension(sut.paths, 'x-my-extension')).eql(42);
         expect(oa.getExtension(sut.paths, 'x-other')).eql(undefined);
     });
+    it("retrieve invalid extension", () => {
+        let path1 = {
+            get: {
+                responses: {
+                    default: {
+                        description: "object created"
+                    }
+                }
+            }
+        };
+        const sut = OpenApiBuilder.create()
+                                .addPath('/service7', path1)
+                                .rootDoc;
+        oa.addExtension(sut.paths, 'x-my-extension', 42);
+
+        expect(oa.getExtension(sut.paths, 'y-other')).eql(undefined);
+    });
 
     describe("Serialize", () => {
         it("getSpecAsJson", () => {
@@ -280,6 +341,19 @@ describe("OpenApiBuilder", () => {
             expect(sut).eql(
 `{"openapi":"3.0.0","info":{"title":"app9","version":"5.6.7"},"paths":{},"components":{"schemas":{},"responses":{},"parameters":{},"examples":{},"requestBodies":{},"headers":{},"securitySchemes":{},"links":{},"callbacks":{}},"tags":[],"servers":[]}`
 );
+        });
+        it("getSpecAsYaml", (done) => {
+            try {
+                let sut = OpenApiBuilder.create()
+                            .addTitle("app9")
+                            .addVersion("5.6.7")
+                            .getSpecAsYaml();
+                done('Not implemented');
+            }
+            catch (e) {
+                expect(e.message).eql('Not yet implemented.');
+                done();
+            }
         });
     });
 });
