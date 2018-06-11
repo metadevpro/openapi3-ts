@@ -2,6 +2,8 @@ node_modules/
 coverage/
 .nyc_output/
 *.log
+.vscode/
+.travis.yml
 
 # Include dist/ in npm package
 !dist/
