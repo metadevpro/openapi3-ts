@@ -263,7 +263,7 @@ export interface SchemaObject extends ISpecificationExtension {
     not?: SchemaObject | ReferenceObject;
     items?: SchemaObject | ReferenceObject;
     properties?: {[propertyName: string]: (SchemaObject | ReferenceObject)};
-    additionalProperties?: (SchemaObject | ReferenceObject);
+    additionalProperties?: (SchemaObject | ReferenceObject | boolean);
     description?: string;
     format?: string;
     default?: any;
