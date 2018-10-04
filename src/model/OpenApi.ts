@@ -315,8 +315,8 @@ export interface SecuritySchemeObject extends ISpecificationExtension {
     in?: string;                // required only for apiKey
     scheme?: string;            // required only for http
     bearerFormat?: string;
-    flow?: OAuthFlowObject;     // required only for oauth2
-    openIdConnectUrl?: string;  // required only for oauth2
+    flows?: OAuthFlowsObject;     // required only for oauth2
+    openIdConnectUrl?: string;  // required only for openIdConnect
 }
 export interface OAuthFlowsObject extends ISpecificationExtension {
     implicit?: OAuthFlowObject;
