@@ -325,8 +325,8 @@ export interface OAuthFlowsObject extends ISpecificationExtension {
     authorizationCode?: OAuthFlowObject;
 }
 export interface OAuthFlowObject extends ISpecificationExtension {
-    authorizationUrl: string;
-    tokenUrl: string;
+    authorizationUrl?: string;
+    tokenUrl?: string;
     refreshUrl?: string;
     scopes: ScopesObject;
 }
