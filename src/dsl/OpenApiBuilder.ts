@@ -6,12 +6,12 @@ import * as oa from "../model";
 export class OpenApiBuilder {
     rootDoc: oa.OpenAPIObject;
 
-    static create(): OpenApiBuilder {
-        return new OpenApiBuilder();
+    static create(doc?: oa.OpenAPIObject): OpenApiBuilder {
+        return new OpenApiBuilder(doc);
     }
 
-    constructor() {
-        this.rootDoc = {
+    constructor(doc?: oa.OpenAPIObject) {
+        this.rootDoc = doc || {
             openapi: "3.0.0",
             info: {
                 title: "app",

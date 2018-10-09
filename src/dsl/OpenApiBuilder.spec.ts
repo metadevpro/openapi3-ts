@@ -27,6 +27,30 @@ describe("OpenApiBuilder", () => {
             servers: []
         });
     });
+    it("Build with custom object", () => {
+        const obj: oa.OpenAPIObject = {
+            openapi: "3.0.0",
+            info: {
+                title: "app1",
+                version: "version2"
+            },
+            paths:  {},
+            components:  {
+                schemas: {},
+                responses: {},
+                parameters: {},
+                examples: {},
+                requestBodies: {},
+                headers: {},
+                securitySchemes: {},
+                links: {},
+                callbacks: {}
+            },
+            tags: [],
+            servers: []
+        };
+        expect(OpenApiBuilder.create(obj).getSpec()).eql(obj);
+    });
     it("addTitle", () => {
         let sut = OpenApiBuilder.create().addTitle("app7").rootDoc;
         expect(sut.info.title).eql("app7");
