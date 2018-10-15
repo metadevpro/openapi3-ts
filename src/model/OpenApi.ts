@@ -144,9 +144,7 @@ export type ParameterStyle =
   | 'pipeDelimited'
   | 'deepObject';
 
-export interface ParameterObject extends ISpecificationExtension {
-    name: string;
-    in: ParameterLocation; // "query" | "header" | "path" | "cookie";
+export interface BaseParameterObject extends ISpecificationExtension {
     description?: string;
     required?: boolean;
     deprecated?: boolean;
@@ -159,6 +157,11 @@ export interface ParameterObject extends ISpecificationExtension {
     examples?: { [param: string]: ExampleObject | ReferenceObject };
     example?: any;
     content?: ContentObject;
+}
+
+export interface ParameterObject extends BaseParameterObject {
+    name: string;
+    in: ParameterLocation; // "query" | "header" | "path" | "cookie";
 }
 export interface RequestBodyObject extends ISpecificationExtension {
     description?: string;
@@ -231,7 +234,7 @@ export interface LinkObject extends ISpecificationExtension {
 export interface LinkParametersObject {
     [name: string]: any | string;
 }
-export interface HeaderObject extends ParameterObject {
+export interface HeaderObject extends BaseParameterObject {
 }
 export interface TagObject extends ISpecificationExtension {
     name: string;
