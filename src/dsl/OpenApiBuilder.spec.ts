@@ -212,9 +212,7 @@ describe("OpenApiBuilder", () => {
     });
     it("addHeaders", () => {
         let h5: oa.HeaderObject = {
-            name: "h5",
-            description: "heaer 5",
-            in: "header"
+            description: "header 5"
         };
         let sut = OpenApiBuilder.create().addHeader("h5", h5).rootDoc;
         expect(sut.components.headers.h5).eql(h5);
