@@ -96,39 +96,39 @@ export class OpenApiBuilder {
         this.rootDoc.paths[path] = pathItem;
         return this;
     }
-    addSchema(name: string, schema: oa.SchemaObject): OpenApiBuilder {
+    addSchema(name: string, schema: oa.SchemaObject | oa.ReferenceObject): OpenApiBuilder {
         this.rootDoc.components.schemas[name] = schema;
         return this;
     }
-    addResponse(name: string, response: oa.ResponseObject): OpenApiBuilder {
+    addResponse(name: string, response: oa.ResponseObject | oa.ReferenceObject): OpenApiBuilder {
         this.rootDoc.components.responses[name] = response;
         return this;
     }
-    addParameter(name: string, parameter: oa.ParameterObject): OpenApiBuilder {
+    addParameter(name: string, parameter: oa.ParameterObject | oa.ReferenceObject): OpenApiBuilder {
         this.rootDoc.components.parameters[name] = parameter;
         return this;
     }
-    addExample(name: string, example: oa.ExampleObject): OpenApiBuilder {
+    addExample(name: string, example: oa.ExampleObject | oa.ReferenceObject): OpenApiBuilder {
         this.rootDoc.components.examples[name] = example;
         return this;
     }
-    addRequestBody(name: string, reqBody: oa.RequestBodyObject): OpenApiBuilder {
+    addRequestBody(name: string, reqBody: oa.RequestBodyObject | oa.ReferenceObject): OpenApiBuilder {
         this.rootDoc.components.requestBodies[name] = reqBody;
         return this;
     }
-    addHeader(name: string, header: oa.HeaderObject): OpenApiBuilder {
+    addHeader(name: string, header: oa.HeaderObject | oa.ReferenceObject): OpenApiBuilder {
         this.rootDoc.components.headers[name] = header;
         return this;
     }
-    addSecurityScheme(name: string, secScheme: oa.SecuritySchemeObject): OpenApiBuilder {
+    addSecurityScheme(name: string, secScheme: oa.SecuritySchemeObject | oa.ReferenceObject): OpenApiBuilder {
         this.rootDoc.components.securitySchemes[name] = secScheme;
         return this;
     }
-    addLink(name: string, link: oa.LinkObject): OpenApiBuilder {
+    addLink(name: string, link: oa.LinkObject | oa.ReferenceObject): OpenApiBuilder {
         this.rootDoc.components.links[name] = link;
         return this;
     }
-    addCallback(name: string, callback: oa.CallbackObject): OpenApiBuilder {
+    addCallback(name: string, callback: oa.CallbackObject | oa.ReferenceObject): OpenApiBuilder {
         this.rootDoc.components.callbacks[name] = callback;
         return this;
     }

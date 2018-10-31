@@ -166,9 +166,23 @@ describe("OpenApiBuilder", () => {
         let sut = OpenApiBuilder.create().addSchema("schema01", schema1).rootDoc;
         expect(sut.components.schemas.schema01).eql(schema1);
     });
+    it("addSchema reference", () => {
+        let schema1 = {
+            $ref: "#/components/schemas/id"
+        };
+        let sut = OpenApiBuilder.create().addSchema("schema01", schema1).rootDoc;
+        expect(sut.components.schemas.schema01).eql(schema1);
+    });
     it("addResponse", () => {
         let resp00 = {
             description: "object created"
+        };
+        let sut = OpenApiBuilder.create().addResponse("resp00", resp00).rootDoc;
+        expect(sut.components.responses.resp00).eql(resp00);
+    });
+    it("addResponse reference", () => {
+        let resp00 = {
+            $ref: "#/components/responses/reference"
         };
         let sut = OpenApiBuilder.create().addResponse("resp00", resp00).rootDoc;
         expect(sut.components.responses.resp00).eql(resp00);
@@ -184,10 +198,24 @@ describe("OpenApiBuilder", () => {
         let sut = OpenApiBuilder.create().addParameter("par5", par5).rootDoc;
         expect(sut.components.parameters.par5).eql(par5);
     });
+    it("addParameter reference", () => {
+        let par5 = {
+            $ref: "#/components/parameters/id"
+        };
+        let sut = OpenApiBuilder.create().addParameter("par5", par5).rootDoc;
+        expect(sut.components.parameters.par5).eql(par5);
+    });
     it("addExample", () => {
         let example4 = {
             a: "a desc",
             b: "a desc"
+        };
+        let sut = OpenApiBuilder.create().addExample("example4", example4).rootDoc;
+        expect(sut.components.examples.example4).eql(example4);
+    });
+    it("addExample reference", () => {
+        let example4 = {
+            $ref: "#/components/examples/id"
         };
         let sut = OpenApiBuilder.create().addExample("example4", example4).rootDoc;
         expect(sut.components.examples.example4).eql(example4);
@@ -210,9 +238,23 @@ describe("OpenApiBuilder", () => {
         let sut = OpenApiBuilder.create().addRequestBody("reqBody9", reqBody9).rootDoc;
         expect(sut.components.requestBodies.reqBody9).eql(reqBody9);
     });
+    it("addRequestBody reference", () => {
+        let reqBody9 = {
+            $ref: "#/components/requestBodies/id"
+        };
+        let sut = OpenApiBuilder.create().addRequestBody("reqBody9", reqBody9).rootDoc;
+        expect(sut.components.requestBodies.reqBody9).eql(reqBody9);
+    });
     it("addHeaders", () => {
         let h5: oa.HeaderObject = {
             description: "header 5"
+        };
+        let sut = OpenApiBuilder.create().addHeader("h5", h5).rootDoc;
+        expect(sut.components.headers.h5).eql(h5);
+    });
+    it("addHeaders Reference", () => {
+        let h5: oa.HeaderObject = {
+            $ref: "#/components/headers/id"
         };
         let sut = OpenApiBuilder.create().addHeader("h5", h5).rootDoc;
         expect(sut.components.headers.h5).eql(h5);
@@ -225,9 +267,23 @@ describe("OpenApiBuilder", () => {
         let sut = OpenApiBuilder.create().addSecurityScheme("sec7", sec7).rootDoc;
         expect(sut.components.securitySchemes.sec7).eql(sec7);
     });
+    it("addSecuritySchemes reference", () => {
+        let sec7 = {
+            $ref: "#/components/securitySchemes/id"
+        };
+        let sut = OpenApiBuilder.create().addSecurityScheme("sec7", sec7).rootDoc;
+        expect(sut.components.securitySchemes.sec7).eql(sec7);
+    });
     it("addLink", () => {
         let link0: oa.LinkObject = {
             href: "/users/10101110/department"
+        };
+        let sut = OpenApiBuilder.create().addLink("link0", link0).rootDoc;
+        expect(sut.components.links.link0).eql(link0);
+    });
+    it("addLink reference", () => {
+        let link0 = {
+            $ref: "#/components/links/id"
         };
         let sut = OpenApiBuilder.create().addLink("link0", link0).rootDoc;
         expect(sut.components.links.link0).eql(link0);
@@ -253,6 +309,13 @@ describe("OpenApiBuilder", () => {
                     }
                 }
             }
+        };
+        let sut = OpenApiBuilder.create().addCallback("cb1", cb1).rootDoc;
+        expect(sut.components.callbacks.cb1).eql(cb1);
+    });
+    it("addCallback reference", () => {
+        let cb1 = {
+            $ref: "#/components/callbacks/id"
         };
         let sut = OpenApiBuilder.create().addCallback("cb1", cb1).rootDoc;
         expect(sut.components.callbacks.cb1).eql(cb1);

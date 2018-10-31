@@ -53,15 +53,15 @@ export interface ServerVariableObject extends ISpecificationExtension {
     description?: string;
 }
 export interface ComponentsObject extends ISpecificationExtension {
-    schemas?: { [schema: string]: SchemaObject };
-    responses?: { [response: string]: ResponseObject };
-    parameters?: { [parameter: string]: ParameterObject };
-    examples?: { [example: string]: ExampleObject };
-    requestBodies?: { [request: string]: RequestBodyObject };
-    headers?: { [heaer: string]: HeaderObject };
-    securitySchemes?: { [securityScheme: string]: SecuritySchemeObject };
-    links?: { [link: string]: LinkObject };
-    callbacks?: { [callback: string]: CallbackObject };
+    schemas?: { [schema: string]: SchemaObject | ReferenceObject };
+    responses?: { [response: string]: ResponseObject | ReferenceObject };
+    parameters?: { [parameter: string]: ParameterObject | ReferenceObject };
+    examples?: { [example: string]: ExampleObject | ReferenceObject };
+    requestBodies?: { [request: string]: RequestBodyObject | ReferenceObject };
+    headers?: { [heaer: string]: HeaderObject | ReferenceObject };
+    securitySchemes?: { [securityScheme: string]: SecuritySchemeObject | ReferenceObject };
+    links?: { [link: string]: LinkObject | ReferenceObject };
+    callbacks?: { [callback: string]: CallbackObject | ReferenceObject };
 }
 
 /**
