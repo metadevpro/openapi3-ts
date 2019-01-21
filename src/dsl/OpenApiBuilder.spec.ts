@@ -228,9 +228,11 @@ describe("OpenApiBuilder", () => {
                     "schema": {
                         "$ref": "#/components/schemas/User"
                     },
-                    "examples": [{
-                        "$ref": "http://foo.bar/examples/user-example.json"
-                    }]
+                    "examples": {
+                        user: {
+                            "$ref": "http://foo.bar/examples/user-example.json"
+                        }
+                    }
                 }
             },
             required: false

@@ -173,8 +173,8 @@ export interface ContentObject {
 }
 export interface MediaTypeObject extends ISpecificationExtension {
     schema?: SchemaObject | ReferenceObject;
-    examples?: [ ExampleObject | ReferenceObject ];
-    example?: ExampleObject | ReferenceObject;
+    examples?: ExamplesObject;
+    example?: any;
     encoding?: EncodingObject;
 }
 export interface EncodingObject extends ISpecificationExtension {
@@ -243,7 +243,7 @@ export interface TagObject extends ISpecificationExtension {
     [extension: string]: any; // Hack for allowing ISpecificationExtension
 }
 export interface ExamplesObject {
-    [name: string]: any;
+    [name: string]: ExampleObject | ReferenceObject;
 }
 export interface ReferenceObject {
     $ref: string;
