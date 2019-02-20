@@ -79,7 +79,7 @@ export interface PathsObject extends ISpecificationExtension {
  */
 export type PathObject = PathsObject;
 
-export function getPath(pathsObject: PathsObject, path: string): PathItemObject {
+export function getPath(pathsObject: PathsObject, path: string): PathItemObject | undefined {
     if (SpecificationExtension.isValidExtension(path)) {
         return undefined;
     }
