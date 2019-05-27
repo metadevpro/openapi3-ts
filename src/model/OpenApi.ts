@@ -245,9 +245,21 @@ export interface TagObject extends ISpecificationExtension {
 export interface ExamplesObject {
     [name: string]: ExampleObject | ReferenceObject;
 }
+
 export interface ReferenceObject {
     $ref: string;
 }
+
+/**
+ * A type guard to check if the given value is a `ReferenceObject`.
+ * See https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-guards-and-differentiating-types
+ *
+ * @param obj The value to check.
+ */
+export function isReferenceObject(obj: object): obj is ReferenceObject {
+    return obj.hasOwnProperty("$ref");
+}
+
 export interface SchemaObject extends ISpecificationExtension {
     nullable?: boolean;
     discriminator?: DiscriminatorObject;
@@ -287,6 +299,19 @@ export interface SchemaObject extends ISpecificationExtension {
     minProperties?: number;
     required?: string[];
     enum?: any[];
+}
+
+/**
+ * A type guard to check if the given object is a `SchemaObject`.
+ * Useful to distinguish from `ReferenceObject` values that can be used
+ * in most places where `SchemaObject` is allowed.
+ *
+ * See https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-guards-and-differentiating-types
+ *
+ * @param schema The value to check.
+ */
+export function isSchemaObject(schema: SchemaObject | ReferenceObject): schema is SchemaObject {
+    return !schema.hasOwnProperty('$ref');
 }
 
 export interface SchemasObject {
