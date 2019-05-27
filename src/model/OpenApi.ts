@@ -34,9 +34,9 @@ export interface InfoObject extends ISpecificationExtension {
     version: string;
 }
 export interface ContactObject extends ISpecificationExtension {
-    name: string;
-    url: string;
-    email: string;
+    name?: string;
+    url?: string;
+    email?: string;
 }
 export interface LicenseObject extends ISpecificationExtension {
     name: string;
