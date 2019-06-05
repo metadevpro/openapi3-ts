@@ -58,7 +58,7 @@ export interface ComponentsObject extends ISpecificationExtension {
     parameters?: { [parameter: string]: ParameterObject | ReferenceObject };
     examples?: { [example: string]: ExampleObject | ReferenceObject };
     requestBodies?: { [request: string]: RequestBodyObject | ReferenceObject };
-    headers?: { [heaer: string]: HeaderObject | ReferenceObject };
+    headers?: { [header: string]: HeaderObject | ReferenceObject };
     securitySchemes?: { [securityScheme: string]: SecuritySchemeObject | ReferenceObject };
     links?: { [link: string]: LinkObject | ReferenceObject };
     callbacks?: { [callback: string]: CallbackObject | ReferenceObject };
