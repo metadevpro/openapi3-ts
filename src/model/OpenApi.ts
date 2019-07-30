@@ -271,7 +271,7 @@ export interface SchemaObject extends ISpecificationExtension {
     examples?: any[];
     deprecated?: boolean;
 
-    type?: string;
+    type: string;
     allOf?: (SchemaObject | ReferenceObject)[];
     oneOf?: (SchemaObject | ReferenceObject)[];
     anyOf?: (SchemaObject | ReferenceObject)[];
