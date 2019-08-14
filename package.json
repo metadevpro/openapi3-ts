@@ -57,7 +57,7 @@
     "coveralls": "^3.0.3",
     "mocha": "^6.1.4",
     "nyc": "^14.1.1",
-    "rimraf": "^2.6.3",
+    "rimraf": "^3.0.0",
     "ts-node": "^8.2.0",
     "tslint": "^5.16.0",
     "typescript": "^3.4.5"
