@@ -260,6 +260,18 @@ export function isReferenceObject(obj: object): obj is ReferenceObject {
     return obj.hasOwnProperty("$ref");
 }
 
+/**
+ * A type guard to ensure an object has been de-referenced (is not a `ReferenceObject`).
+ * See https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-guards-and-differentiating-types
+ *
+ * @param obj The value to check.
+ */
+export function isDereferencedObject<T extends object | ReferenceObject>(
+  obj: T
+): obj is Exclude<T, ReferenceObject> {
+  return !isReferenceObject(obj);
+}
+
 export interface SchemaObject extends ISpecificationExtension {
     nullable?: boolean;
     discriminator?: DiscriminatorObject;
