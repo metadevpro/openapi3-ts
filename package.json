@@ -16,6 +16,8 @@
     "prepare": "npm run build",
     "test:tdd": "mocha --recursive --reporter min --require ts-node/register --require source-map-support/register \"src/**/*.spec.ts\" --watch",
     "test": "mocha --recursive --require ts-node/register --require source-map-support/register \"src/**/*.spec.ts\"",
+    "test:ci": "mocha --recursive --require ts-node/register --require source-map-support/register --reporter mocha-teamcity-reporter \"src/**/*.spec.ts\"",
+    "cover:ci": "nyc --reporter teamcity --reporter html --reporter json --reporter text npm run test:ci",
     "cover": "nyc npm test"
   },
   "keywords": [
@@ -56,6 +58,7 @@
     "chai": "^4.2.0",
     "coveralls": "^3.1.0",
     "mocha": "^7.2.0",
+    "mocha-teamcity-reporter": "^3.0.0",
     "nyc": "^15.1.0",
     "rimraf": "^3.0.2",
     "ts-node": "^8.10.2",
