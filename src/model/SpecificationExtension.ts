@@ -35,8 +35,8 @@ export class SpecificationExtension implements ISpecificationExtension {
         this[extensionName] = payload;
     }
     listExtensions(): string[] {
-        let res: string[] = [];
-        for (let propName in this) {
+        const res: string[] = [];
+        for (const propName in this) {
             if (this.hasOwnProperty(propName)) {
                 if (SpecificationExtension.isValidExtension(propName)) {
                     res.push(propName);

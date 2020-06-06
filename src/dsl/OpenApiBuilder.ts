@@ -46,7 +46,8 @@ export class OpenApiBuilder {
         throw Error("Not yet implemented.");
     }
 
-    private static isValidOpenApiVersion(v: string = ""): boolean {
+    private static isValidOpenApiVersion(v: string): boolean {
+        v = v || '';
         let match = /(\d+)\.(\d+).(\d+)/.exec(v);
         if (match) {
             let major = parseInt(match[1], 10);

@@ -1,6 +1,6 @@
 import "mocha";
 import { expect } from "chai";
-import { SpecificationExtension, ISpecificationExtension } from "./";
+import { SpecificationExtension } from "./SpecificationExtension";
 
 describe("SpecificationExtension", () => {
     it("addExtension() ok", () => {

@@ -11,16 +11,16 @@ TypeScript library to help building OpenAPI 3.0.x compliant API contracts.
 
 [![NPM](https://nodei.co/npm/openapi3-ts.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/openapi3-ts/)
 
-
 ## Includes
 
 * `/src/model` TS typed interfaces for helping building a contract.
 * `/src/dsl` Fluent DSL for building a contract.
 
 ## Install
+
 Install package via **npm**:
 
-```
+```bash
 npm i --save openapi3-ts
 ```
 
@@ -29,9 +29,11 @@ npm i --save openapi3-ts
 * OpenAPI spec 3.0.1. [https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md)
 
 ## License
+
 Licensed under the MIT License.
 
 ## Credits
+
 **Contact:** Pedro J. Molina | github: [pjmolina](https://github.com/pjmolina) | twitter: [pmolinam](https://twitter.com/pmolinam)
 
-(c) 2017-2019. [Pedro J. Molina](http://pjmolina.com) at Metadev S.L. [https://metadev.pro](https://metadev.pro) & contributors.
+(c) 2017-2020. [Pedro J. Molina](http://pjmolina.com) at Metadev S.L. [https://metadev.pro](https://metadev.pro) & contributors.

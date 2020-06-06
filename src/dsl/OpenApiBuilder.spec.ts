@@ -72,6 +72,15 @@ describe("OpenApiBuilder", () => {
             done();
         }
     });
+    it("addOpenApiVersion missing value", (done) => {
+        try {
+            let sut = OpenApiBuilder.create().addOpenApiVersion(null).rootDoc;
+            done("failed");
+        }
+        catch (err) {
+            done();
+        }
+    });
     it("addOpenApiVersion empty", (done) => {
         try {
             let sut = OpenApiBuilder.create().addOpenApiVersion("").rootDoc;
