@@ -11,8 +11,8 @@ describe("OpenApiBuilder", () => {
                 title: "app",
                 version: "version"
             },
-            paths:  {},
-            components:  {
+            paths: {},
+            components: {
                 schemas: {},
                 responses: {},
                 parameters: {},
@@ -34,8 +34,8 @@ describe("OpenApiBuilder", () => {
                 title: "app1",
                 version: "version2"
             },
-            paths:  {},
-            components:  {
+            paths: {},
+            components: {
                 schemas: {},
                 responses: {},
                 parameters: {},
@@ -108,7 +108,7 @@ describe("OpenApiBuilder", () => {
             done();
         }
     });
-     it("addInfo", () => {
+    it("addInfo", () => {
         let info: oa.InfoObject = {
             title: "app9",
             version: "11.34.678"
@@ -199,7 +199,7 @@ describe("OpenApiBuilder", () => {
     it("addParameter", () => {
         let par5 = {
             name: "id",
-            in:   "header" as oa.ParameterLocation,
+            in: "header" as oa.ParameterLocation,
             schema: {
                 $ref: "#/components/schemas/id"
             }
@@ -272,8 +272,8 @@ describe("OpenApiBuilder", () => {
     });
     it("addSecuritySchemes", () => {
         let sec7: oa.SecuritySchemeObject = {
-           type: "http",
-           scheme: "basic"
+            type: "http",
+            scheme: "basic"
         };
         let sut = OpenApiBuilder.create().addSecurityScheme("sec7", sec7).rootDoc;
         expect(sut.components.securitySchemes.sec7).eql(sec7);
@@ -333,9 +333,9 @@ describe("OpenApiBuilder", () => {
     });
     it("addTag", () => {
         let t1: oa.TagObject = {
-           name: "resource",
-           "x-admin": true,
-           description: "my own tag",
+            name: "resource",
+            "x-admin": true,
+            description: "my own tag",
         };
         let sut = OpenApiBuilder.create().addTag(t1).rootDoc;
         expect(sut.tags[0]).eql(t1);
@@ -350,8 +350,8 @@ describe("OpenApiBuilder", () => {
     });
     it("addServer", () => {
         let s1: oa.ServerObject = {
-           url: "http://api.quixote.org",
-           variables: {}
+            url: "http://api.quixote.org",
+            variables: {}
         };
         let sut = OpenApiBuilder.create().addServer(s1).rootDoc;
         expect(sut.servers[0]).eql(s1);
@@ -368,8 +368,8 @@ describe("OpenApiBuilder", () => {
             }
         };
         const sut = OpenApiBuilder.create()
-                                .addPath('/service7', path1)
-                                .rootDoc;
+            .addPath('/service7', path1)
+            .rootDoc;
         oa.addExtension(sut.paths, 'x-my-extension', 42);
 
         expect(oa.getPath(sut.paths, '/service7')).eql(path1);
@@ -386,8 +386,8 @@ describe("OpenApiBuilder", () => {
             }
         };
         const sut = OpenApiBuilder.create()
-                                .addPath('/service7', path1)
-                                .rootDoc;
+            .addPath('/service7', path1)
+            .rootDoc;
         oa.addExtension(sut.paths, 'x-my-extension', 42);
 
         expect(oa.getPath(sut.paths, 'x-path')).eql(undefined);
@@ -403,8 +403,8 @@ describe("OpenApiBuilder", () => {
             }
         };
         const sut = OpenApiBuilder.create()
-                                .addPath('/service7', path1)
-                                .rootDoc;
+            .addPath('/service7', path1)
+            .rootDoc;
         oa.addExtension(sut.paths, 'x-my-extension', 42);
 
         expect(oa.getExtension(sut.paths, 'x-my-extension')).eql(42);
@@ -421,8 +421,8 @@ describe("OpenApiBuilder", () => {
             }
         };
         const sut = OpenApiBuilder.create()
-                                .addPath('/service7', path1)
-                                .rootDoc;
+            .addPath('/service7', path1)
+            .rootDoc;
         oa.addExtension(sut.paths, 'x-my-extension', 42);
 
         expect(oa.getExtension(sut.paths, 'y-other')).eql(undefined);
@@ -431,25 +431,21 @@ describe("OpenApiBuilder", () => {
     describe("Serialize", () => {
         it("getSpecAsJson", () => {
             let sut = OpenApiBuilder.create()
-                                    .addTitle("app9")
-                                    .addVersion("5.6.7")
-                                    .getSpecAsJson();
+                .addTitle("app9")
+                .addVersion("5.6.7")
+                .getSpecAsJson();
             expect(sut).eql(
-`{"openapi":"3.0.0","info":{"title":"app9","version":"5.6.7"},"paths":{},"components":{"schemas":{},"responses":{},"parameters":{},"examples":{},"requestBodies":{},"headers":{},"securitySchemes":{},"links":{},"callbacks":{}},"tags":[],"servers":[]}`
-);
+                `{"openapi":"3.0.0","info":{"title":"app9","version":"5.6.7"},"paths":{},"components":{"schemas":{},"responses":{},"parameters":{},"examples":{},"requestBodies":{},"headers":{},"securitySchemes":{},"links":{},"callbacks":{}},"tags":[],"servers":[]}`
+            );
         });
-        it("getSpecAsYaml", (done) => {
-            try {
-                let sut = OpenApiBuilder.create()
-                            .addTitle("app9")
-                            .addVersion("5.6.7")
-                            .getSpecAsYaml();
-                done('Not implemented');
-            }
-            catch (e) {
-                expect(e.message).eql('Not yet implemented.');
-                done();
-            }
+        it("getSpecAsYaml", () => {
+            let sut = OpenApiBuilder.create()
+                .addTitle("app9")
+                .addVersion("5.6.7")
+                .getSpecAsYaml();
+            expect(sut).eql(
+                "openapi: 3.0.0\ninfo:\n  title: app9\n  version: 5.6.7\npaths: {}\ncomponents:\n  schemas: {}\n  responses: {}\n  parameters: {}\n  examples: {}\n  requestBodies: {}\n  headers: {}\n  securitySchemes: {}\n  links: {}\n  callbacks: {}\ntags: []\nservers: []\n"
+            );
         });
     });
 });

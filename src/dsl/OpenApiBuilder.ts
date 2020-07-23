@@ -1,4 +1,5 @@
 import * as oa from "../model";
+import * as yaml from "yaml";
 
 // Internal DSL for building an OpenAPI 3.0.x contract
 // using a fluent interface
@@ -42,8 +43,7 @@ export class OpenApiBuilder {
         return JSON.stringify(this.rootDoc, replacer, space);
     }
     getSpecAsYaml(): string {
-        // Todo
-        throw Error("Not yet implemented.");
+        return yaml.stringify(this.rootDoc);
     }
 
     private static isValidOpenApiVersion(v: string): boolean {
