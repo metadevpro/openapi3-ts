@@ -1,6 +1,6 @@
 # OpenApi3-TS
 
-TypeScript library to help building OpenAPI 3.0.x compliant API contracts.
+TypeScript library to help building OpenAPI 3.x compliant API contracts.
 
 [![Build Status](https://travis-ci.org/metadevpro/openapi3-ts.svg?branch=master)](https://travis-ci.org/metadevpro/openapi3-ts)
 [![Coverage Status](https://coveralls.io/repos/github/metadevpro/openapi3-ts/badge.svg?branch=master)](https://coveralls.io/github/metadevpro/openapi3-ts?branch=master)
@@ -24,9 +24,13 @@ Install package via **npm**:
 npm i --save openapi3-ts
 ```
 
+## Versions and Changelog
+
+See [changelog](Changelog.md).
+
 ## References
 
-* OpenAPI spec 3.0.1. [https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md)
+* OpenAPI spec 3.1.0. [https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.1.0.md](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.1.0.md)
 
 ## License
 
