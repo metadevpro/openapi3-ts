@@ -4,7 +4,6 @@ TypeScript library to help building OpenAPI 3.x compliant API contracts.
 
 [![Build Status](https://travis-ci.org/metadevpro/openapi3-ts.svg?branch=master)](https://travis-ci.org/metadevpro/openapi3-ts)
 [![Coverage Status](https://coveralls.io/repos/github/metadevpro/openapi3-ts/badge.svg?branch=master)](https://coveralls.io/github/metadevpro/openapi3-ts?branch=master)
-[![Dependency Status](https://david-dm.org/metadevpro/openapi3-ts.svg)](https://david-dm.org/metadevpro/openapi3-ts)
 [![Known Vulnerabilities](https://snyk.io/test/github/metadevpro/openapi3-ts/badge.svg)](https://snyk.io/test/github/metadevpro/openapi3-ts)
 [![npm version](https://badge.fury.io/js/openapi3-ts.svg)](http://badge.fury.io/js/openapi3-ts)
 [![Greenkeeper badge](https://badges.greenkeeper.io/metadevpro/openapi3-ts.svg)](https://greenkeeper.io/)
