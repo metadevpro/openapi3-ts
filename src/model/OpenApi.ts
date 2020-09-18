@@ -271,7 +271,8 @@ export interface SchemaObject extends ISpecificationExtension {
     examples?: any[];
     deprecated?: boolean;
 
-    type?: string;
+    type?: 'integer' | 'number' | 'string' | 'boolean' | 'object' | 'null' | 'array';
+    format?: 'int32' | 'int64' | 'float' | 'double' | 'byte' | 'binary' | 'date' | 'date-time' | 'password';
     allOf?: (SchemaObject | ReferenceObject)[];
     oneOf?: (SchemaObject | ReferenceObject)[];
     anyOf?: (SchemaObject | ReferenceObject)[];
@@ -280,7 +281,6 @@ export interface SchemaObject extends ISpecificationExtension {
     properties?: {[propertyName: string]: (SchemaObject | ReferenceObject)};
     additionalProperties?: (SchemaObject | ReferenceObject | boolean);
     description?: string;
-    format?: string;
     default?: any;
 
     title?: string;
