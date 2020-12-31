@@ -1,6 +1,12 @@
-import "mocha";
-import { expect } from "chai";
-import { addExtension, isSchemaObject, isReferenceObject, SchemaObject, ReferenceObject } from "./OpenApi";
+import 'mocha';
+import { expect } from 'chai';
+import {
+    addExtension,
+    isSchemaObject,
+    isReferenceObject,
+    SchemaObject,
+    ReferenceObject
+} from './OpenApi';
 
 describe('type-guards unit tests', () => {
     describe('isSchemaObject()', () => {

@@ -1,1 +1,1 @@
-export * from "./OpenApiBuilder";
+export * from './OpenApiBuilder';
