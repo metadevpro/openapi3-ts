@@ -1,5 +1,14 @@
 # Changelog: openapi3-ts
 
+## Version 2.0.1
+
+2020.12.31
+
+- Updated testing libs
+- Added ESList + Prettier, removed TSList support
+- Refactor to be consistent with ESLint + Prettier code-style rules
+- No functional changes in this version: just end of year house-keeping.
+
 ## Version 2.0.0
 
 2020.09.18
