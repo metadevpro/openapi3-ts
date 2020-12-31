@@ -1,5 +1,5 @@
-import * as oa from "../model";
-import * as yaml from "yaml";
+import * as oa from '../model';
+import * as yaml from 'yaml';
 
 // Internal DSL for building an OpenAPI 3.0.x contract
 // using a fluent interface
@@ -13,13 +13,13 @@ export class OpenApiBuilder {
 
     constructor(doc?: oa.OpenAPIObject) {
         this.rootDoc = doc || {
-            openapi: "3.0.0",
+            openapi: '3.0.0',
             info: {
-                title: "app",
-                version: "version"
+                title: 'app',
+                version: 'version'
             },
-            paths:  {},
-            components:  {
+            paths: {},
+            components: {
                 schemas: {},
                 responses: {},
                 parameters: {},
@@ -38,8 +38,7 @@ export class OpenApiBuilder {
     getSpec(): oa.OpenAPIObject {
         return this.rootDoc;
     }
-    getSpecAsJson(replacer?: (key: string, value: any ) => any,
-                  space?: string | number): string {
+    getSpecAsJson(replacer?: (key: string, value: any) => any, space?: string | number): string {
         return JSON.stringify(this.rootDoc, replacer, space);
     }
     getSpecAsYaml(): string {
@@ -48,9 +47,9 @@ export class OpenApiBuilder {
 
     private static isValidOpenApiVersion(v: string): boolean {
         v = v || '';
-        let match = /(\d+)\.(\d+).(\d+)/.exec(v);
+        const match = /(\d+)\.(\d+).(\d+)/.exec(v);
         if (match) {
-            let major = parseInt(match[1], 10);
+            const major = parseInt(match[1], 10);
             if (major >= 3) {
                 return true;
             }
@@ -60,7 +59,9 @@ export class OpenApiBuilder {
 
     addOpenApiVersion(openApiVersion: string): OpenApiBuilder {
         if (!OpenApiBuilder.isValidOpenApiVersion(openApiVersion)) {
-            throw new Error("Invalid OpnApi version: " + openApiVersion + ". Follow convention: 3.x.y");
+            throw new Error(
+                'Invalid OpnApi version: ' + openApiVersion + '. Follow convention: 3.x.y'
+            );
         }
         this.rootDoc.openapi = openApiVersion;
         return this;
@@ -113,7 +114,10 @@ export class OpenApiBuilder {
         this.rootDoc.components.examples[name] = example;
         return this;
     }
-    addRequestBody(name: string, reqBody: oa.RequestBodyObject | oa.ReferenceObject): OpenApiBuilder {
+    addRequestBody(
+        name: string,
+        reqBody: oa.RequestBodyObject | oa.ReferenceObject
+    ): OpenApiBuilder {
         this.rootDoc.components.requestBodies[name] = reqBody;
         return this;
     }
@@ -121,7 +125,10 @@ export class OpenApiBuilder {
         this.rootDoc.components.headers[name] = header;
         return this;
     }
-    addSecurityScheme(name: string, secScheme: oa.SecuritySchemeObject | oa.ReferenceObject): OpenApiBuilder {
+    addSecurityScheme(
+        name: string,
+        secScheme: oa.SecuritySchemeObject | oa.ReferenceObject
+    ): OpenApiBuilder {
         this.rootDoc.components.securitySchemes[name] = secScheme;
         return this;
     }

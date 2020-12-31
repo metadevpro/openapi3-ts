@@ -1,15 +1,15 @@
-import "mocha";
-import { expect } from "chai";
-import { OpenApiBuilder } from ".";
-import * as oa from "../model";
+import 'mocha';
+import { expect } from 'chai';
+import { OpenApiBuilder } from '.';
+import * as oa from '../model';
 
-describe("OpenApiBuilder", () => {
-    it("Build empty Spec", () => {
+describe('OpenApiBuilder', () => {
+    it('Build empty Spec', () => {
         expect(OpenApiBuilder.create().getSpec()).eql({
-            openapi: "3.0.0",
+            openapi: '3.0.0',
             info: {
-                title: "app",
-                version: "version"
+                title: 'app',
+                version: 'version'
             },
             paths: {},
             components: {
@@ -27,12 +27,12 @@ describe("OpenApiBuilder", () => {
             servers: []
         });
     });
-    it("Build with custom object", () => {
+    it('Build with custom object', () => {
         const obj: oa.OpenAPIObject = {
-            openapi: "3.0.0",
+            openapi: '3.0.0',
             info: {
-                title: "app1",
-                version: "version2"
+                title: 'app1',
+                version: 'version2'
             },
             paths: {},
             components: {
@@ -51,260 +51,255 @@ describe("OpenApiBuilder", () => {
         };
         expect(OpenApiBuilder.create(obj).getSpec()).eql(obj);
     });
-    it("addTitle", () => {
-        const sut = OpenApiBuilder.create().addTitle("app7").rootDoc;
-        expect(sut.info.title).eql("app7");
+    it('addTitle', () => {
+        const sut = OpenApiBuilder.create().addTitle('app7').rootDoc;
+        expect(sut.info.title).eql('app7');
     });
-    it("addDescription", () => {
-        const sut = OpenApiBuilder.create().addDescription("desc 6").rootDoc;
-        expect(sut.info.description).eql("desc 6");
+    it('addDescription', () => {
+        const sut = OpenApiBuilder.create().addDescription('desc 6').rootDoc;
+        expect(sut.info.description).eql('desc 6');
     });
-    it("addOpenApiVersion valid", () => {
-        const sut = OpenApiBuilder.create().addOpenApiVersion("3.2.4").rootDoc;
-        expect(sut.openapi).eql("3.2.4");
+    it('addOpenApiVersion valid', () => {
+        const sut = OpenApiBuilder.create().addOpenApiVersion('3.2.4').rootDoc;
+        expect(sut.openapi).eql('3.2.4');
     });
-    it("addOpenApiVersion invalid", (done) => {
+    it('addOpenApiVersion invalid', (done) => {
         try {
-            OpenApiBuilder.create().addOpenApiVersion("a.b.4").rootDoc;
-            done("failed");
-        }
-        catch (err) {
+            OpenApiBuilder.create().addOpenApiVersion('a.b.4').rootDoc;
+            done('failed');
+        } catch (err) {
             done();
         }
     });
-    it("addOpenApiVersion missing value", (done) => {
-        try {
-            OpenApiBuilder.create().addOpenApiVersion(null).rootDoc;
-            done("failed");
-        }
-        catch (err) {
-            done();
-        }
-    });
-    it("addOpenApiVersion empty", (done) => {
-        try {
-            OpenApiBuilder.create().addOpenApiVersion("").rootDoc;
-            done("failed");
-        }
-        catch (err) {
-            done();
-        }
-    });
-    it("addOpenApiVersion null", (done) => {
+    it('addOpenApiVersion missing value', (done) => {
         try {
             OpenApiBuilder.create().addOpenApiVersion(null).rootDoc;
-            done("failed");
-        }
-        catch (err) {
+            done('failed');
+        } catch (err) {
             done();
         }
     });
-    it("addOpenApiVersion lower than 3", (done) => {
+    it('addOpenApiVersion empty', (done) => {
         try {
-            OpenApiBuilder.create().addOpenApiVersion("2.5.6").rootDoc;
-            done("failed");
-        }
-        catch (err) {
+            OpenApiBuilder.create().addOpenApiVersion('').rootDoc;
+            done('failed');
+        } catch (err) {
             done();
         }
     });
-    it("addInfo", () => {
+    it('addOpenApiVersion null', (done) => {
+        try {
+            OpenApiBuilder.create().addOpenApiVersion(null).rootDoc;
+            done('failed');
+        } catch (err) {
+            done();
+        }
+    });
+    it('addOpenApiVersion lower than 3', (done) => {
+        try {
+            OpenApiBuilder.create().addOpenApiVersion('2.5.6').rootDoc;
+            done('failed');
+        } catch (err) {
+            done();
+        }
+    });
+    it('addInfo', () => {
         const info: oa.InfoObject = {
-            title: "app9",
-            version: "11.34.678"
+            title: 'app9',
+            version: '11.34.678'
         };
         const sut = OpenApiBuilder.create().addInfo(info).rootDoc;
         expect(sut.info).eql(info);
     });
-    it("addTitle", () => {
-        const sut = OpenApiBuilder.create().addTitle("t1").rootDoc;
-        expect(sut.info.title).eql("t1");
+    it('addTitle', () => {
+        const sut = OpenApiBuilder.create().addTitle('t1').rootDoc;
+        expect(sut.info.title).eql('t1');
     });
-    it("addDescription", () => {
-        const sut = OpenApiBuilder.create().addDescription("desc 2").rootDoc;
-        expect(sut.info.description).eql("desc 2");
+    it('addDescription', () => {
+        const sut = OpenApiBuilder.create().addDescription('desc 2').rootDoc;
+        expect(sut.info.description).eql('desc 2');
     });
-    it("addTermsOfService", () => {
-        const sut = OpenApiBuilder.create().addTermsOfService("tos 7").rootDoc;
-        expect(sut.info.termsOfService).eql("tos 7");
+    it('addTermsOfService', () => {
+        const sut = OpenApiBuilder.create().addTermsOfService('tos 7').rootDoc;
+        expect(sut.info.termsOfService).eql('tos 7');
     });
-    it("addLicense", () => {
+    it('addLicense', () => {
         const sut = OpenApiBuilder.create().addLicense({
-            name: "MIT",
-            url: "http://mit.edu/license"
+            name: 'MIT',
+            url: 'http://mit.edu/license'
         }).rootDoc;
         expect(sut.info.license).eql({
-            name: "MIT",
-            url: "http://mit.edu/license"
+            name: 'MIT',
+            url: 'http://mit.edu/license'
         });
     });
-    it("addContact", () => {
+    it('addContact', () => {
         const sut = OpenApiBuilder.create().addContact({
-            name: "Alicia",
-            email: "alicia@acme.com",
-            url: "http://acme.com/~alicia"
+            name: 'Alicia',
+            email: 'alicia@acme.com',
+            url: 'http://acme.com/~alicia'
         }).rootDoc;
         expect(sut.info.contact).eql({
-            name: "Alicia",
-            email: "alicia@acme.com",
-            url: "http://acme.com/~alicia"
+            name: 'Alicia',
+            email: 'alicia@acme.com',
+            url: 'http://acme.com/~alicia'
         });
     });
-    it("addVersion", () => {
-        const sut = OpenApiBuilder.create().addVersion("7.52.46").rootDoc;
-        expect(sut.info.version).eql("7.52.46");
+    it('addVersion', () => {
+        const sut = OpenApiBuilder.create().addVersion('7.52.46').rootDoc;
+        expect(sut.info.version).eql('7.52.46');
     });
-    it("addPath", () => {
+    it('addPath', () => {
         const path1 = {
             get: {
                 responses: {
                     default: {
-                        description: "object created"
+                        description: 'object created'
                     }
                 }
             }
         };
-        const sut = OpenApiBuilder.create().addPath("/path1", path1).rootDoc;
-        expect(sut.paths["/path1"]).eql(path1);
+        const sut = OpenApiBuilder.create().addPath('/path1', path1).rootDoc;
+        expect(sut.paths['/path1']).eql(path1);
     });
-    it("addSchema", () => {
+    it('addSchema', () => {
         const schema1: oa.SchemaObject = {
-            type: "string",
-            format: "email"
+            type: 'string',
+            format: 'email'
         };
-        const sut = OpenApiBuilder.create().addSchema("schema01", schema1).rootDoc;
+        const sut = OpenApiBuilder.create().addSchema('schema01', schema1).rootDoc;
         expect(sut.components.schemas.schema01).eql(schema1);
     });
-    it("addSchema reference", () => {
+    it('addSchema reference', () => {
         const schema1 = {
-            $ref: "#/components/schemas/id"
+            $ref: '#/components/schemas/id'
         };
-        const sut = OpenApiBuilder.create().addSchema("schema01", schema1).rootDoc;
+        const sut = OpenApiBuilder.create().addSchema('schema01', schema1).rootDoc;
         expect(sut.components.schemas.schema01).eql(schema1);
     });
-    it("addResponse", () => {
+    it('addResponse', () => {
         const resp00 = {
-            description: "object created"
+            description: 'object created'
         };
-        const sut = OpenApiBuilder.create().addResponse("resp00", resp00).rootDoc;
+        const sut = OpenApiBuilder.create().addResponse('resp00', resp00).rootDoc;
         expect(sut.components.responses.resp00).eql(resp00);
     });
-    it("addResponse reference", () => {
+    it('addResponse reference', () => {
         const resp00 = {
-            $ref: "#/components/responses/reference"
+            $ref: '#/components/responses/reference'
         };
-        const sut = OpenApiBuilder.create().addResponse("resp00", resp00).rootDoc;
+        const sut = OpenApiBuilder.create().addResponse('resp00', resp00).rootDoc;
         expect(sut.components.responses.resp00).eql(resp00);
     });
-    it("addParameter", () => {
+    it('addParameter', () => {
         const par5 = {
-            name: "id",
-            in: "header" as oa.ParameterLocation,
+            name: 'id',
+            in: 'header' as oa.ParameterLocation,
             schema: {
-                $ref: "#/components/schemas/id"
+                $ref: '#/components/schemas/id'
             }
         };
-        const sut = OpenApiBuilder.create().addParameter("par5", par5).rootDoc;
+        const sut = OpenApiBuilder.create().addParameter('par5', par5).rootDoc;
         expect(sut.components.parameters.par5).eql(par5);
     });
-    it("addParameter reference", () => {
+    it('addParameter reference', () => {
         const par5 = {
-            $ref: "#/components/parameters/id"
+            $ref: '#/components/parameters/id'
         };
-        const sut = OpenApiBuilder.create().addParameter("par5", par5).rootDoc;
+        const sut = OpenApiBuilder.create().addParameter('par5', par5).rootDoc;
         expect(sut.components.parameters.par5).eql(par5);
     });
-    it("addExample", () => {
+    it('addExample', () => {
         const example4 = {
-            a: "a desc",
-            b: "a desc"
+            a: 'a desc',
+            b: 'a desc'
         };
-        const sut = OpenApiBuilder.create().addExample("example4", example4).rootDoc;
+        const sut = OpenApiBuilder.create().addExample('example4', example4).rootDoc;
         expect(sut.components.examples.example4).eql(example4);
     });
-    it("addExample reference", () => {
+    it('addExample reference', () => {
         const example4 = {
-            $ref: "#/components/examples/id"
+            $ref: '#/components/examples/id'
         };
-        const sut = OpenApiBuilder.create().addExample("example4", example4).rootDoc;
+        const sut = OpenApiBuilder.create().addExample('example4', example4).rootDoc;
         expect(sut.components.examples.example4).eql(example4);
     });
-    it("addRequestBody", () => {
+    it('addRequestBody', () => {
         const reqBody9: oa.RequestBodyObject = {
-            description: "Request body details",
+            description: 'Request body details',
             content: {
-                "application/json": {
-                    "schema": {
-                        "$ref": "#/components/schemas/User"
+                'application/json': {
+                    schema: {
+                        $ref: '#/components/schemas/User'
                     },
-                    "examples": {
+                    examples: {
                         user: {
-                            "$ref": "http://foo.bar/examples/user-example.json"
+                            $ref: 'http://foo.bar/examples/user-example.json'
                         }
                     }
                 }
             },
             required: false
         };
-        const sut = OpenApiBuilder.create().addRequestBody("reqBody9", reqBody9).rootDoc;
+        const sut = OpenApiBuilder.create().addRequestBody('reqBody9', reqBody9).rootDoc;
         expect(sut.components.requestBodies.reqBody9).eql(reqBody9);
     });
-    it("addRequestBody reference", () => {
+    it('addRequestBody reference', () => {
         const reqBody9 = {
-            $ref: "#/components/requestBodies/id"
+            $ref: '#/components/requestBodies/id'
         };
-        const sut = OpenApiBuilder.create().addRequestBody("reqBody9", reqBody9).rootDoc;
+        const sut = OpenApiBuilder.create().addRequestBody('reqBody9', reqBody9).rootDoc;
         expect(sut.components.requestBodies.reqBody9).eql(reqBody9);
     });
-    it("addHeaders", () => {
+    it('addHeaders', () => {
         const h5: oa.HeaderObject = {
-            description: "header 5"
+            description: 'header 5'
         };
-        const sut = OpenApiBuilder.create().addHeader("h5", h5).rootDoc;
+        const sut = OpenApiBuilder.create().addHeader('h5', h5).rootDoc;
         expect(sut.components.headers.h5).eql(h5);
     });
-    it("addHeaders Reference", () => {
+    it('addHeaders Reference', () => {
         const h5: oa.HeaderObject = {
-            $ref: "#/components/headers/id"
+            $ref: '#/components/headers/id'
         };
-        const sut = OpenApiBuilder.create().addHeader("h5", h5).rootDoc;
+        const sut = OpenApiBuilder.create().addHeader('h5', h5).rootDoc;
         expect(sut.components.headers.h5).eql(h5);
     });
-    it("addSecuritySchemes", () => {
+    it('addSecuritySchemes', () => {
         const sec7: oa.SecuritySchemeObject = {
-            type: "http",
-            scheme: "basic"
+            type: 'http',
+            scheme: 'basic'
         };
-        const sut = OpenApiBuilder.create().addSecurityScheme("sec7", sec7).rootDoc;
+        const sut = OpenApiBuilder.create().addSecurityScheme('sec7', sec7).rootDoc;
         expect(sut.components.securitySchemes.sec7).eql(sec7);
     });
-    it("addSecuritySchemes reference", () => {
+    it('addSecuritySchemes reference', () => {
         const sec7 = {
-            $ref: "#/components/securitySchemes/id"
+            $ref: '#/components/securitySchemes/id'
         };
-        const sut = OpenApiBuilder.create().addSecurityScheme("sec7", sec7).rootDoc;
+        const sut = OpenApiBuilder.create().addSecurityScheme('sec7', sec7).rootDoc;
         expect(sut.components.securitySchemes.sec7).eql(sec7);
     });
-    it("addLink", () => {
+    it('addLink', () => {
         const link0: oa.LinkObject = {
-            href: "/users/10101110/department"
+            href: '/users/10101110/department'
         };
-        const sut = OpenApiBuilder.create().addLink("link0", link0).rootDoc;
+        const sut = OpenApiBuilder.create().addLink('link0', link0).rootDoc;
         expect(sut.components.links.link0).eql(link0);
     });
-    it("addLink reference", () => {
+    it('addLink reference', () => {
         const link0 = {
-            $ref: "#/components/links/id"
+            $ref: '#/components/links/id'
         };
-        const sut = OpenApiBuilder.create().addLink("link0", link0).rootDoc;
+        const sut = OpenApiBuilder.create().addLink('link0', link0).rootDoc;
         expect(sut.components.links.link0).eql(link0);
     });
-    it("addCallback", () => {
+    it('addCallback', () => {
         const cb1: oa.CallbackObject = {
             '$request.body#/url': {
                 post: {
                     requestBody: {
-                        description: "Callback payload",
+                        description: 'Callback payload',
                         content: {
                             'application/json': {
                                 schema: {
@@ -314,137 +309,130 @@ describe("OpenApiBuilder", () => {
                         }
                     },
                     responses: {
-                        "200": {
-                            description: "webhook successfully processed an no retries will be performed"
+                        '200': {
+                            description:
+                                'webhook successfully processed an no retries will be performed'
                         }
                     }
                 }
             }
         };
-        const sut = OpenApiBuilder.create().addCallback("cb1", cb1).rootDoc;
+        const sut = OpenApiBuilder.create().addCallback('cb1', cb1).rootDoc;
         expect(sut.components.callbacks.cb1).eql(cb1);
     });
-    it("addCallback reference", () => {
+    it('addCallback reference', () => {
         const cb1 = {
-            $ref: "#/components/callbacks/id"
+            $ref: '#/components/callbacks/id'
         };
-        const sut = OpenApiBuilder.create().addCallback("cb1", cb1).rootDoc;
+        const sut = OpenApiBuilder.create().addCallback('cb1', cb1).rootDoc;
         expect(sut.components.callbacks.cb1).eql(cb1);
     });
-    it("addTag", () => {
+    it('addTag', () => {
         const t1: oa.TagObject = {
-            name: "resource",
-            "x-admin": true,
-            description: "my own tag",
+            name: 'resource',
+            'x-admin': true,
+            description: 'my own tag'
         };
         const sut = OpenApiBuilder.create().addTag(t1).rootDoc;
         expect(sut.tags[0]).eql(t1);
     });
-    it("addExternalDocs", () => {
+    it('addExternalDocs', () => {
         const eDocs: oa.ExternalDocumentationObject = {
-            url: "https://acme.com/docs",
-            description: "Main doc"
+            url: 'https://acme.com/docs',
+            description: 'Main doc'
         };
         const sut = OpenApiBuilder.create().addExternalDocs(eDocs).rootDoc;
         expect(sut.externalDocs).eql(eDocs);
     });
-    it("addServer", () => {
+    it('addServer', () => {
         const s1: oa.ServerObject = {
-            url: "http://api.quixote.org",
+            url: 'http://api.quixote.org',
             variables: {}
         };
         const sut = OpenApiBuilder.create().addServer(s1).rootDoc;
         expect(sut.servers[0]).eql(s1);
     });
 
-    it("getPath", () => {
+    it('getPath', () => {
         const path1 = {
             get: {
                 responses: {
                     default: {
-                        description: "object created"
+                        description: 'object created'
                     }
                 }
             }
         };
-        const sut = OpenApiBuilder.create()
-            .addPath('/service7', path1)
-            .rootDoc;
+        const sut = OpenApiBuilder.create().addPath('/service7', path1).rootDoc;
         oa.addExtension(sut.paths, 'x-my-extension', 42);
 
         expect(oa.getPath(sut.paths, '/service7')).eql(path1);
         expect(oa.getPath(sut.paths, '/service56')).eql(undefined);
     });
-    it("get invalid Path", () => {
+    it('get invalid Path', () => {
         const path1 = {
             get: {
                 responses: {
                     default: {
-                        description: "object created"
+                        description: 'object created'
                     }
                 }
             }
         };
-        const sut = OpenApiBuilder.create()
-            .addPath('/service7', path1)
-            .rootDoc;
+        const sut = OpenApiBuilder.create().addPath('/service7', path1).rootDoc;
         oa.addExtension(sut.paths, 'x-my-extension', 42);
 
         expect(oa.getPath(sut.paths, 'x-path')).eql(undefined);
     });
-    it("getExtension", () => {
+    it('getExtension', () => {
         const path1 = {
             get: {
                 responses: {
                     default: {
-                        description: "object created"
+                        description: 'object created'
                     }
                 }
             }
         };
-        const sut = OpenApiBuilder.create()
-            .addPath('/service7', path1)
-            .rootDoc;
+        const sut = OpenApiBuilder.create().addPath('/service7', path1).rootDoc;
         oa.addExtension(sut.paths, 'x-my-extension', 42);
 
         expect(oa.getExtension(sut.paths, 'x-my-extension')).eql(42);
         expect(oa.getExtension(sut.paths, 'x-other')).eql(undefined);
     });
-    it("retrieve invalid extension", () => {
+    it('retrieve invalid extension', () => {
         const path1 = {
             get: {
                 responses: {
                     default: {
-                        description: "object created"
+                        description: 'object created'
                     }
                 }
             }
         };
-        const sut = OpenApiBuilder.create()
-            .addPath('/service7', path1)
-            .rootDoc;
+        const sut = OpenApiBuilder.create().addPath('/service7', path1).rootDoc;
         oa.addExtension(sut.paths, 'x-my-extension', 42);
 
         expect(oa.getExtension(sut.paths, 'y-other')).eql(undefined);
     });
 
-    describe("Serialize", () => {
-        it("getSpecAsJson", () => {
+    describe('Serialize', () => {
+        it('getSpecAsJson', () => {
             const sut = OpenApiBuilder.create()
-                .addTitle("app9")
-                .addVersion("5.6.7")
+                .addTitle('app9')
+                .addVersion('5.6.7')
                 .getSpecAsJson();
             expect(sut).eql(
                 `{"openapi":"3.0.0","info":{"title":"app9","version":"5.6.7"},"paths":{},"components":{"schemas":{},"responses":{},"parameters":{},"examples":{},"requestBodies":{},"headers":{},"securitySchemes":{},"links":{},"callbacks":{}},"tags":[],"servers":[]}`
             );
         });
-        it("getSpecAsYaml", () => {
+        it('getSpecAsYaml', () => {
             const sut = OpenApiBuilder.create()
-                .addTitle("app9")
-                .addVersion("5.6.7")
+                .addTitle('app9')
+                .addVersion('5.6.7')
                 .getSpecAsYaml();
             expect(sut).eql(
-                "openapi: 3.0.0\ninfo:\n  title: app9\n  version: 5.6.7\npaths: {}\ncomponents:\n  schemas: {}\n  responses: {}\n  parameters: {}\n  examples: {}\n  requestBodies: {}\n  headers: {}\n  securitySchemes: {}\n  links: {}\n  callbacks: {}\ntags: []\nservers: []\n"
+                'openapi: 3.0.0\ninfo:\n  title: app9\n  version: 5.6.7\npaths: {}\ncomponents:\n  schemas: {}\n  responses: {}\n  parameters: {}\n  examples: {}\n  requestBodies: {}\n  headers: {}\n  securitySchemes: {}\n  links: {}\n  callbacks: {}\ntags: []\nservers: []\n'
             );
         });
     });

@@ -1,7 +1,7 @@
 // Typed interfaces for OpenAPI 3.0.0-RC
 // see https://github.com/OAI/OpenAPI-Specification/blob/3.0.0-rc0/versions/3.0.md
 
-import { ISpecificationExtension, SpecificationExtension } from "./SpecificationExtension";
+import { ISpecificationExtension, SpecificationExtension } from './SpecificationExtension';
 
 export function getExtension(obj: ISpecificationExtension, extensionName: string): any {
     if (SpecificationExtension.isValidExtension(extensionName)) {
@@ -9,7 +9,11 @@ export function getExtension(obj: ISpecificationExtension, extensionName: string
     }
     return undefined;
 }
-export function addExtension(obj: ISpecificationExtension, extensionName: string, extension: any): void {
+export function addExtension(
+    obj: ISpecificationExtension,
+    extensionName: string,
+    extension: any
+): void {
     if (SpecificationExtension.isValidExtension(extensionName)) {
         obj[extensionName] = extension;
     }
@@ -70,7 +74,7 @@ export interface ComponentsObject extends ISpecificationExtension {
  */
 export interface PathsObject extends ISpecificationExtension {
     // [path: string]: PathItemObject;
-    [path: string]: PathItemObject | any;   // Hack for allowing ISpecificationExtension
+    [path: string]: PathItemObject | any; // Hack for allowing ISpecificationExtension
 }
 
 /**
@@ -136,13 +140,13 @@ export type ParameterLocation = 'query' | 'header' | 'path' | 'cookie';
  * https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#style-values
  */
 export type ParameterStyle =
-    'matrix'
-  | 'label'
-  | 'form'
-  | 'simple'
-  | 'spaceDelimited'
-  | 'pipeDelimited'
-  | 'deepObject';
+    | 'matrix'
+    | 'label'
+    | 'form'
+    | 'simple'
+    | 'spaceDelimited'
+    | 'pipeDelimited'
+    | 'deepObject';
 
 export interface BaseParameterObject extends ISpecificationExtension {
     description?: string;
@@ -179,21 +183,21 @@ export interface MediaTypeObject extends ISpecificationExtension {
 }
 export interface EncodingObject extends ISpecificationExtension {
     // [property: string]: EncodingPropertyObject;
-    [property: string]: EncodingPropertyObject | any;   // Hack for allowing ISpecificationExtension
+    [property: string]: EncodingPropertyObject | any; // Hack for allowing ISpecificationExtension
 }
 export interface EncodingPropertyObject {
     contentType?: string;
-    headers?: {[key: string]: HeaderObject | ReferenceObject };
+    headers?: { [key: string]: HeaderObject | ReferenceObject };
     style?: string;
     explode?: boolean;
     allowReserved?: boolean;
-    [key: string]: any;   // (any) = Hack for allowing ISpecificationExtension
+    [key: string]: any; // (any) = Hack for allowing ISpecificationExtension
 }
 export interface ResponsesObject extends ISpecificationExtension {
     default?: ResponseObject | ReferenceObject;
 
     // [statuscode: string]: ResponseObject | ReferenceObject;
-    [statuscode: string]: ResponseObject | ReferenceObject | any;   // (any) = Hack for allowing ISpecificationExtension
+    [statuscode: string]: ResponseObject | ReferenceObject | any; // (any) = Hack for allowing ISpecificationExtension
 }
 export interface ResponseObject extends ISpecificationExtension {
     description: string;
@@ -203,11 +207,11 @@ export interface ResponseObject extends ISpecificationExtension {
 }
 export interface CallbacksObject extends ISpecificationExtension {
     // [name: string]: CallbackObject | ReferenceObject;
-    [name: string]: CallbackObject | ReferenceObject | any;   // Hack for allowing ISpecificationExtension
+    [name: string]: CallbackObject | ReferenceObject | any; // Hack for allowing ISpecificationExtension
 }
 export interface CallbackObject extends ISpecificationExtension {
     // [name: string]: PathItemObject;
-    [name: string]: PathItemObject | any;   // Hack for allowing ISpecificationExtension
+    [name: string]: PathItemObject | any; // Hack for allowing ISpecificationExtension
 }
 export interface HeadersObject {
     [name: string]: HeaderObject | ReferenceObject;
@@ -234,8 +238,8 @@ export interface LinkObject extends ISpecificationExtension {
 export interface LinkParametersObject {
     [name: string]: any | string;
 }
-export interface HeaderObject extends BaseParameterObject {
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface HeaderObject extends BaseParameterObject {}
 export interface TagObject extends ISpecificationExtension {
     name: string;
     description?: string;
@@ -256,8 +260,8 @@ export interface ReferenceObject {
  *
  * @param obj The value to check.
  */
-export function isReferenceObject(obj: object): obj is ReferenceObject {
-    return obj.hasOwnProperty("$ref");
+export function isReferenceObject(obj: any): obj is ReferenceObject {
+    return obj.hasOwnProperty('$ref');
 }
 
 export interface SchemaObject extends ISpecificationExtension {
@@ -272,14 +276,24 @@ export interface SchemaObject extends ISpecificationExtension {
     deprecated?: boolean;
 
     type?: 'integer' | 'number' | 'string' | 'boolean' | 'object' | 'null' | 'array';
-    format?: 'int32' | 'int64' | 'float' | 'double' | 'byte' | 'binary' | 'date' | 'date-time' | 'password' | string;
+    format?:
+        | 'int32'
+        | 'int64'
+        | 'float'
+        | 'double'
+        | 'byte'
+        | 'binary'
+        | 'date'
+        | 'date-time'
+        | 'password'
+        | string;
     allOf?: (SchemaObject | ReferenceObject)[];
     oneOf?: (SchemaObject | ReferenceObject)[];
     anyOf?: (SchemaObject | ReferenceObject)[];
     not?: SchemaObject | ReferenceObject;
     items?: SchemaObject | ReferenceObject;
-    properties?: {[propertyName: string]: (SchemaObject | ReferenceObject)};
-    additionalProperties?: (SchemaObject | ReferenceObject | boolean);
+    properties?: { [propertyName: string]: SchemaObject | ReferenceObject };
+    additionalProperties?: SchemaObject | ReferenceObject | boolean;
     description?: string;
     default?: any;
 
@@ -320,7 +334,7 @@ export interface SchemasObject {
 
 export interface DiscriminatorObject {
     propertyName: string;
-    mapping?: {[key: string]: string };
+    mapping?: { [key: string]: string };
 }
 
 export interface XmlObject extends ISpecificationExtension {
@@ -330,21 +344,17 @@ export interface XmlObject extends ISpecificationExtension {
     attribute?: boolean;
     wrapped?: boolean;
 }
-export type SecuritySchemeType =
-      "apiKey"
-    | "http"
-    | "oauth2"
-    | "openIdConnect";
+export type SecuritySchemeType = 'apiKey' | 'http' | 'oauth2' | 'openIdConnect';
 
 export interface SecuritySchemeObject extends ISpecificationExtension {
     type: SecuritySchemeType;
     description?: string;
-    name?: string;              // required only for apiKey
-    in?: string;                // required only for apiKey
-    scheme?: string;            // required only for http
+    name?: string; // required only for apiKey
+    in?: string; // required only for apiKey
+    scheme?: string; // required only for http
     bearerFormat?: string;
-    flows?: OAuthFlowsObject;     // required only for oauth2
-    openIdConnectUrl?: string;  // required only for openIdConnect
+    flows?: OAuthFlowsObject; // required only for oauth2
+    openIdConnectUrl?: string; // required only for openIdConnect
 }
 export interface OAuthFlowsObject extends ISpecificationExtension {
     implicit?: OAuthFlowObject;

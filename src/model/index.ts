@@ -1,3 +1,3 @@
-export * from "./SpecificationExtension";
-export * from "./OpenApi";
-export * from "./Server";
+export * from './SpecificationExtension';
+export * from './OpenApi';
+export * from './Server';
