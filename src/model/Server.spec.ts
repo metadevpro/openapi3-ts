@@ -1,7 +1,6 @@
-import 'mocha';
 import { expect } from 'chai';
+import 'mocha';
 import { Server, ServerVariable } from './Server';
-import * as oa from '../model';
 
 describe('Server', () => {
     it('create server', () => {

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "target": "ES6",
+    "target": "es2020",
     "module": "commonjs",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -19,6 +19,6 @@
     "**/*.spec.ts",
     "bin",
     "dist",
-    "node_modules"
+    "node_modules/**"
   ]
 }

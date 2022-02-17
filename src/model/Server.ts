@@ -22,7 +22,7 @@ export class ServerVariable implements oa.ServerVariableObject {
     default: string | boolean | number;
     description?: string;
 
-    constructor(defaultValue: any, enums?: any, description?: string) {
+    constructor(defaultValue: string | boolean | number, enums?: string[] | boolean[] | number[], description?: string) {
         this.default = defaultValue;
         this.enum = enums;
         this.description = description;

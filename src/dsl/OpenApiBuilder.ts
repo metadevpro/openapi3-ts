@@ -1,5 +1,5 @@
-import * as oa from '../model';
 import * as yaml from 'yaml';
+import * as oa from '../model';
 
 // Internal DSL for building an OpenAPI 3.0.x contract
 // using a fluent interface
@@ -38,7 +38,7 @@ export class OpenApiBuilder {
     getSpec(): oa.OpenAPIObject {
         return this.rootDoc;
     }
-    getSpecAsJson(replacer?: (key: string, value: any) => any, space?: string | number): string {
+    getSpecAsJson(replacer?: (key: string, value: unknown) => unknown, space?: string | number): string {
         return JSON.stringify(this.rootDoc, replacer, space);
     }
     getSpecAsYaml(): string {

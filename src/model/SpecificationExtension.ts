@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 // Suport for Specification Extensions
 // as described in
 // https://github.com/OAI/OpenAPI-Specification/blob/3.0.0-rc0/versions/3.0.md#specificationExtensions
@@ -14,7 +16,7 @@ export class SpecificationExtension implements ISpecificationExtension {
     [extensionName: string]: any;
 
     static isValidExtension(extensionName: string): boolean {
-        return /^x\-/.test(extensionName);
+        return /^x-/.test(extensionName);
     }
 
     getExtension(extensionName: string): any {
@@ -39,7 +41,7 @@ export class SpecificationExtension implements ISpecificationExtension {
     listExtensions(): string[] {
         const res: string[] = [];
         for (const propName in this) {
-            if (this.hasOwnProperty(propName)) {
+            if (Object.prototype.hasOwnProperty.call(this, propName)) {
                 if (SpecificationExtension.isValidExtension(propName)) {
                     res.push(propName);
                 }

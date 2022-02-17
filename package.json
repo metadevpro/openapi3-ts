@@ -1,6 +1,6 @@
 {
   "name": "openapi3-ts",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "TS Model & utils for OpenAPI 3.x specification.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -12,12 +12,12 @@
     "clean": "rimraf dist",
     "build": "rimraf dist && npm run lint && tsc -p tsconfig.json",
     "build:w": "tsc -p tsconfig.json -w",
-    "lint": "eslint src/**/*.ts --quiet",
-    "lint:fix": "eslint src/**/*.ts --quiet --fix",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
     "prepare": "npm run build",
-    "test:tdd": "mocha --recursive --reporter min --require ts-node/register --require source-map-support/register \"src/**/*.spec.ts\" --watch",
-    "test": "mocha --recursive --require ts-node/register --require source-map-support/register \"src/**/*.spec.ts\"",
-    "test:ci": "mocha --recursive --require ts-node/register --require source-map-support/register --reporter mocha-teamcity-reporter \"src/**/*.spec.ts\"",
+    "test:tdd": "mocha --recursive --reporter min -r ts-node/register -r source-map-support/register \"src/**/*.spec.ts\" --watch",
+    "test": "set TS_NODE_COMPILER_OPTIONS={\"module\": \"commonjs\" } && mocha --recursive -r ts-node/register -r source-map-support/register \"src/**/*.spec.ts\"",
+    "test:ci": "mocha --recursive -r ts-node/register -r source-map-support/register --reporter mocha-teamcity-reporter \"src/**/*.spec.ts\"",
     "cover:ci": "nyc --reporter teamcity --reporter html --reporter json --reporter text npm run test:ci",
     "cover": "nyc npm test"
   },
@@ -53,25 +53,24 @@
     "all": true
   },
   "dependencies": {
-    "yaml": "^1.10.0"
+    "yaml": "^1.10.2"
   },
   "devDependencies": {
-    "@types/chai": "^4.2.14",
-    "@types/mocha": "~8.2.0",
-    "@types/node": "^14.14.17",
-    "@typescript-eslint/eslint-plugin": "^4.11.1",
-    "@typescript-eslint/parser": "^4.11.1",
-    "chai": "^4.2.0",
-    "coveralls": "^3.1.0",
-    "eslint": "^7.16.0",
-    "eslint-config-prettier": "^7.1.0",
-    "eslint-plugin-prettier": "^3.3.0",
-    "mocha": "~8.2.1",
-    "mocha-teamcity-reporter": "^3.0.0",
+    "@types/mocha": "9.1.0",
+    "@types/node": "16.6.2",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "chai": "^4.3.6",
+    "coveralls": "^3.1.1",
+    "eslint": "^8.9.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "mocha": "~9.2.0",
+    "mocha-teamcity-reporter": "^4.2.0",
     "nyc": "^15.1.0",
-    "prettier": "^2.2.1",
+    "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
-    "ts-node": "^9.1.1",
+    "ts-node": "^10.5.0",
     "typescript": "3.6.5"
   }
 }

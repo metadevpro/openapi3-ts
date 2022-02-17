@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // Typed interfaces for OpenAPI 3.0.0-RC
 // see https://github.com/OAI/OpenAPI-Specification/blob/3.0.0-rc0/versions/3.0.md
 
@@ -261,7 +262,7 @@ export interface ReferenceObject {
  * @param obj The value to check.
  */
 export function isReferenceObject(obj: any): obj is ReferenceObject {
-    return obj.hasOwnProperty('$ref');
+    return Object.prototype.hasOwnProperty.call(obj, '$ref');
 }
 
 export interface SchemaObject extends ISpecificationExtension {
@@ -325,7 +326,7 @@ export interface SchemaObject extends ISpecificationExtension {
  * @param schema The value to check.
  */
 export function isSchemaObject(schema: SchemaObject | ReferenceObject): schema is SchemaObject {
-    return !schema.hasOwnProperty('$ref');
+    return !Object.prototype.hasOwnProperty.call(schema, '$ref');
 }
 
 export interface SchemasObject {

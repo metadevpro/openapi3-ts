@@ -1,5 +1,11 @@
 # Changelog: openapi3-ts
 
+## Version 2.0.2
+
+2022.02.17
+
+- Updated libs
+
 ## Version 2.0.1
 
 2020.12.31

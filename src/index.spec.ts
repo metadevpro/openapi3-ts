@@ -1,7 +1,7 @@
-import 'mocha';
 import { expect } from 'chai';
-
+import 'mocha';
 import { OpenApiBuilder, Server, ServerVariable } from '.';
+
 
 describe('Top barrel', () => {
     it('OpenApiBuilder is exported', () => {
@@ -13,7 +13,7 @@ describe('Top barrel', () => {
         expect(sut).not.null;
     });
     it('ServerVariable is exported', () => {
-        const sut = new ServerVariable('a', 'b', 'c');
+        const sut = new ServerVariable('a', ['b'], 'c');
         expect(sut).not.null;
     });
 });
