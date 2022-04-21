@@ -60,7 +60,7 @@ export class OpenApiBuilder {
     addOpenApiVersion(openApiVersion: string): OpenApiBuilder {
         if (!OpenApiBuilder.isValidOpenApiVersion(openApiVersion)) {
             throw new Error(
-                'Invalid OpnApi version: ' + openApiVersion + '. Follow convention: 3.x.y'
+                'Invalid OpenApi version: ' + openApiVersion + '. Follow convention: 3.x.y'
             );
         }
         this.rootDoc.openapi = openApiVersion;
