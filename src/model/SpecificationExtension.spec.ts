@@ -1,5 +1,3 @@
-import 'mocha';
-import { expect } from 'chai';
 import { SpecificationExtension } from './SpecificationExtension';
 
 describe('SpecificationExtension', () => {
@@ -10,15 +8,10 @@ describe('SpecificationExtension', () => {
 
         expect(sut['x-name']).eql(extensionValue);
     });
-    it('addExtension() invalid', (done) => {
+    it('addExtension() invalid', ({ expect }) => {
         const sut = new SpecificationExtension();
         const extensionValue = { payload: 5 };
-        try {
-            sut.addExtension('y-name', extensionValue);
-            done('Must fail. Invalid extension');
-        } catch (err) {
-            done();
-        }
+        expect(() => sut.addExtension('y-name', extensionValue)).toThrow();
     });
     it('getExtension() ok', () => {
         const sut = new SpecificationExtension();
@@ -30,14 +23,9 @@ describe('SpecificationExtension', () => {
         expect(sut.getExtension('x-name')).eql(extensionValue1);
         expect(sut.getExtension('x-load')).eql(extensionValue2);
     });
-    it('getExtension() invalid', (done) => {
+    it('getExtension() invalid', ({ expect }) => {
         const sut = new SpecificationExtension();
-        try {
-            sut.getExtension('y-name');
-            done('Error. invalid extension');
-        } catch (err) {
-            done();
-        }
+        expect(() => sut.getExtension('y-name')).toThrow();
     });
     it('getExtension() not found', () => {
         const sut = new SpecificationExtension();

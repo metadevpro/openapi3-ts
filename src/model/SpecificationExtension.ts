@@ -6,14 +6,14 @@
 
 //  Specification Extensions
 //   ^x-
-export interface ISpecificationExtension {
-    // Cannot constraint to "^x-" but can filter them later to access to them
-    [extensionName: string]: any;
-}
+export type IExtensionName = `x-${string}`;
+export type IExtensionType = any;
+export type ISpecificationExtension = {
+    [extensionName: IExtensionName]: IExtensionType;
+};
 
 export class SpecificationExtension implements ISpecificationExtension {
-    // Cannot constraint to "^x-" but can filter them later to access to them
-    [extensionName: string]: any;
+    [extensionName: IExtensionName]: any;
 
     static isValidExtension(extensionName: string): boolean {
         return /^x-/.test(extensionName);

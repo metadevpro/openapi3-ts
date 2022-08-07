@@ -1,76 +1,50 @@
 {
-  "name": "openapi3-ts",
-  "version": "2.0.2",
-  "description": "TS Model & utils for OpenAPI 3.x specification.",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/metadevpro/openapi3-ts.git"
-  },
-  "scripts": {
-    "clean": "rimraf dist",
-    "build": "rimraf dist && npm run lint && tsc -p tsconfig.json",
-    "build:w": "tsc -p tsconfig.json -w",
-    "lint": "eslint src/**/*.ts",
-    "lint:fix": "eslint src/**/*.ts --fix",
-    "prepare": "npm run build",
-    "test:tdd": "mocha --recursive --reporter min -r ts-node/register -r source-map-support/register \"src/**/*.spec.ts\" --watch",
-    "test": "set TS_NODE_COMPILER_OPTIONS={\"module\": \"commonjs\" } && mocha --recursive -r ts-node/register -r source-map-support/register \"src/**/*.spec.ts\"",
-    "test:ci": "mocha --recursive -r ts-node/register -r source-map-support/register --reporter mocha-teamcity-reporter \"src/**/*.spec.ts\"",
-    "cover:ci": "nyc --reporter teamcity --reporter html --reporter json --reporter text npm run test:ci",
-    "cover": "nyc npm test"
-  },
-  "keywords": [
-    "openapi3",
-    "ts",
-    "typescript"
-  ],
-  "author": "Pedro J. Molina / Metadev",
-  "license": "MIT",
-  "nyc": {
-    "include": [
-      "src/*.ts",
-      "src/**/*.ts"
+    "name": "openapi3-ts",
+    "version": "2.0.2",
+    "description": "TS Model & utils for OpenAPI 3.x specification.",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/metadevpro/openapi3-ts.git"
+    },
+    "scripts": {
+        "clean": "rimraf dist",
+        "build": "rimraf dist && npm run lint && node build.mjs && tsc",
+        "build:w": "BUILD_WATCH=true node build.mjs",
+        "lint": "eslint src/**/*.ts",
+        "lint:fix": "eslint src/**/*.ts --fix",
+        "prepare": "npm run build",
+        "test:tdd": "vitest -w",
+        "test": "vitest",
+        "test:ci": "npm run test",
+        "cover:ci": "npm run cover",
+        "cover": "vitest --coverage"
+    },
+    "keywords": [
+        "openapi3",
+        "ts",
+        "typescript"
     ],
-    "exclude": [
-      "node_modules",
-      "typings",
-      "**/*.spec.ts",
-      "**/*.d.ts"
-    ],
-    "extension": [
-      ".ts"
-    ],
-    "require": [
-      "ts-node/register"
-    ],
-    "reporter": [
-      "json",
-      "html",
-      "text"
-    ],
-    "all": true
-  },
-  "dependencies": {
-    "yaml": "^1.10.2"
-  },
-  "devDependencies": {
-    "@types/mocha": "9.1.0",
-    "@types/node": "16.6.2",
-    "@typescript-eslint/eslint-plugin": "^5.12.0",
-    "@typescript-eslint/parser": "^5.12.0",
-    "chai": "^4.3.6",
-    "coveralls": "^3.1.1",
-    "eslint": "^8.9.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "mocha": "~9.2.0",
-    "mocha-teamcity-reporter": "^4.2.0",
-    "nyc": "^15.1.0",
-    "prettier": "^2.5.1",
-    "rimraf": "^3.0.2",
-    "ts-node": "^10.5.0",
-    "typescript": "3.6.5"
-  }
+    "author": "Pedro J. Molina / Metadev",
+    "license": "MIT",
+    "dependencies": {
+        "yaml": "^2.1.1"
+    },
+    "devDependencies": {
+        "@types/node": "18.6.4",
+        "@typescript-eslint/eslint-plugin": "^5.32.0",
+        "@typescript-eslint/parser": "^5.32.0",
+        "c8": "^7.12.0",
+        "coveralls": "^3.1.1",
+        "esbuild": "^0.14.53",
+        "esbuild-plugin-d.ts": "^1.1.0",
+        "eslint": "^8.21.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "prettier": "^2.7.1",
+        "rimraf": "^3.0.2",
+        "typescript": "4.7.4",
+        "vitest": "^0.21.0"
+    }
 }

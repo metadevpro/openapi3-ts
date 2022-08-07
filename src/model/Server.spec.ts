@@ -1,5 +1,3 @@
-import { expect } from 'chai';
-import 'mocha';
 import { Server, ServerVariable } from './Server';
 
 describe('Server', () => {

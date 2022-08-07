@@ -1,7 +1,4 @@
-import { expect } from 'chai';
-import 'mocha';
 import { OpenApiBuilder, Server, ServerVariable } from '.';
-
 
 describe('Top barrel', () => {
     it('OpenApiBuilder is exported', () => {
