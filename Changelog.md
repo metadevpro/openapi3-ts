@@ -6,7 +6,7 @@
 
 - PR [#80](https://github.com/metadevpro/openapi3-ts/pull/80) contributed by @jonluca
   - Updated libs
-  - Changed build system to output esm as well as cjs
+  - Breaking change: Changed build system to output esm as well as cjs (folders `dist/mjs` and `dist/cjs` now respectively, instead of `dist` for cjs previously).
   - Changed test system to use vite
   - Added stricter extension prefix typing
 
