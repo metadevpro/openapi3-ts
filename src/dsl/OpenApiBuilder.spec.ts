@@ -1,5 +1,3 @@
-import 'mocha';
-import { expect } from 'chai';
 import { OpenApiBuilder } from '.';
 import * as oa from '../model';
 
@@ -63,45 +61,17 @@ describe('OpenApiBuilder', () => {
         const sut = OpenApiBuilder.create().addOpenApiVersion('3.2.4').rootDoc;
         expect(sut.openapi).eql('3.2.4');
     });
-    it('addOpenApiVersion invalid', (done) => {
-        try {
-            OpenApiBuilder.create().addOpenApiVersion('a.b.4').rootDoc;
-            done('failed');
-        } catch (err) {
-            done();
-        }
+    it('addOpenApiVersion invalid', ({ expect }) => {
+        expect(() => OpenApiBuilder.create().addOpenApiVersion('a.b.4').rootDoc).toThrow();
     });
-    it('addOpenApiVersion missing value', (done) => {
-        try {
-            OpenApiBuilder.create().addOpenApiVersion(null).rootDoc;
-            done('failed');
-        } catch (err) {
-            done();
-        }
+    it('addOpenApiVersion missing value', ({ expect }) => {
+        expect(() => OpenApiBuilder.create().addOpenApiVersion(null).rootDoc).toThrow();
     });
-    it('addOpenApiVersion empty', (done) => {
-        try {
-            OpenApiBuilder.create().addOpenApiVersion('').rootDoc;
-            done('failed');
-        } catch (err) {
-            done();
-        }
+    it('addOpenApiVersion empty', ({ expect }) => {
+        expect(() => OpenApiBuilder.create().addOpenApiVersion('').rootDoc).toThrow();
     });
-    it('addOpenApiVersion null', (done) => {
-        try {
-            OpenApiBuilder.create().addOpenApiVersion(null).rootDoc;
-            done('failed');
-        } catch (err) {
-            done();
-        }
-    });
-    it('addOpenApiVersion lower than 3', (done) => {
-        try {
-            OpenApiBuilder.create().addOpenApiVersion('2.5.6').rootDoc;
-            done('failed');
-        } catch (err) {
-            done();
-        }
+    it('addOpenApiVersion lower than 3', ({ expect }) => {
+        expect(() => OpenApiBuilder.create().addOpenApiVersion('2.5.6').rootDoc).toThrow();
     });
     it('addInfo', () => {
         const info: oa.InfoObject = {

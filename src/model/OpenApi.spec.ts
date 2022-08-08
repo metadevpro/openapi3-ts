@@ -1,5 +1,3 @@
-import 'mocha';
-import { expect } from 'chai';
 import {
     addExtension,
     isSchemaObject,
@@ -7,6 +5,7 @@ import {
     SchemaObject,
     ReferenceObject
 } from './OpenApi';
+import { IExtensionName, IExtensionType } from './SpecificationExtension';
 
 describe('type-guards unit tests', () => {
     describe('isSchemaObject()', () => {
@@ -48,6 +47,7 @@ describe('addExtension()', () => {
 });
 
 class TestSchemaObject implements SchemaObject {
+    [k: IExtensionName]: IExtensionType;
     // empty schema
 }
 

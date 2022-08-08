@@ -1,6 +1,5 @@
 language: node_js
 node_js:
-  - "node"
+    - 'node'
 after_success:
-  - nyc report -r lcov
-  - node_modules/.bin/coveralls < coverage/lcov.info
+    - node_modules/.bin/coveralls < coverage/lcov.info
