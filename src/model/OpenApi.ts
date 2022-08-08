@@ -2,7 +2,7 @@
 // Typed interfaces for OpenAPI 3.0.0-RC
 // see https://github.com/OAI/OpenAPI-Specification/blob/3.0.0-rc0/versions/3.0.md
 
-import { ISpecificationExtension, SpecificationExtension } from './SpecificationExtension';
+import { ISpecificationExtension, SpecificationExtension } from './SpecificationExtension.js';
 
 export function getExtension(obj: ISpecificationExtension, extensionName: string): any {
     if (SpecificationExtension.isValidExtension(extensionName)) {

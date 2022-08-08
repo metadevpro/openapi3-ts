@@ -1,5 +1,5 @@
 import * as oa from './OpenApi';
-import { IExtensionName, IExtensionType } from './SpecificationExtension';
+import { IExtensionName, IExtensionType } from './SpecificationExtension.js';
 
 // Server & Server Variable
 export class Server implements oa.ServerObject {

@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitest/config';
+import TeamCityReporter from 'vitest-teamcity-reporter';
 
 export default defineConfig({
     test: {
@@ -10,7 +11,7 @@ export default defineConfig({
         testTimeout: 5000,
         isolate: false,
         passWithNoTests: true,
-        reporters: ['verbose'],
+        reporters: ['verbose', new TeamCityReporter()],
         coverage: {
             reporter: ['text', 'json', 'html', 'lcov']
         }

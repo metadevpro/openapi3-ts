@@ -1,15 +1,16 @@
 {
     "compilerOptions": {
         "declaration": true,
-        "target": "es2020",
-        "module": "commonjs",
+        "target": "ES2020",
+        "module": "ESNext",
+        "moduleResolution": "Node16",
         "experimentalDecorators": true,
         "noImplicitAny": false,
         "removeComments": true,
         "preserveConstEnums": true,
         "noEmitHelpers": true,
-        "emitDeclarationOnly": true,
-        "outDir": "dist",
+        "skipLibCheck": true,
+        "outDir": "dist/mjs",
         "rootDir": "src",
         "types": ["vitest/globals", "node"]
     },
