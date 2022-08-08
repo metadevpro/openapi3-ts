@@ -5,7 +5,7 @@
 2022.08.07
 
 -   Updated libs
--   Changed build system to use esbuild
+-   Changed build system to output esm as well as cjs
 -   Changed test system to use vite
 -   Added stricter extension prefix typing
 
