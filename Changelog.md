@@ -1,5 +1,11 @@
 # Changelog: openapi3-ts
 
+## Version 3.0.1
+
+2022.08.16
+
+- PR [#82](https://github.com/metadevpro/openapi3-ts/pull/82) Emit helpers for the CJS build. conttibuted by @RobinTail
+
 ## Version 3.0.0
 
 2022.08.07
