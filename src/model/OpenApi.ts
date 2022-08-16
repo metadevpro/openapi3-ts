@@ -20,12 +20,14 @@ export function addExtension(
     }
 }
 
-export interface OpenAPIObject extends ISpecificationExtension {
-    openapi: string;
+export type OpenAPIVersion = `3.0.${number}` | `3.1.${number}`;
+
+export interface OpenAPIObject<V extends OpenAPIVersion> extends ISpecificationExtension {
+    openapi: V;
     info: InfoObject;
     servers?: ServerObject[];
-    paths: PathsObject;
-    components?: ComponentsObject;
+    paths: PathsObject<V>;
+    components?: ComponentsObject<V>;
     security?: SecurityRequirementObject[];
     tags?: TagObject[];
     externalDocs?: ExternalDocumentationObject;
@@ -57,65 +59,68 @@ export interface ServerVariableObject extends ISpecificationExtension {
     default: string | boolean | number;
     description?: string;
 }
-export interface ComponentsObject extends ISpecificationExtension {
-    schemas?: { [schema: string]: SchemaObject | ReferenceObject };
-    responses?: { [response: string]: ResponseObject | ReferenceObject };
-    parameters?: { [parameter: string]: ParameterObject | ReferenceObject };
+export interface ComponentsObject<V extends OpenAPIVersion> extends ISpecificationExtension {
+    schemas?: { [schema: string]: SchemaObject<V> | ReferenceObject };
+    responses?: { [response: string]: ResponseObject<V> | ReferenceObject };
+    parameters?: { [parameter: string]: ParameterObject<V> | ReferenceObject };
     examples?: { [example: string]: ExampleObject | ReferenceObject };
-    requestBodies?: { [request: string]: RequestBodyObject | ReferenceObject };
-    headers?: { [header: string]: HeaderObject | ReferenceObject };
+    requestBodies?: { [request: string]: RequestBodyObject<V> | ReferenceObject };
+    headers?: { [header: string]: HeaderObject<V> | ReferenceObject };
     securitySchemes?: { [securityScheme: string]: SecuritySchemeObject | ReferenceObject };
     links?: { [link: string]: LinkObject | ReferenceObject };
-    callbacks?: { [callback: string]: CallbackObject | ReferenceObject };
+    callbacks?: { [callback: string]: CallbackObject<V> | ReferenceObject };
 }
 
 /**
  * Rename it to Paths Object to be consistent with the spec
  * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#pathsObject
  */
-export interface PathsObject extends ISpecificationExtension {
+export interface PathsObject<V extends OpenAPIVersion> extends ISpecificationExtension {
     // [path: string]: PathItemObject;
-    [path: string]: PathItemObject | any; // Hack for allowing ISpecificationExtension
+    [path: string]: PathItemObject<V> | any; // Hack for allowing ISpecificationExtension
 }
 
 /**
  * @deprecated
  * Create a type alias for backward compatibility
  */
-export type PathObject = PathsObject;
+export type PathObject = PathsObject<OpenAPIVersion>;
 
-export function getPath(pathsObject: PathsObject, path: string): PathItemObject | undefined {
+export function getPath<V extends OpenAPIVersion = OpenAPIVersion>(
+    pathsObject: PathsObject<V>,
+    path: string
+): PathItemObject<V> | undefined {
     if (SpecificationExtension.isValidExtension(path)) {
         return undefined;
     }
-    return pathsObject[path] as PathItemObject;
+    return pathsObject[path] as PathItemObject<V>;
 }
 
-export interface PathItemObject extends ISpecificationExtension {
+export interface PathItemObject<V extends OpenAPIVersion> extends ISpecificationExtension {
     $ref?: string;
     summary?: string;
     description?: string;
-    get?: OperationObject;
-    put?: OperationObject;
-    post?: OperationObject;
-    delete?: OperationObject;
-    options?: OperationObject;
-    head?: OperationObject;
-    patch?: OperationObject;
-    trace?: OperationObject;
+    get?: OperationObject<V>;
+    put?: OperationObject<V>;
+    post?: OperationObject<V>;
+    delete?: OperationObject<V>;
+    options?: OperationObject<V>;
+    head?: OperationObject<V>;
+    patch?: OperationObject<V>;
+    trace?: OperationObject<V>;
     servers?: ServerObject[];
-    parameters?: (ParameterObject | ReferenceObject)[];
+    parameters?: (ParameterObject<V> | ReferenceObject)[];
 }
-export interface OperationObject extends ISpecificationExtension {
+export interface OperationObject<V extends OpenAPIVersion> extends ISpecificationExtension {
     tags?: string[];
     summary?: string;
     description?: string;
     externalDocs?: ExternalDocumentationObject;
     operationId?: string;
-    parameters?: (ParameterObject | ReferenceObject)[];
-    requestBody?: RequestBodyObject | ReferenceObject;
-    responses: ResponsesObject;
-    callbacks?: CallbacksObject;
+    parameters?: (ParameterObject<V> | ReferenceObject)[];
+    requestBody?: RequestBodyObject<V> | ReferenceObject;
+    responses: ResponsesObject<V>;
+    callbacks?: CallbacksObject<V>;
     deprecated?: boolean;
     security?: SecurityRequirementObject[];
     servers?: ServerObject[];
@@ -149,7 +154,7 @@ export type ParameterStyle =
     | 'pipeDelimited'
     | 'deepObject';
 
-export interface BaseParameterObject extends ISpecificationExtension {
+export interface BaseParameterObject<V extends OpenAPIVersion> extends ISpecificationExtension {
     description?: string;
     required?: boolean;
     deprecated?: boolean;
@@ -158,64 +163,64 @@ export interface BaseParameterObject extends ISpecificationExtension {
     style?: ParameterStyle; // "matrix" | "label" | "form" | "simple" | "spaceDelimited" | "pipeDelimited" | "deepObject";
     explode?: boolean;
     allowReserved?: boolean;
-    schema?: SchemaObject | ReferenceObject;
+    schema?: SchemaObject<V> | ReferenceObject;
     examples?: { [param: string]: ExampleObject | ReferenceObject };
     example?: any;
-    content?: ContentObject;
+    content?: ContentObject<V>;
 }
 
-export interface ParameterObject extends BaseParameterObject {
+export interface ParameterObject<V extends OpenAPIVersion> extends BaseParameterObject<V> {
     name: string;
     in: ParameterLocation; // "query" | "header" | "path" | "cookie";
 }
-export interface RequestBodyObject extends ISpecificationExtension {
+export interface RequestBodyObject<V extends OpenAPIVersion> extends ISpecificationExtension {
     description?: string;
-    content: ContentObject;
+    content: ContentObject<V>;
     required?: boolean;
 }
-export interface ContentObject {
-    [mediatype: string]: MediaTypeObject;
+export interface ContentObject<V extends OpenAPIVersion> {
+    [mediatype: string]: MediaTypeObject<V>;
 }
-export interface MediaTypeObject extends ISpecificationExtension {
-    schema?: SchemaObject | ReferenceObject;
+export interface MediaTypeObject<V extends OpenAPIVersion> extends ISpecificationExtension {
+    schema?: SchemaObject<V> | ReferenceObject;
     examples?: ExamplesObject;
     example?: any;
-    encoding?: EncodingObject;
+    encoding?: EncodingObject<V>;
 }
-export interface EncodingObject extends ISpecificationExtension {
+export interface EncodingObject<V extends OpenAPIVersion> extends ISpecificationExtension {
     // [property: string]: EncodingPropertyObject;
-    [property: string]: EncodingPropertyObject | any; // Hack for allowing ISpecificationExtension
+    [property: string]: EncodingPropertyObject<V> | any; // Hack for allowing ISpecificationExtension
 }
-export interface EncodingPropertyObject {
+export interface EncodingPropertyObject<V extends OpenAPIVersion> {
     contentType?: string;
-    headers?: { [key: string]: HeaderObject | ReferenceObject };
+    headers?: { [key: string]: HeaderObject<V> | ReferenceObject };
     style?: string;
     explode?: boolean;
     allowReserved?: boolean;
     [key: string]: any; // (any) = Hack for allowing ISpecificationExtension
 }
-export interface ResponsesObject extends ISpecificationExtension {
-    default?: ResponseObject | ReferenceObject;
+export interface ResponsesObject<V extends OpenAPIVersion> extends ISpecificationExtension {
+    default?: ResponseObject<V> | ReferenceObject;
 
     // [statuscode: string]: ResponseObject | ReferenceObject;
-    [statuscode: string]: ResponseObject | ReferenceObject | any; // (any) = Hack for allowing ISpecificationExtension
+    [statuscode: string]: ResponseObject<V> | ReferenceObject | any; // (any) = Hack for allowing ISpecificationExtension
 }
-export interface ResponseObject extends ISpecificationExtension {
+export interface ResponseObject<V extends OpenAPIVersion> extends ISpecificationExtension {
     description: string;
-    headers?: HeadersObject;
-    content?: ContentObject;
+    headers?: HeadersObject<V>;
+    content?: ContentObject<V>;
     links?: LinksObject;
 }
-export interface CallbacksObject extends ISpecificationExtension {
+export interface CallbacksObject<V extends OpenAPIVersion> extends ISpecificationExtension {
     // [name: string]: CallbackObject | ReferenceObject;
-    [name: string]: CallbackObject | ReferenceObject | any; // Hack for allowing ISpecificationExtension
+    [name: string]: CallbackObject<V> | ReferenceObject | any; // Hack for allowing ISpecificationExtension
 }
-export interface CallbackObject extends ISpecificationExtension {
+export interface CallbackObject<V extends OpenAPIVersion> extends ISpecificationExtension {
     // [name: string]: PathItemObject;
-    [name: string]: PathItemObject | any; // Hack for allowing ISpecificationExtension
+    [name: string]: PathItemObject<V> | any; // Hack for allowing ISpecificationExtension
 }
-export interface HeadersObject {
-    [name: string]: HeaderObject | ReferenceObject;
+export interface HeadersObject<V extends OpenAPIVersion> {
+    [name: string]: HeaderObject<V> | ReferenceObject;
 }
 export interface ExampleObject {
     summary?: string;
@@ -240,7 +245,7 @@ export interface LinkParametersObject {
     [name: string]: any | string;
 }
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface HeaderObject extends BaseParameterObject {
+export interface HeaderObject<V extends OpenAPIVersion> extends BaseParameterObject<V> {
     $ref?: string;
 }
 export interface TagObject extends ISpecificationExtension {
@@ -267,7 +272,7 @@ export function isReferenceObject(obj: any): obj is ReferenceObject {
     return Object.prototype.hasOwnProperty.call(obj, '$ref');
 }
 
-export interface SchemaObject extends ISpecificationExtension {
+export interface SchemaObject<V extends OpenAPIVersion> extends ISpecificationExtension {
     nullable?: boolean;
     discriminator?: DiscriminatorObject;
     readOnly?: boolean;
@@ -290,22 +295,22 @@ export interface SchemaObject extends ISpecificationExtension {
         | 'date-time'
         | 'password'
         | string;
-    allOf?: (SchemaObject | ReferenceObject)[];
-    oneOf?: (SchemaObject | ReferenceObject)[];
-    anyOf?: (SchemaObject | ReferenceObject)[];
-    not?: SchemaObject | ReferenceObject;
-    items?: SchemaObject | ReferenceObject;
-    properties?: { [propertyName: string]: SchemaObject | ReferenceObject };
-    additionalProperties?: SchemaObject | ReferenceObject | boolean;
+    allOf?: (SchemaObject<V> | ReferenceObject)[];
+    oneOf?: (SchemaObject<V> | ReferenceObject)[];
+    anyOf?: (SchemaObject<V> | ReferenceObject)[];
+    not?: SchemaObject<V> | ReferenceObject;
+    items?: SchemaObject<V> | ReferenceObject;
+    properties?: { [propertyName: string]: SchemaObject<V> | ReferenceObject };
+    additionalProperties?: SchemaObject<V> | ReferenceObject | boolean;
     description?: string;
     default?: any;
 
     title?: string;
     multipleOf?: number;
     maximum?: number;
-    exclusiveMaximum?: number;
+    exclusiveMaximum?: V extends `3.1.${number}` ? number : boolean;
     minimum?: number;
-    exclusiveMinimum?: number;
+    exclusiveMinimum?: V extends `3.1.${number}` ? number : boolean;
     maxLength?: number;
     minLength?: number;
     pattern?: string;
@@ -327,12 +332,14 @@ export interface SchemaObject extends ISpecificationExtension {
  *
  * @param schema The value to check.
  */
-export function isSchemaObject(schema: SchemaObject | ReferenceObject): schema is SchemaObject {
+export function isSchemaObject<V extends OpenAPIVersion = OpenAPIVersion>(
+    schema: SchemaObject<V> | ReferenceObject
+): schema is SchemaObject<V> {
     return !Object.prototype.hasOwnProperty.call(schema, '$ref');
 }
 
-export interface SchemasObject {
-    [schema: string]: SchemaObject;
+export interface SchemasObject<V extends OpenAPIVersion> {
+    [schema: string]: SchemaObject<V>;
 }
 
 export interface DiscriminatorObject {
