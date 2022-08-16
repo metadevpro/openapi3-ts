@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// Typed interfaces for OpenAPI 3.0.0-RC
-// see https://github.com/OAI/OpenAPI-Specification/blob/3.0.0-rc0/versions/3.0.md
+// Typed interfaces for OpenAPI 3.0.0 and 3.1.0
+// see https://github.com/OAI/OpenAPI-Specification/tree/main/versions
 
 import { ISpecificationExtension, SpecificationExtension } from './SpecificationExtension.js';
 
@@ -71,10 +71,6 @@ export interface ComponentsObject<V extends OpenAPIVersion> extends ISpecificati
     callbacks?: { [callback: string]: CallbackObject<V> | ReferenceObject };
 }
 
-/**
- * Rename it to Paths Object to be consistent with the spec
- * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#pathsObject
- */
 export interface PathsObject<V extends OpenAPIVersion> extends ISpecificationExtension {
     // [path: string]: PathItemObject;
     [path: string]: PathItemObject<V> | any; // Hack for allowing ISpecificationExtension
@@ -84,7 +80,7 @@ export interface PathsObject<V extends OpenAPIVersion> extends ISpecificationExt
  * @deprecated
  * Create a type alias for backward compatibility
  */
-export type PathObject = PathsObject<OpenAPIVersion>;
+export type PathObject<V extends OpenAPIVersion> = PathsObject<V>;
 
 export function getPath<V extends OpenAPIVersion = OpenAPIVersion>(
     pathsObject: PathsObject<V>,
