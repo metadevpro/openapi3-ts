@@ -304,8 +304,10 @@ export interface SchemaObject<V extends OpenAPIVersion> extends ISpecificationEx
     title?: string;
     multipleOf?: number;
     maximum?: number;
+    /** @desc a number in OpenAPI 3.1.x and a boolean in 3.0.x */
     exclusiveMaximum?: V extends `3.1.${number}` ? number : boolean;
     minimum?: number;
+    /** @desc a number in OpenAPI 3.1.x and a boolean in 3.0.x */
     exclusiveMinimum?: V extends `3.1.${number}` ? number : boolean;
     maxLength?: number;
     minLength?: number;
