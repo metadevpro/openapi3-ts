@@ -1,7 +1,7 @@
 import * as yaml from 'yaml';
 import * as oa from '../model/index.js';
 
-// Internal DSL for building an OpenAPI 3.0.x contract
+// Internal DSL for building an OpenAPI 3.0.x (default) or 3.1.x contract
 // using a fluent interface
 
 const defaultOpenAPIVersion: oa.OpenAPIVersion = '3.0.0';
