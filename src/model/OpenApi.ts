@@ -303,9 +303,11 @@ export interface SchemaObject extends ISpecificationExtension {
     title?: string;
     multipleOf?: number;
     maximum?: number;
-    exclusiveMaximum?: number;
+    /** @desc OpenAPI 3.0: boolean, OpenAPI 3.1: number */
+    exclusiveMaximum?: number | boolean;
     minimum?: number;
-    exclusiveMinimum?: number;
+    /** @desc OpenAPI 3.0: boolean, OpenAPI 3.1: number */
+    exclusiveMinimum?: number | boolean;
     maxLength?: number;
     minLength?: number;
     pattern?: string;
