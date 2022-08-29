@@ -1,10 +1,16 @@
 # Changelog: openapi3-ts
 
+## Version 3.0.2
+
+2022.08.29
+
+- PR [#85](https://github.com/metadevpro/openapi3-ts/pull/85) Enable support for version 3.0.1 and 3.1.0 (Lax typing for `exclusiveMinimum` and `exclusiveMaximum`). contributed by @RobinTail
+
 ## Version 3.0.1
 
 2022.08.16
 
-- PR [#82](https://github.com/metadevpro/openapi3-ts/pull/82) Emit helpers for the CJS build. conttibuted by @RobinTail
+- PR [#82](https://github.com/metadevpro/openapi3-ts/pull/82) Emit helpers for the CJS build. contributed by @RobinTail
 
 ## Version 3.0.0
 
