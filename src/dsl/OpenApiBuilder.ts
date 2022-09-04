@@ -1,4 +1,4 @@
-import * as yaml from 'yaml';
+import type * as yaml from 'yaml';
 import * as oa from '../model/index.js';
 
 // Internal DSL for building an OpenAPI 3.0.x contract
@@ -46,7 +46,17 @@ export class OpenApiBuilder {
         return JSON.stringify(this.rootDoc, replacer, space);
     }
     getSpecAsYaml(): string {
-        return yaml.stringify(this.rootDoc);
+        let yml: typeof yaml;
+        try {
+            yml = require('yaml');
+        } catch (err) {
+            if (err.code === 'MODULE_NOT_FOUND') {
+                throw new Error('Please install yaml package first');
+            } else {
+                throw err;
+            }
+        }
+        return yml.stringify(this.rootDoc);
     }
 
     private static isValidOpenApiVersion(v: string): boolean {
