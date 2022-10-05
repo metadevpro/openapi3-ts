@@ -267,6 +267,8 @@ export function isReferenceObject(obj: any): obj is ReferenceObject {
     return Object.prototype.hasOwnProperty.call(obj, '$ref');
 }
 
+type SchemaObjectType = 'integer' | 'number' | 'string' | 'boolean' | 'object' | 'null' | 'array'
+
 export interface SchemaObject extends ISpecificationExtension {
     nullable?: boolean;
     discriminator?: DiscriminatorObject;
@@ -278,7 +280,7 @@ export interface SchemaObject extends ISpecificationExtension {
     examples?: any[];
     deprecated?: boolean;
 
-    type?: 'integer' | 'number' | 'string' | 'boolean' | 'object' | 'null' | 'array';
+    type?: SchemaObjectType | SchemaObjectType[];
     format?:
         | 'int32'
         | 'int64'
