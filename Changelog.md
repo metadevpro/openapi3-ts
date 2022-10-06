@@ -1,5 +1,12 @@
 # Changelog: openapi3-ts
 
+
+## Version 3.0.3
+
+2022.10.06
+
+- PR [#87](https://github.com/metadevpro/openapi3-ts/pull/87) Enable type array for schema object on OpenAPI 3.1. contributed by @samchungy
+
 ## Version 3.0.2
 
 2022.08.29
