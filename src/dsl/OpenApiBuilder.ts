@@ -31,7 +31,8 @@ export class OpenApiBuilder {
                 callbacks: {}
             },
             tags: [],
-            servers: []
+            servers: [],
+            webhooks: {}
         };
     }
 
@@ -154,6 +155,10 @@ export class OpenApiBuilder {
     }
     addExternalDocs(extDoc: oa.ExternalDocumentationObject): OpenApiBuilder {
         this.rootDoc.externalDocs = extDoc;
+        return this;
+    }
+    addWebhook(webhook: string, webhookItem: oa.PathItemObject): OpenApiBuilder {
+        this.rootDoc.webhooks[webhook] = webhookItem;
         return this;
     }
 }
