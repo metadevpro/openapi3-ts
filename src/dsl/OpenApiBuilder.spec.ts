@@ -22,8 +22,7 @@ describe('OpenApiBuilder', () => {
                 callbacks: {}
             },
             tags: [],
-            servers: [],
-            webhooks: {}
+            servers: []
         });
     });
     it('Build with custom object', () => {
@@ -408,7 +407,7 @@ describe('OpenApiBuilder', () => {
                 .addVersion('5.6.7')
                 .getSpecAsJson();
             expect(sut).eql(
-                `{"openapi":"3.0.0","info":{"title":"app9","version":"5.6.7"},"paths":{},"components":{"schemas":{},"responses":{},"parameters":{},"examples":{},"requestBodies":{},"headers":{},"securitySchemes":{},"links":{},"callbacks":{}},"tags":[],"servers":[],"webhooks":{}}`
+                `{"openapi":"3.0.0","info":{"title":"app9","version":"5.6.7"},"paths":{},"components":{"schemas":{},"responses":{},"parameters":{},"examples":{},"requestBodies":{},"headers":{},"securitySchemes":{},"links":{},"callbacks":{}},"tags":[],"servers":[]}`
             );
         });
         it('getSpecAsYaml', () => {
@@ -417,7 +416,7 @@ describe('OpenApiBuilder', () => {
                 .addVersion('5.6.7')
                 .getSpecAsYaml();
             expect(sut).eql(
-                'openapi: 3.0.0\ninfo:\n  title: app9\n  version: 5.6.7\npaths: {}\ncomponents:\n  schemas: {}\n  responses: {}\n  parameters: {}\n  examples: {}\n  requestBodies: {}\n  headers: {}\n  securitySchemes: {}\n  links: {}\n  callbacks: {}\ntags: []\nservers: []\nwebhooks: {}\n'
+                'openapi: 3.0.0\ninfo:\n  title: app9\n  version: 5.6.7\npaths: {}\ncomponents:\n  schemas: {}\n  responses: {}\n  parameters: {}\n  examples: {}\n  requestBodies: {}\n  headers: {}\n  securitySchemes: {}\n  links: {}\n  callbacks: {}\ntags: []\nservers: []\n'
             );
         });
     });
