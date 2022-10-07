@@ -1,6 +1,12 @@
 # Changelog: openapi3-ts
 
 
+## Version 3.1.0
+
+2022.10.06
+
+- PR [#88](https://github.com/metadevpro/openapi3-ts/pull/88) Added support to Webhooks. Contributed by @samchungy
+
 ## Version 3.0.3
 
 2022.10.06
