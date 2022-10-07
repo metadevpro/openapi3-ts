@@ -22,7 +22,8 @@ describe('OpenApiBuilder', () => {
                 callbacks: {}
             },
             tags: [],
-            servers: []
+            servers: [],
+            webhooks: {}
         });
     });
     it('Build with custom object', () => {
@@ -131,6 +132,20 @@ describe('OpenApiBuilder', () => {
         };
         const sut = OpenApiBuilder.create().addPath('/path1', path1).rootDoc;
         expect(sut.paths['/path1']).eql(path1);
+    });
+
+    it('addWebhook', () => {
+        const webhook1 = {
+            post: {
+                responses: {
+                    default: {
+                        description: 'event processed'
+                    }
+                }
+            }
+        };
+        const sut = OpenApiBuilder.create().addWebhook('webhook1', webhook1).rootDoc;
+        expect(sut.webhooks['webhook1']).eql(webhook1);
     });
     it('addSchema', () => {
         const schema1: oa.SchemaObject = {
@@ -393,7 +408,7 @@ describe('OpenApiBuilder', () => {
                 .addVersion('5.6.7')
                 .getSpecAsJson();
             expect(sut).eql(
-                `{"openapi":"3.0.0","info":{"title":"app9","version":"5.6.7"},"paths":{},"components":{"schemas":{},"responses":{},"parameters":{},"examples":{},"requestBodies":{},"headers":{},"securitySchemes":{},"links":{},"callbacks":{}},"tags":[],"servers":[]}`
+                `{"openapi":"3.0.0","info":{"title":"app9","version":"5.6.7"},"paths":{},"components":{"schemas":{},"responses":{},"parameters":{},"examples":{},"requestBodies":{},"headers":{},"securitySchemes":{},"links":{},"callbacks":{}},"tags":[],"servers":[],"webhooks":{}}`
             );
         });
         it('getSpecAsYaml', () => {
@@ -402,7 +417,7 @@ describe('OpenApiBuilder', () => {
                 .addVersion('5.6.7')
                 .getSpecAsYaml();
             expect(sut).eql(
-                'openapi: 3.0.0\ninfo:\n  title: app9\n  version: 5.6.7\npaths: {}\ncomponents:\n  schemas: {}\n  responses: {}\n  parameters: {}\n  examples: {}\n  requestBodies: {}\n  headers: {}\n  securitySchemes: {}\n  links: {}\n  callbacks: {}\ntags: []\nservers: []\n'
+                'openapi: 3.0.0\ninfo:\n  title: app9\n  version: 5.6.7\npaths: {}\ncomponents:\n  schemas: {}\n  responses: {}\n  parameters: {}\n  examples: {}\n  requestBodies: {}\n  headers: {}\n  securitySchemes: {}\n  links: {}\n  callbacks: {}\ntags: []\nservers: []\nwebhooks: {}\n'
             );
         });
     });

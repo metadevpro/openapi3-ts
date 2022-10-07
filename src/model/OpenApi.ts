@@ -29,6 +29,7 @@ export interface OpenAPIObject extends ISpecificationExtension {
     security?: SecurityRequirementObject[];
     tags?: TagObject[];
     externalDocs?: ExternalDocumentationObject;
+    webhooks?: PathsObject;
 }
 export interface InfoObject extends ISpecificationExtension {
     title: string;
