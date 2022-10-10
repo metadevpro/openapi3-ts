@@ -1,6 +1,12 @@
 # Changelog: openapi3-ts
 
 
+## Version 3.1.1
+
+2022.10.10
+
+- PR [#89](https://github.com/metadevpro/openapi3-ts/pull/89) Make Webhooks optional (not supportet in OPenAPI 3.0). Contributed by @samchungy
+
 ## Version 3.1.0
 
 2022.10.06
