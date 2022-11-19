@@ -99,10 +99,6 @@ export class OpenApiBuilder {
         return this;
     }
     addPath(path: string, pathItem: oa.PathItemObject): OpenApiBuilder {
-        this.rootDoc.paths[path] = pathItem;
-        return this;
-    }
-    mergePath(path: string, pathItem: oa.PathItemObject): OpenApiBuilder {
         this.rootDoc.paths[path] = {...this.rootDoc.paths[path] || {}, ...pathItem};
         return this;
     }
