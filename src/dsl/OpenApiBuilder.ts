@@ -102,6 +102,10 @@ export class OpenApiBuilder {
         this.rootDoc.paths[path] = pathItem;
         return this;
     }
+    mergePath(path: string, pathItem: oa.PathItemObject): OpenApiBuilder {
+        this.rootDoc.paths[path] = {...this.rootDoc.paths[path] || {}, ...pathItem};
+        return this;
+    }
     addSchema(name: string, schema: oa.SchemaObject | oa.ReferenceObject): OpenApiBuilder {
         this.rootDoc.components.schemas[name] = schema;
         return this;
