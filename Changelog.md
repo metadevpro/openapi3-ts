@@ -1,6 +1,12 @@
 # Changelog: openapi3-ts
 
 
+## Version 3.1.2
+
+2022.11.19
+
+- PR [#91](https://github.com/metadevpro/openapi3-ts/pull/91) Fix `addPath` to include merge semantics. Contributed by @MaurerKrisztian
+
 ## Version 3.1.1
 
 2022.10.10
