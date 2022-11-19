@@ -129,8 +129,19 @@ describe('OpenApiBuilder', () => {
                 }
             }
         };
-        const sut = OpenApiBuilder.create().addPath('/path1', path1).rootDoc;
-        expect(sut.paths['/path1']).eql(path1);
+        const doc = OpenApiBuilder.create().addPath('/path1', path1);
+        expect(doc.rootDoc.paths['/path1']).eql(path1);
+        const path2 = {
+            post: {
+                responses: {
+                    default: {
+                        description: 'object 2 created'
+                    }
+                }
+            }
+        };
+        doc.addPath('/path1', path2)
+        expect(doc.rootDoc.paths['/path1']).eql({...path1, ...path2});
     });
 
     it('addWebhook', () => {

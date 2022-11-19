@@ -99,7 +99,7 @@ export class OpenApiBuilder {
         return this;
     }
     addPath(path: string, pathItem: oa.PathItemObject): OpenApiBuilder {
-        this.rootDoc.paths[path] = pathItem;
+        this.rootDoc.paths[path] = {...this.rootDoc.paths[path] || {}, ...pathItem};
         return this;
     }
     addSchema(name: string, schema: oa.SchemaObject | oa.ReferenceObject): OpenApiBuilder {
