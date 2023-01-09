@@ -1,5 +1,7 @@
-import { OpenApiBuilder } from '.';
-import * as oa from '../model';
+import { describe, expect, it } from 'vitest';
+import { addExtension, getExtension } from '../model/oas-common.js';
+import * as oa from '../model/openapi30.js';
+import { OpenApiBuilder } from './openapi-builder30.js';
 
 describe('OpenApiBuilder', () => {
     it('Build empty Spec', () => {
@@ -61,16 +63,13 @@ describe('OpenApiBuilder', () => {
         const sut = OpenApiBuilder.create().addOpenApiVersion('3.2.4').rootDoc;
         expect(sut.openapi).eql('3.2.4');
     });
-    it('addOpenApiVersion invalid', ({ expect }) => {
+    it('addOpenApiVersion invalid', () => {
         expect(() => OpenApiBuilder.create().addOpenApiVersion('a.b.4').rootDoc).toThrow();
     });
-    it('addOpenApiVersion missing value', ({ expect }) => {
-        expect(() => OpenApiBuilder.create().addOpenApiVersion(null).rootDoc).toThrow();
-    });
-    it('addOpenApiVersion empty', ({ expect }) => {
+    it('addOpenApiVersion empty', () => {
         expect(() => OpenApiBuilder.create().addOpenApiVersion('').rootDoc).toThrow();
     });
-    it('addOpenApiVersion lower than 3', ({ expect }) => {
+    it('addOpenApiVersion lower than 3', () => {
         expect(() => OpenApiBuilder.create().addOpenApiVersion('2.5.6').rootDoc).toThrow();
     });
     it('addInfo', () => {
@@ -140,51 +139,38 @@ describe('OpenApiBuilder', () => {
                 }
             }
         };
-        doc.addPath('/path1', path2)
-        expect(doc.rootDoc.paths['/path1']).eql({...path1, ...path2});
+        doc.addPath('/path1', path2);
+        expect(doc.rootDoc.paths['/path1']).eql({ ...path1, ...path2 });
     });
 
-    it('addWebhook', () => {
-        const webhook1 = {
-            post: {
-                responses: {
-                    default: {
-                        description: 'event processed'
-                    }
-                }
-            }
-        };
-        const sut = OpenApiBuilder.create().addWebhook('webhook1', webhook1).rootDoc;
-        expect(sut.webhooks['webhook1']).eql(webhook1);
-    });
     it('addSchema', () => {
         const schema1: oa.SchemaObject = {
             type: 'string',
             format: 'email'
         };
         const sut = OpenApiBuilder.create().addSchema('schema01', schema1).rootDoc;
-        expect(sut.components.schemas.schema01).eql(schema1);
+        expect(sut.components?.schemas?.schema01).eql(schema1);
     });
     it('addSchema reference', () => {
         const schema1 = {
             $ref: '#/components/schemas/id'
         };
         const sut = OpenApiBuilder.create().addSchema('schema01', schema1).rootDoc;
-        expect(sut.components.schemas.schema01).eql(schema1);
+        expect(sut.components?.schemas?.schema01).eql(schema1);
     });
     it('addResponse', () => {
         const resp00 = {
             description: 'object created'
         };
         const sut = OpenApiBuilder.create().addResponse('resp00', resp00).rootDoc;
-        expect(sut.components.responses.resp00).eql(resp00);
+        expect(sut.components?.responses?.resp00).eql(resp00);
     });
     it('addResponse reference', () => {
         const resp00 = {
             $ref: '#/components/responses/reference'
         };
         const sut = OpenApiBuilder.create().addResponse('resp00', resp00).rootDoc;
-        expect(sut.components.responses.resp00).eql(resp00);
+        expect(sut.components?.responses?.resp00).eql(resp00);
     });
     it('addParameter', () => {
         const par5 = {
@@ -195,14 +181,14 @@ describe('OpenApiBuilder', () => {
             }
         };
         const sut = OpenApiBuilder.create().addParameter('par5', par5).rootDoc;
-        expect(sut.components.parameters.par5).eql(par5);
+        expect(sut.components?.parameters?.par5).eql(par5);
     });
     it('addParameter reference', () => {
         const par5 = {
             $ref: '#/components/parameters/id'
         };
         const sut = OpenApiBuilder.create().addParameter('par5', par5).rootDoc;
-        expect(sut.components.parameters.par5).eql(par5);
+        expect(sut.components?.parameters?.par5).eql(par5);
     });
     it('addExample', () => {
         const example4 = {
@@ -210,14 +196,14 @@ describe('OpenApiBuilder', () => {
             b: 'a desc'
         };
         const sut = OpenApiBuilder.create().addExample('example4', example4).rootDoc;
-        expect(sut.components.examples.example4).eql(example4);
+        expect(sut.components?.examples?.example4).eql(example4);
     });
     it('addExample reference', () => {
         const example4 = {
             $ref: '#/components/examples/id'
         };
         const sut = OpenApiBuilder.create().addExample('example4', example4).rootDoc;
-        expect(sut.components.examples.example4).eql(example4);
+        expect(sut.components?.examples?.example4).eql(example4);
     });
     it('addRequestBody', () => {
         const reqBody9: oa.RequestBodyObject = {
@@ -237,28 +223,28 @@ describe('OpenApiBuilder', () => {
             required: false
         };
         const sut = OpenApiBuilder.create().addRequestBody('reqBody9', reqBody9).rootDoc;
-        expect(sut.components.requestBodies.reqBody9).eql(reqBody9);
+        expect(sut.components?.requestBodies?.reqBody9).eql(reqBody9);
     });
     it('addRequestBody reference', () => {
         const reqBody9 = {
             $ref: '#/components/requestBodies/id'
         };
         const sut = OpenApiBuilder.create().addRequestBody('reqBody9', reqBody9).rootDoc;
-        expect(sut.components.requestBodies.reqBody9).eql(reqBody9);
+        expect(sut.components?.requestBodies?.reqBody9).eql(reqBody9);
     });
     it('addHeaders', () => {
         const h5: oa.HeaderObject = {
             description: 'header 5'
         };
         const sut = OpenApiBuilder.create().addHeader('h5', h5).rootDoc;
-        expect(sut.components.headers.h5).eql(h5);
+        expect(sut.components?.headers?.h5).eql(h5);
     });
     it('addHeaders Reference', () => {
         const h5: oa.HeaderObject = {
             $ref: '#/components/headers/id'
         };
         const sut = OpenApiBuilder.create().addHeader('h5', h5).rootDoc;
-        expect(sut.components.headers.h5).eql(h5);
+        expect(sut.components?.headers?.h5).eql(h5);
     });
     it('addSecuritySchemes', () => {
         const sec7: oa.SecuritySchemeObject = {
@@ -266,28 +252,28 @@ describe('OpenApiBuilder', () => {
             scheme: 'basic'
         };
         const sut = OpenApiBuilder.create().addSecurityScheme('sec7', sec7).rootDoc;
-        expect(sut.components.securitySchemes.sec7).eql(sec7);
+        expect(sut.components?.securitySchemes?.sec7).eql(sec7);
     });
     it('addSecuritySchemes reference', () => {
         const sec7 = {
             $ref: '#/components/securitySchemes/id'
         };
         const sut = OpenApiBuilder.create().addSecurityScheme('sec7', sec7).rootDoc;
-        expect(sut.components.securitySchemes.sec7).eql(sec7);
+        expect(sut.components?.securitySchemes?.sec7).eql(sec7);
     });
     it('addLink', () => {
         const link0: oa.LinkObject = {
             href: '/users/10101110/department'
         };
         const sut = OpenApiBuilder.create().addLink('link0', link0).rootDoc;
-        expect(sut.components.links.link0).eql(link0);
+        expect(sut.components?.links?.link0).eql(link0);
     });
     it('addLink reference', () => {
         const link0 = {
             $ref: '#/components/links/id'
         };
         const sut = OpenApiBuilder.create().addLink('link0', link0).rootDoc;
-        expect(sut.components.links.link0).eql(link0);
+        expect(sut.components?.links?.link0).eql(link0);
     });
     it('addCallback', () => {
         const cb1: oa.CallbackObject = {
@@ -313,14 +299,14 @@ describe('OpenApiBuilder', () => {
             }
         };
         const sut = OpenApiBuilder.create().addCallback('cb1', cb1).rootDoc;
-        expect(sut.components.callbacks.cb1).eql(cb1);
+        expect(sut.components?.callbacks?.cb1).eql(cb1);
     });
     it('addCallback reference', () => {
         const cb1 = {
             $ref: '#/components/callbacks/id'
         };
         const sut = OpenApiBuilder.create().addCallback('cb1', cb1).rootDoc;
-        expect(sut.components.callbacks.cb1).eql(cb1);
+        expect(sut.components?.callbacks?.cb1).eql(cb1);
     });
     it('addTag', () => {
         const t1: oa.TagObject = {
@@ -329,7 +315,7 @@ describe('OpenApiBuilder', () => {
             description: 'my own tag'
         };
         const sut = OpenApiBuilder.create().addTag(t1).rootDoc;
-        expect(sut.tags[0]).eql(t1);
+        expect(sut?.tags?.[0]).eql(t1);
     });
     it('addExternalDocs', () => {
         const eDocs: oa.ExternalDocumentationObject = {
@@ -345,7 +331,7 @@ describe('OpenApiBuilder', () => {
             variables: {}
         };
         const sut = OpenApiBuilder.create().addServer(s1).rootDoc;
-        expect(sut.servers[0]).eql(s1);
+        expect(sut.servers?.[0]).eql(s1);
     });
 
     it('getPath', () => {
@@ -359,7 +345,7 @@ describe('OpenApiBuilder', () => {
             }
         };
         const sut = OpenApiBuilder.create().addPath('/service7', path1).rootDoc;
-        oa.addExtension(sut.paths, 'x-my-extension', 42);
+        addExtension(sut.paths, 'x-my-extension', 42);
 
         expect(oa.getPath(sut.paths, '/service7')).eql(path1);
         expect(oa.getPath(sut.paths, '/service56')).eql(undefined);
@@ -375,7 +361,7 @@ describe('OpenApiBuilder', () => {
             }
         };
         const sut = OpenApiBuilder.create().addPath('/service7', path1).rootDoc;
-        oa.addExtension(sut.paths, 'x-my-extension', 42);
+        addExtension(sut.paths, 'x-my-extension', 42);
 
         expect(oa.getPath(sut.paths, 'x-path')).eql(undefined);
     });
@@ -390,10 +376,10 @@ describe('OpenApiBuilder', () => {
             }
         };
         const sut = OpenApiBuilder.create().addPath('/service7', path1).rootDoc;
-        oa.addExtension(sut.paths, 'x-my-extension', 42);
+        addExtension(sut.paths, 'x-my-extension', 42);
 
-        expect(oa.getExtension(sut.paths, 'x-my-extension')).eql(42);
-        expect(oa.getExtension(sut.paths, 'x-other')).eql(undefined);
+        expect(getExtension(sut.paths, 'x-my-extension')).eql(42);
+        expect(getExtension(sut.paths, 'x-other')).eql(undefined);
     });
     it('retrieve invalid extension', () => {
         const path1 = {
@@ -406,9 +392,9 @@ describe('OpenApiBuilder', () => {
             }
         };
         const sut = OpenApiBuilder.create().addPath('/service7', path1).rootDoc;
-        oa.addExtension(sut.paths, 'x-my-extension', 42);
+        addExtension(sut.paths, 'x-my-extension', 42);
 
-        expect(oa.getExtension(sut.paths, 'y-other')).eql(undefined);
+        expect(getExtension(sut.paths, 'y-other')).eql(undefined);
     });
 
     describe('Serialize', () => {

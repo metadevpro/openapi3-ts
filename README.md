@@ -8,6 +8,12 @@ TypeScript library to help building OpenAPI 3.x compliant API contracts.
 
 [![NPM](https://nodei.co/npm/openapi3-ts.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/openapi3-ts/)
 
+## Version 4
+
+*Breaking change notice:*
+
+Version 4.0 Adds explicit support for OAS 3.0 and OAS 3.1 as separate implementations.
+
 ## Includes
 
 * `/src/model` TS typed interfaces for helping building a contract.
@@ -37,4 +43,4 @@ Licensed under the MIT License.
 
 **Contact:** Pedro J. Molina | github: [pjmolina](https://github.com/pjmolina) | twitter: [pmolinam](https://twitter.com/pmolinam)
 
-(c) 2017-2022. [Pedro J. Molina](http://pjmolina.com) at Metadev S.L. [https://metadev.pro](https://metadev.pro) & contributors.
+(c) 2017-2023. [Pedro J. Molina](http://pjmolina.com) at Metadev S.L. [https://metadev.pro](https://metadev.pro) & contributors.

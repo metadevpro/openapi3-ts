@@ -1,8 +1,8 @@
-import * as oa from './OpenApi';
-import { IExtensionName, IExtensionType } from './SpecificationExtension.js';
+import { ServerObject, ServerVariableObject } from './oas-common.js';
+import { IExtensionName, IExtensionType } from './specificationExtension.js';
 
 // Server & Server Variable
-export class Server implements oa.ServerObject {
+export class Server implements ServerObject {
     url: string;
     description?: string;
     variables: { [v: string]: ServerVariable };
@@ -18,7 +18,7 @@ export class Server implements oa.ServerObject {
     }
 }
 
-export class ServerVariable implements oa.ServerVariableObject {
+export class ServerVariable implements ServerVariableObject {
     enum?: string[] | boolean[] | number[];
     default: string | boolean | number;
     description?: string;

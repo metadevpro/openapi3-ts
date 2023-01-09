@@ -1,4 +1,5 @@
-import { SpecificationExtension } from './SpecificationExtension';
+import { describe, expect, it } from 'vitest';
+import { SpecificationExtension } from './specificationExtension';
 
 describe('SpecificationExtension', () => {
     it('addExtension() ok', () => {
