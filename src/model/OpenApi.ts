@@ -270,6 +270,17 @@ export function isReferenceObject(obj: any): obj is ReferenceObject {
 
 export type SchemaObjectType = 'integer' | 'number' | 'string' | 'boolean' | 'object' | 'null' | 'array';
 
+export type SchemaObjectFormat = 'int32'
+    | 'int64'
+    | 'float'
+    | 'double'
+    | 'byte'
+    | 'binary'
+    | 'date'
+    | 'date-time'
+    | 'password'
+    | string
+
 export interface SchemaObject extends ISpecificationExtension {
     nullable?: boolean;
     discriminator?: DiscriminatorObject;
@@ -282,17 +293,7 @@ export interface SchemaObject extends ISpecificationExtension {
     deprecated?: boolean;
 
     type?: SchemaObjectType | SchemaObjectType[];
-    format?:
-        | 'int32'
-        | 'int64'
-        | 'float'
-        | 'double'
-        | 'byte'
-        | 'binary'
-        | 'date'
-        | 'date-time'
-        | 'password'
-        | string;
+    format?: SchemaObjectFormat;
     allOf?: (SchemaObject | ReferenceObject)[];
     oneOf?: (SchemaObject | ReferenceObject)[];
     anyOf?: (SchemaObject | ReferenceObject)[];
