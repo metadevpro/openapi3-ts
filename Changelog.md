@@ -1,5 +1,9 @@
 # Changelog: openapi3-ts
 
+## Version 3.2.0
+
+- PR [#94](https://github.com/metadevpro/openapi3-ts/pull/94) Export type `SchemaObjectType`.
+- PR [#95](https://github.com/metadevpro/openapi3-ts/pull/95) Export type `SchemaObjectFormat`. Both contributed by @beautyfree
 
 ## Version 3.1.2
 
