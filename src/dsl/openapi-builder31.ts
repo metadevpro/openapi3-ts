@@ -1,5 +1,5 @@
 import * as yaml from 'yaml';
-import * as oa from '../model/index.js';
+import * as oa from '../model/openapi31.js';
 
 // Internal DSL for building an OpenAPI 3.0.x contract
 // using a fluent interface
@@ -99,7 +99,7 @@ export class OpenApiBuilder {
         return this;
     }
     addPath(path: string, pathItem: oa.PathItemObject): OpenApiBuilder {
-        this.rootDoc.paths[path] = {...this.rootDoc.paths[path] || {}, ...pathItem};
+        this.rootDoc.paths[path] = { ...(this.rootDoc.paths[path] || {}), ...pathItem };
         return this;
     }
     addSchema(name: string, schema: oa.SchemaObject | oa.ReferenceObject): OpenApiBuilder {

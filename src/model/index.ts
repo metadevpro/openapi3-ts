@@ -1,3 +1,3 @@
-export * from './SpecificationExtension.js';
-export * from './OpenApi.js';
-export * from './Server.js';
+export * from './openapi31.js';
+export * from './server.js';
+export * from './specificationExtension.js';

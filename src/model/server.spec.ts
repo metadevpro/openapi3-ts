@@ -1,4 +1,5 @@
-import { Server, ServerVariable } from './Server';
+import { describe, expect, it } from 'vitest';
+import { Server, ServerVariable } from './server';
 
 describe('Server', () => {
     it('create server', () => {
@@ -6,9 +7,9 @@ describe('Server', () => {
         const sut = new Server('http://api.qa.machine.org', 'qa maquine');
         sut.addVariable('environment', v1);
 
-        expect(sut.url).eql('http://api.qa.machine.org');
-        expect(sut.description).eql('qa maquine');
-        expect(sut.variables.environment.default).eql('dev');
+        expect(sut.url).toBe('http://api.qa.machine.org');
+        expect(sut.description).toBe('qa maquine');
+        expect(sut.variables.environment.default).toBe('dev');
     });
 });
 
@@ -16,8 +17,8 @@ describe('ServerVariable', () => {
     it('server var', () => {
         const sut = new ServerVariable('dev', ['dev', 'qa', 'prod'], 'environment');
 
-        expect(sut.default).eql('dev');
-        expect(sut.description).eql('environment');
-        expect(sut.enum).eql(['dev', 'qa', 'prod']);
+        expect(sut.default).toBe('dev');
+        expect(sut.description).toBe('environment');
+        expect(sut.enum).toStrictEqual(['dev', 'qa', 'prod']);
     });
 });

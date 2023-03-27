@@ -1,24 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// Typed interfaces for OpenAPI 3.0.0-RC
-// see https://github.com/OAI/OpenAPI-Specification/blob/3.0.0-rc0/versions/3.0.md
 
-import { ISpecificationExtension, SpecificationExtension } from './SpecificationExtension.js';
+// Typed interfaces for OpenAPI 3.0.3
+// see https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md
 
-export function getExtension(obj: ISpecificationExtension, extensionName: string): any {
-    if (SpecificationExtension.isValidExtension(extensionName)) {
-        return obj[extensionName];
-    }
-    return undefined;
-}
-export function addExtension(
-    obj: ISpecificationExtension,
-    extensionName: string,
-    extension: any
-): void {
-    if (SpecificationExtension.isValidExtension(extensionName)) {
-        obj[extensionName] = extension;
-    }
-}
+import { ServerObject } from './oas-common.js';
+import { ISpecificationExtension, SpecificationExtension } from './specificationExtension.js';
+
+export * from './oas-common.js';
+export { ISpecificationExtension, SpecificationExtension } from './specificationExtension.js';
 
 export interface OpenAPIObject extends ISpecificationExtension {
     openapi: string;
@@ -29,7 +18,6 @@ export interface OpenAPIObject extends ISpecificationExtension {
     security?: SecurityRequirementObject[];
     tags?: TagObject[];
     externalDocs?: ExternalDocumentationObject;
-    webhooks?: PathsObject;
 }
 export interface InfoObject extends ISpecificationExtension {
     title: string;
@@ -48,16 +36,7 @@ export interface LicenseObject extends ISpecificationExtension {
     name: string;
     url?: string;
 }
-export interface ServerObject extends ISpecificationExtension {
-    url: string;
-    description?: string;
-    variables?: { [v: string]: ServerVariableObject };
-}
-export interface ServerVariableObject extends ISpecificationExtension {
-    enum?: string[] | boolean[] | number[];
-    default: string | boolean | number;
-    description?: string;
-}
+
 export interface ComponentsObject extends ISpecificationExtension {
     schemas?: { [schema: string]: SchemaObject | ReferenceObject };
     responses?: { [response: string]: ResponseObject | ReferenceObject };
@@ -72,7 +51,7 @@ export interface ComponentsObject extends ISpecificationExtension {
 
 /**
  * Rename it to Paths Object to be consistent with the spec
- * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#pathsObject
+ * See https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#pathsObject
  */
 export interface PathsObject extends ISpecificationExtension {
     // [path: string]: PathItemObject;
@@ -130,7 +109,7 @@ export interface ExternalDocumentationObject extends ISpecificationExtension {
  * The location of a parameter.
  * Possible values are "query", "header", "path" or "cookie".
  * Specification:
- * https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#parameter-locations
+ * https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#parameter-locations
  */
 export type ParameterLocation = 'query' | 'header' | 'path' | 'cookie';
 
@@ -139,7 +118,7 @@ export type ParameterLocation = 'query' | 'header' | 'path' | 'cookie';
  * Describes how the parameter value will be serialized.
  * (serialization is not implemented yet)
  * Specification:
- * https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#style-values
+ * https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#style-values
  */
 export type ParameterStyle =
     | 'matrix'
@@ -268,9 +247,17 @@ export function isReferenceObject(obj: any): obj is ReferenceObject {
     return Object.prototype.hasOwnProperty.call(obj, '$ref');
 }
 
-export type SchemaObjectType = 'integer' | 'number' | 'string' | 'boolean' | 'object' | 'null' | 'array';
+export type SchemaObjectType =
+    | 'integer'
+    | 'number'
+    | 'string'
+    | 'boolean'
+    | 'object'
+    | 'null'
+    | 'array';
 
-export type SchemaObjectFormat = 'int32'
+export type SchemaObjectFormat =
+    | 'int32'
     | 'int64'
     | 'float'
     | 'double'
@@ -279,10 +266,9 @@ export type SchemaObjectFormat = 'int32'
     | 'date'
     | 'date-time'
     | 'password'
-    | string
+    | string;
 
 export interface SchemaObject extends ISpecificationExtension {
-    nullable?: boolean;
     discriminator?: DiscriminatorObject;
     readOnly?: boolean;
     writeOnly?: boolean;
@@ -307,11 +293,11 @@ export interface SchemaObject extends ISpecificationExtension {
     title?: string;
     multipleOf?: number;
     maximum?: number;
-    /** @desc OpenAPI 3.0: boolean, OpenAPI 3.1: number */
-    exclusiveMaximum?: number | boolean;
+    /** @desc In OpenAPI 3.0: boolean*/
+    exclusiveMaximum?: boolean;
     minimum?: number;
-    /** @desc OpenAPI 3.0: boolean, OpenAPI 3.1: number */
-    exclusiveMinimum?: number | boolean;
+    /** @desc In OpenAPI 3.0: boolean */
+    exclusiveMinimum?: boolean;
     maxLength?: number;
     minLength?: number;
     pattern?: string;
