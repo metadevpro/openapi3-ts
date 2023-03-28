@@ -13,7 +13,7 @@ export class OpenApiBuilder {
 
     constructor(doc?: oa.OpenAPIObject) {
         this.rootDoc = doc || {
-            openapi: '3.0.0',
+            openapi: '3.1.0',
             info: {
                 title: 'app',
                 version: 'version'
