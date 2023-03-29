@@ -1,5 +1,15 @@
 # Changelog: openapi3-ts
 
+## Version 4.0.1
+
+2023.03.29
+
+- Added instructions to README for consuing the library for v. 3.1.0 vs 3.0.0
+- PR [#100](https://github.com/metadevpro/openapi3-ts/pull/99) Fix typo by @RobinTail
+- PR [#99](https://github.com/metadevpro/openapi3-ts/pull/99) Fix typo by @RobinTail
+- PR [#97](https://github.com/metadevpro/openapi3-ts/pull/97) Export type `SchemaObjectType` by @RobinTail
+- PR [#96](https://github.com/metadevpro/openapi3-ts/pull/96) Support prefixItems by @samchungy
+
 ## Version 4.0.0  
 
 2023.03.27

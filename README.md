@@ -14,6 +14,50 @@ TypeScript library to help building OpenAPI 3.x compliant API contracts.
 
 Version 4.0 Adds explicit support for OAS 3.0 and OAS 3.1 as separate implementations.
 
+### To use version 3.1
+
+From Typescript you can consume it from the library:
+
+```typescript
+import { OpenAPIObject, OpenApiBuilder } from "openapi3-ts"; 
+```
+
+Or direclty from the sources:
+
+```typescript
+import { OpenAPIObject, OpenApiBuilder } from "openapi3-ts/src"; 
+```
+
+From a JavaScript application you can import:
+
+```javascript
+import * as openapi31 from 'openapi3-ts';
+ 
+```
+
+### To use version 3.0 import
+
+From Typescript you can consume it from the library:
+
+```typescript
+import { OpenAPIObject } from "openapi3-ts/model/openapi30"; 
+import { OpenApiBuilder } from "openapi3-ts/dsl/openapi-builder30";
+```
+
+Or directly from the sources:
+
+```typescript
+import { OpenAPIObject } from "openapi3-ts/src/model/openapi30"; 
+import { OpenApiBuilder } from "openapi3-ts/src/dsl/openapi-builder30"; 
+```
+
+From a JavaScript application you can import:
+
+```javascript
+import * as model from 'openapi3-ts/dist/cjs/model/openapi30';
+import * as dsl from 'openapi3-ts/dist/cjs/dsl/openapi-builder30'; 
+```
+
 ## Includes
 
 * `/src/model` TS typed interfaces for helping building a contract.

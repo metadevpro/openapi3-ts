@@ -6,7 +6,7 @@ import { OpenApiBuilder } from './openapi-builder31.js';
 describe('OpenApiBuilder', () => {
     it('Build empty Spec', () => {
         expect(OpenApiBuilder.create().getSpec()).eql({
-            openapi: '3.0.0',
+            openapi: '3.1.0',
             info: {
                 title: 'app',
                 version: 'version'
@@ -29,7 +29,7 @@ describe('OpenApiBuilder', () => {
     });
     it('Build with custom object', () => {
         const obj: oa.OpenAPIObject = {
-            openapi: '3.0.0',
+            openapi: '3.1.0',
             info: {
                 title: 'app1',
                 version: 'version2'
@@ -417,7 +417,7 @@ describe('OpenApiBuilder', () => {
                 .addVersion('5.6.7')
                 .getSpecAsJson();
             expect(sut).eql(
-                `{"openapi":"3.0.0","info":{"title":"app9","version":"5.6.7"},"paths":{},"components":{"schemas":{},"responses":{},"parameters":{},"examples":{},"requestBodies":{},"headers":{},"securitySchemes":{},"links":{},"callbacks":{}},"tags":[],"servers":[]}`
+                `{"openapi":"3.1.0","info":{"title":"app9","version":"5.6.7"},"paths":{},"components":{"schemas":{},"responses":{},"parameters":{},"examples":{},"requestBodies":{},"headers":{},"securitySchemes":{},"links":{},"callbacks":{}},"tags":[],"servers":[]}`
             );
         });
         it('getSpecAsYaml', () => {
@@ -426,7 +426,7 @@ describe('OpenApiBuilder', () => {
                 .addVersion('5.6.7')
                 .getSpecAsYaml();
             expect(sut).eql(
-                'openapi: 3.0.0\ninfo:\n  title: app9\n  version: 5.6.7\npaths: {}\ncomponents:\n  schemas: {}\n  responses: {}\n  parameters: {}\n  examples: {}\n  requestBodies: {}\n  headers: {}\n  securitySchemes: {}\n  links: {}\n  callbacks: {}\ntags: []\nservers: []\n'
+                'openapi: 3.1.0\ninfo:\n  title: app9\n  version: 5.6.7\npaths: {}\ncomponents:\n  schemas: {}\n  responses: {}\n  parameters: {}\n  examples: {}\n  requestBodies: {}\n  headers: {}\n  securitySchemes: {}\n  links: {}\n  callbacks: {}\ntags: []\nservers: []\n'
             );
         });
     });
