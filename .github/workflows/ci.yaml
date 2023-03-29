@@ -12,7 +12,11 @@ jobs:
             - uses: actions/checkout@v2
             - name: Install dependencies
               run: npm install
-            - name: Build + Lint
+            - name: Lint
+              run: eslint --version
+            - name: Lint
+              run: npm run lint
+            - name: Build
               run: npm run build
             - name: Test + coverage
               run: npm run cover:ci

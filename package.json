@@ -11,7 +11,8 @@
     },
     "scripts": {
         "clean": "rimraf dist",
-        "build": "rimraf dist && npm run lint && tsc && tsc -p tsconfig-cjs.json",
+        "build": "tsc && tsc -p tsconfig-cjs.json",
+        "build:all": "rimraf dist && npm run lint && tsc && tsc -p tsconfig-cjs.json && npm test",
         "build:w": "BUILD_WATCH=true node build.mjs",
         "lint": "eslint src/**/*.ts",
         "lint:fix": "eslint src/**/*.ts --fix",
