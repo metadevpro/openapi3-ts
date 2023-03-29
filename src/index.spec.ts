@@ -1,17 +1,21 @@
 import { describe, expect, it } from 'vitest';
-import { OpenApiBuilder, Server, ServerVariable } from '.';
+import lib from './index';
 
 describe('Top barrel', () => {
-    it('OpenApiBuilder is exported', () => {
-        const sut = OpenApiBuilder.create();
+    it('OpenApiBuilder v. 3.0 is exported', () => {
+        const sut = lib.oas30.OpenApiBuilder.create();
+        expect(sut).not.toBeNull;
+    });
+    it('OpenApiBuilder v. 3.1 is exported', () => {
+        const sut = lib.oas31.OpenApiBuilder.create();
         expect(sut).not.toBeNull;
     });
     it('Server is exported', () => {
-        const sut = new Server('a', 'b');
+        const sut = new lib.Server('a', 'b');
         expect(sut).not.toBeNull;
     });
     it('ServerVariable is exported', () => {
-        const sut = new ServerVariable('a', ['b'], 'c');
+        const sut = new lib.ServerVariable('a', ['b'], 'c');
         expect(sut).not.toBeNull;
     });
 });
