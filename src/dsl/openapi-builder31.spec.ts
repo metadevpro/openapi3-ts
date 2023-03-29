@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { addExtension, getExtension } from '../model/oas-common';
-import * as oa from '../model/openapi31.js';
-import { OpenApiBuilder } from './openapi-builder31.js';
+import * as oa from '../model/openapi31';
+import { OpenApiBuilder } from './openapi-builder31';
 
 describe('OpenApiBuilder', () => {
     it('Build empty Spec', () => {

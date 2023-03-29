@@ -1,5 +1,5 @@
-import { ServerObject, ServerVariableObject } from './oas-common.js';
-import { IExtensionName, IExtensionType } from './specificationExtension.js';
+import { ServerObject, ServerVariableObject } from './oas-common';
+import { IExtensionName, IExtensionType } from './specificationExtension';
 
 // Server & Server Variable
 export class Server implements ServerObject {

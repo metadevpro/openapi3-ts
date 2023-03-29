@@ -1,1 +1,1 @@
-export * from './openapi-builder31.js';
+export * from './openapi-builder31';

@@ -1,5 +1,5 @@
 import * as yaml from 'yaml';
-import * as oa from '../model/openapi31.js';
+import * as oa from '../model/openapi31';
 
 // Internal DSL for building an OpenAPI 3.1.x contract
 // using a fluent interface

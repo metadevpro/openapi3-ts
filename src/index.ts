@@ -1,2 +1,2 @@
-export * from './model/index.js';
-export * from './dsl/index.js';
+export * from './dsl/index';
+export * from './model/index';
