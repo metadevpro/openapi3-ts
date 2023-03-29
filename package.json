@@ -15,7 +15,6 @@
         "build:w": "BUILD_WATCH=true node build.mjs",
         "lint": "eslint src/**/*.ts",
         "lint:fix": "eslint src/**/*.ts --fix",
-        "prepare": "npm run build",
         "test:tdd": "vitest -w",
         "test": "vitest",
         "test:ci": "npm run test",
