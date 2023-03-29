@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { ISpecificationExtension, SpecificationExtension } from './specificationExtension';
+import { ISpecificationExtension, SpecificationExtension } from './specification-extension';
 
 export interface ServerObject extends ISpecificationExtension {
     url: string;

@@ -6,7 +6,7 @@ import {
     isReferenceObject,
     isSchemaObject
 } from './openapi31';
-import { IExtensionName, IExtensionType } from './specificationExtension';
+import { IExtensionName, IExtensionType } from './specification-extension';
 
 describe('type-guards unit tests', () => {
     describe('isSchemaObject()', () => {

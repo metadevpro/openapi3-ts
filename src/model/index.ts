@@ -1,3 +1,3 @@
 export * from './openapi31';
 export * from './server';
-export * from './specificationExtension';
+export * from './specification-extension';
