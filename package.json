@@ -11,16 +11,17 @@
     },
     "scripts": {
         "clean": "rimraf dist",
-        "build": "tsc && tsc -p tsconfig-cjs.json",
-        "build:all": "rimraf dist && npm run lint && tsc && tsc -p tsconfig-cjs.json && npm test",
-        "build:w": "BUILD_WATCH=true node build.mjs",
+        "build": "npm run build:mjs && npm run build:cjs",
+        "build:mjs": "npx tsc",
+        "build:cjs": "npx tsc -p tsconfig-cjs.json",
+        "build:all": "rimraf dist && npm run lint && npm run build && npm test",
         "lint": "npx eslint src/**/*.ts",
         "lint:fix": "npx eslint src/**/*.ts --fix",
         "test:tdd": "vitest -w",
         "test": "vitest",
         "test:ci": "npm run test",
-        "cover:ci": "npm run cover",
-        "cover": "vitest --coverage"
+        "cover": "vitest --coverage",
+        "cover:ci": "npm run cover"
     },
     "keywords": [
         "openapi3",
