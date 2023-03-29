@@ -3,11 +3,11 @@
 // Typed interfaces for OpenAPI 3.1.0
 // see https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md
 
-import { ServerObject } from './oas-common.js';
-import { ISpecificationExtension, SpecificationExtension } from './specificationExtension.js';
+import { ServerObject } from './oas-common';
+import { ISpecificationExtension, SpecificationExtension } from './specification-extension';
 
-export * from './oas-common.js';
-export { ISpecificationExtension, SpecificationExtension } from './specificationExtension.js';
+export * from './oas-common';
+export { ISpecificationExtension, SpecificationExtension } from './specification-extension';
 
 export interface OpenAPIObject extends ISpecificationExtension {
     openapi: string;
@@ -252,7 +252,14 @@ export function isReferenceObject(obj: any): obj is ReferenceObject {
     return Object.prototype.hasOwnProperty.call(obj, '$ref');
 }
 
-export type SchemaObjectType = 'integer' | 'number' | 'string' | 'boolean' | 'object' | 'null' | 'array';
+export type SchemaObjectType =
+    | 'integer'
+    | 'number'
+    | 'string'
+    | 'boolean'
+    | 'object'
+    | 'null'
+    | 'array';
 
 export interface SchemaObject extends ISpecificationExtension {
     /** nullable supported in v. 3.1.0 */

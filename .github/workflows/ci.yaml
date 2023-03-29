@@ -5,14 +5,20 @@ on:
         branches: [master]
 
 jobs:
-    lint:
+    ci:
         runs-on: ubuntu-latest
 
         steps:
             - uses: actions/checkout@v2
             - name: Install dependencies
               run: npm install
-            - name: Build + Lint
-              run: npm run build
+            - name: Versions used
+              run: npm run version
+            - name: Lint
+              run: npm run lint
+            - name: Build mjs
+              run: npm run build:mjs
+            - name: Build cjs
+              run: npm run build:cjs
             - name: Test + coverage
               run: npm run cover:ci

@@ -3,11 +3,11 @@
 // Typed interfaces for OpenAPI 3.0.3
 // see https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md
 
-import { ServerObject } from './oas-common.js';
-import { ISpecificationExtension, SpecificationExtension } from './specificationExtension.js';
+import { ServerObject } from './oas-common';
+import { ISpecificationExtension, SpecificationExtension } from './specification-extension';
 
-export * from './oas-common.js';
-export { ISpecificationExtension, SpecificationExtension } from './specificationExtension.js';
+export * from './oas-common';
+export { ISpecificationExtension, SpecificationExtension } from './specification-extension';
 
 export interface OpenAPIObject extends ISpecificationExtension {
     openapi: string;

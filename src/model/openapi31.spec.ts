@@ -1,12 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import {
+    ReferenceObject,
+    SchemaObject,
     addExtension,
     isReferenceObject,
-    isSchemaObject,
-    ReferenceObject,
-    SchemaObject
+    isSchemaObject
 } from './openapi31';
-import { IExtensionName, IExtensionType } from './SpecificationExtension';
+import { IExtensionName, IExtensionType } from './specification-extension';
 
 describe('type-guards unit tests', () => {
     describe('isSchemaObject()', () => {
