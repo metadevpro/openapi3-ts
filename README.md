@@ -19,20 +19,20 @@ Version 4.0 Adds explicit support for OAS 3.0 and OAS 3.1 as separate implementa
 From Typescript you can consume it from the library:
 
 ```typescript
-import { OpenAPIObject, OpenApiBuilder } from "openapi3-ts"; 
+import { oas31 } from "openapi3-ts";
 ```
 
-Or direclty from the sources:
+Or directly from sources:
 
 ```typescript
-import { OpenAPIObject, OpenApiBuilder } from "openapi3-ts/src"; 
+import { OpenAPIObject } from "openapi3-ts/src/model/openapi31";
+import { OpenApiBuilder } from "openapi3-ts/src/dsl/openapi-builder31";
 ```
 
 From a JavaScript application you can import:
 
 ```javascript
-import * as openapi31 from 'openapi3-ts';
- 
+import { oas31 } from 'openapi3-ts';
 ```
 
 ### To use version 3.0 import
@@ -40,22 +40,20 @@ import * as openapi31 from 'openapi3-ts';
 From Typescript you can consume it from the library:
 
 ```typescript
-import { OpenAPIObject } from "openapi3-ts/model/openapi30"; 
-import { OpenApiBuilder } from "openapi3-ts/dsl/openapi-builder30";
+import { oas30 } from "openapi3-ts";
 ```
 
 Or directly from the sources:
 
 ```typescript
-import { OpenAPIObject } from "openapi3-ts/src/model/openapi30"; 
-import { OpenApiBuilder } from "openapi3-ts/src/dsl/openapi-builder30"; 
+import { OpenAPIObject } from "openapi3-ts/src/model/openapi30";
+import { OpenApiBuilder } from "openapi3-ts/src/dsl/openapi-builder30";
 ```
 
 From a JavaScript application you can import:
 
 ```javascript
-import * as model from 'openapi3-ts/dist/cjs/model/openapi30';
-import * as dsl from 'openapi3-ts/dist/cjs/dsl/openapi-builder30'; 
+import { oas30 } from "openapi3-ts";
 ```
 
 ## Includes
