@@ -1,5 +1,11 @@
 # Changelog: openapi3-ts
 
+## Version 4.0.2
+
+2023.03.30
+
+- PR [#104](https://github.com/metadevpro/openapi3-ts/pull/104) Fix export for cjs by @RobinTail
+
 ## Version 4.0.1
 
 2023.03.29
