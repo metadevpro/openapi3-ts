@@ -25,8 +25,8 @@ export class SpecificationExtension implements ISpecificationExtension {
                 `Invalid specification extension: '${extensionName}'. Extensions must start with prefix 'x-`
             );
         }
-        if (this[extensionName]) {
-            return this[extensionName];
+        if (this[extensionName as IExtensionName]) {
+            return this[extensionName as IExtensionName];
         }
         return null;
     }
@@ -36,7 +36,7 @@ export class SpecificationExtension implements ISpecificationExtension {
                 `Invalid specification extension: '${extensionName}'. Extensions must start with prefix 'x-`
             );
         }
-        this[extensionName] = payload;
+        this[extensionName as IExtensionName] = payload;
     }
     listExtensions(): string[] {
         const res: string[] = [];

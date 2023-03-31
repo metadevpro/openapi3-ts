@@ -1,6 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { ISpecificationExtension, SpecificationExtension } from './specification-extension';
+import {
+    IExtensionName,
+    ISpecificationExtension,
+    SpecificationExtension
+} from './specification-extension';
 
 export interface ServerObject extends ISpecificationExtension {
     url: string;
@@ -18,7 +22,7 @@ export function getExtension(obj: ISpecificationExtension | undefined, extension
         return undefined;
     }
     if (SpecificationExtension.isValidExtension(extensionName)) {
-        return obj[extensionName];
+        return obj[extensionName as IExtensionName];
     }
     return undefined;
 }
@@ -28,6 +32,6 @@ export function addExtension(
     extension: any
 ): void {
     if (obj && SpecificationExtension.isValidExtension(extensionName)) {
-        obj[extensionName] = extension;
+        obj[extensionName as IExtensionName] = extension;
     }
 }

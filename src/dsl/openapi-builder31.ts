@@ -99,22 +99,31 @@ export class OpenApiBuilder {
         return this;
     }
     addPath(path: string, pathItem: oa.PathItemObject): OpenApiBuilder {
+        this.rootDoc.paths = this.rootDoc.paths || [];
         this.rootDoc.paths[path] = { ...(this.rootDoc.paths[path] || {}), ...pathItem };
         return this;
     }
     addSchema(name: string, schema: oa.SchemaObject | oa.ReferenceObject): OpenApiBuilder {
+        this.rootDoc.components = this.rootDoc.components || {};
+        this.rootDoc.components.schemas = this.rootDoc.components.schemas || {};
         this.rootDoc.components.schemas[name] = schema;
         return this;
     }
     addResponse(name: string, response: oa.ResponseObject | oa.ReferenceObject): OpenApiBuilder {
+        this.rootDoc.components = this.rootDoc.components || {};
+        this.rootDoc.components.responses = this.rootDoc.components.responses || {};
         this.rootDoc.components.responses[name] = response;
         return this;
     }
     addParameter(name: string, parameter: oa.ParameterObject | oa.ReferenceObject): OpenApiBuilder {
+        this.rootDoc.components = this.rootDoc.components || {};
+        this.rootDoc.components.parameters = this.rootDoc.components.parameters || {};
         this.rootDoc.components.parameters[name] = parameter;
         return this;
     }
     addExample(name: string, example: oa.ExampleObject | oa.ReferenceObject): OpenApiBuilder {
+        this.rootDoc.components = this.rootDoc.components || {};
+        this.rootDoc.components.examples = this.rootDoc.components.examples || {};
         this.rootDoc.components.examples[name] = example;
         return this;
     }
@@ -122,10 +131,14 @@ export class OpenApiBuilder {
         name: string,
         reqBody: oa.RequestBodyObject | oa.ReferenceObject
     ): OpenApiBuilder {
+        this.rootDoc.components = this.rootDoc.components || {};
+        this.rootDoc.components.requestBodies = this.rootDoc.components.requestBodies || {};
         this.rootDoc.components.requestBodies[name] = reqBody;
         return this;
     }
     addHeader(name: string, header: oa.HeaderObject | oa.ReferenceObject): OpenApiBuilder {
+        this.rootDoc.components = this.rootDoc.components || {};
+        this.rootDoc.components.headers = this.rootDoc.components.headers || {};
         this.rootDoc.components.headers[name] = header;
         return this;
     }
@@ -133,22 +146,30 @@ export class OpenApiBuilder {
         name: string,
         secScheme: oa.SecuritySchemeObject | oa.ReferenceObject
     ): OpenApiBuilder {
+        this.rootDoc.components = this.rootDoc.components || {};
+        this.rootDoc.components.securitySchemes = this.rootDoc.components.securitySchemes || {};
         this.rootDoc.components.securitySchemes[name] = secScheme;
         return this;
     }
     addLink(name: string, link: oa.LinkObject | oa.ReferenceObject): OpenApiBuilder {
+        this.rootDoc.components = this.rootDoc.components || {};
+        this.rootDoc.components.links = this.rootDoc.components.links || {};
         this.rootDoc.components.links[name] = link;
         return this;
     }
     addCallback(name: string, callback: oa.CallbackObject | oa.ReferenceObject): OpenApiBuilder {
+        this.rootDoc.components = this.rootDoc.components || {};
+        this.rootDoc.components.callbacks = this.rootDoc.components.callbacks || {};
         this.rootDoc.components.callbacks[name] = callback;
         return this;
     }
     addServer(server: oa.ServerObject): OpenApiBuilder {
+        this.rootDoc.servers = this.rootDoc.servers || [];
         this.rootDoc.servers.push(server);
         return this;
     }
     addTag(tag: oa.TagObject): OpenApiBuilder {
+        this.rootDoc.tags = this.rootDoc.tags || [];
         this.rootDoc.tags.push(tag);
         return this;
     }

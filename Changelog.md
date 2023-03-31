@@ -1,5 +1,11 @@
 # Changelog: openapi3-ts
 
+## Version 4.0.3
+
+2023.03.30
+
+- Bug fix. Stricter TS compilation. Fix issue [#105](https://github.com/metadevpro/openapi3-ts/issues/105)
+
 ## Version 4.0.2
 
 2023.03.30
