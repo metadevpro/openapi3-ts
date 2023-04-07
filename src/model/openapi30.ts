@@ -308,7 +308,6 @@ export interface SchemaObject extends ISpecificationExtension {
     minProperties?: number;
     required?: string[];
     enum?: any[];
-    prefixItems?: (SchemaObject | ReferenceObject)[];
 }
 
 /**
