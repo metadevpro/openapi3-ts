@@ -1,5 +1,12 @@
 # Changelog: openapi3-ts
 
+## Version 4.0.4
+
+2023.04.10
+
+- [#108](https://github.com/metadevpro/openapi3-ts/pull/108) Bug fix: Remove any type from `paths` by @samchungy.
+- [#109](https://github.com/metadevpro/openapi3-ts/pull/109) Bug fix: Fixup types `example` & `prefixItems`  by @samchungy.
+
 ## Version 4.0.3
 
 2023.03.30

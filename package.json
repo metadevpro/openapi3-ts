@@ -1,6 +1,6 @@
 {
     "name": "openapi3-ts",
-    "version": "4.0.3",
+    "version": "4.0.4",
     "description": "TS Model & utils for OpenAPI 3.x specification.",
     "main": "dist/cjs/index.js",
     "module": "dist/mjs/index.js",
@@ -36,18 +36,18 @@
     },
     "devDependencies": {
         "@types/node": "^18.15.11",
-        "@typescript-eslint/eslint-plugin": "^5.57.0",
-        "@typescript-eslint/parser": "^5.57.0",
-        "@vitest/coverage-c8": "^0.29.8",
+        "@typescript-eslint/eslint-plugin": "^5.57.1",
+        "@typescript-eslint/parser": "^5.57.1",
+        "@vitest/coverage-c8": "^0.30.0",
         "c8": "^7.13.0",
         "coveralls": "^3.1.1",
-        "eslint": "^8.37.0",
+        "eslint": "^8.38.0",
         "eslint-config-prettier": "^8.8.0",
         "eslint-plugin-prettier": "^4.2.1",
         "prettier": "^2.8.7",
         "rimraf": "^4.4.1",
-        "typescript": "~5.0.3",
-        "vitest": "^0.29.8",
+        "typescript": "~5.0.4",
+        "vitest": "^0.30.0",
         "vitest-teamcity-reporter": "^0.1.12"
     }
 }
