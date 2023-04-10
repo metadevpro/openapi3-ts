@@ -269,10 +269,6 @@ export interface SchemaObject extends ISpecificationExtension {
     writeOnly?: boolean;
     xml?: XmlObject;
     externalDocs?: ExternalDocumentationObject;
-    /**
-     * |@deprecated Deprecated in v.3.1.0 in favour of examples
-     * */
-    example?: any;
     examples?: any[];
     deprecated?: boolean;
 
@@ -316,6 +312,7 @@ export interface SchemaObject extends ISpecificationExtension {
     minProperties?: number;
     required?: string[];
     enum?: any[];
+    prefixItems?: (SchemaObject | ReferenceObject)[];
 }
 
 /**
