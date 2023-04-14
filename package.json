@@ -1,23 +1,23 @@
 {
     "name": "openapi3-ts",
-    "version": "4.0.4",
+    "version": "4.1.0",
     "description": "TS Model & utils for OpenAPI 3.x specification.",
     "main": "dist/cjs/index.js",
     "module": "dist/mjs/index.js",
     "typings": "dist/mjs/index.d.ts",
     "exports": {
-      ".": {
-        "import": "./dist/mjs/index.js",
-        "require": "./dist/cjs/index.js"
-      },
-      "./oas30": {
-        "import": "./dist/mjs/oas30.js",
-        "require": "./dist/cjs/oas30.js"
-      },
-      "./oas31": {
-        "import": "./dist/mjs/oas31.js",
-        "require": "./dist/cjs/oas31.js"
-      }
+        ".": {
+            "import": "./dist/mjs/index.js",
+            "require": "./dist/cjs/index.js"
+        },
+        "./oas30": {
+            "import": "./dist/mjs/oas30.js",
+            "require": "./dist/cjs/oas30.js"
+        },
+        "./oas31": {
+            "import": "./dist/mjs/oas31.js",
+            "require": "./dist/cjs/oas31.js"
+        }
     },
     "repository": {
         "type": "git",
@@ -50,18 +50,18 @@
     },
     "devDependencies": {
         "@types/node": "^18.15.11",
-        "@typescript-eslint/eslint-plugin": "^5.57.1",
-        "@typescript-eslint/parser": "^5.57.1",
-        "@vitest/coverage-c8": "^0.30.0",
+        "@typescript-eslint/eslint-plugin": "^5.58.0",
+        "@typescript-eslint/parser": "^5.58.0",
+        "@vitest/coverage-c8": "^0.30.1",
         "c8": "^7.13.0",
         "coveralls": "^3.1.1",
         "eslint": "^8.38.0",
         "eslint-config-prettier": "^8.8.0",
         "eslint-plugin-prettier": "^4.2.1",
         "prettier": "^2.8.7",
-        "rimraf": "^4.4.1",
+        "rimraf": "^5.0.0",
         "typescript": "~5.0.4",
-        "vitest": "^0.30.0",
+        "vitest": "^0.30.1",
         "vitest-teamcity-reporter": "^0.1.12"
     }
 }

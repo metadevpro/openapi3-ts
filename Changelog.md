@@ -1,5 +1,11 @@
 # Changelog: openapi3-ts
 
+## Version 4.1.0
+
+2023.04.14
+
+- [#111](https://github.com/metadevpro/openapi3-ts/pull/111) Improved exports by @koooge
+
 ## Version 4.0.4
 
 2023.04.10
