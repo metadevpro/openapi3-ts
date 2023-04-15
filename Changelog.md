@@ -1,5 +1,11 @@
 # Changelog: openapi3-ts
 
+## Version 4.1.1
+
+2023.04.15
+
+- Fix [#112](https://github.com/metadevpro/openapi3-ts/pull/112) Remove `nullable` & deprecate `example` in OAS 3.1 by @samchungy.
+
 ## Version 4.1.0
 
 2023.04.14
