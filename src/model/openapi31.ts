@@ -264,13 +264,13 @@ export type SchemaObjectType =
     | 'array';
 
 export interface SchemaObject extends ISpecificationExtension {
-    /** nullable supported in v. 3.1.0 */
-    nullable?: boolean;
     discriminator?: DiscriminatorObject;
     readOnly?: boolean;
     writeOnly?: boolean;
     xml?: XmlObject;
     externalDocs?: ExternalDocumentationObject;
+    /** @deprecated use examples instead */
+    example?: any;
     examples?: any[];
     deprecated?: boolean;
 
