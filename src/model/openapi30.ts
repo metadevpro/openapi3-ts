@@ -269,6 +269,7 @@ export type SchemaObjectFormat =
     | string;
 
 export interface SchemaObject extends ISpecificationExtension {
+    nullable?: boolean;
     discriminator?: DiscriminatorObject;
     readOnly?: boolean;
     writeOnly?: boolean;
