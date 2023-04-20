@@ -20,6 +20,7 @@ export default defineConfig({
         },
       },
     },
+    sourcemap: true,
   },
     test: {
         environment: 'node',
