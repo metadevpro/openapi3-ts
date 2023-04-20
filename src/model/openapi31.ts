@@ -7,7 +7,7 @@ import { ServerObject } from './oas-common';
 import { ISpecificationExtension, SpecificationExtension } from './specification-extension';
 
 export * from './oas-common';
-export { ISpecificationExtension, SpecificationExtension } from './specification-extension';
+export type { ISpecificationExtension, SpecificationExtension } from './specification-extension';
 
 export interface OpenAPIObject extends ISpecificationExtension {
     openapi: string;
