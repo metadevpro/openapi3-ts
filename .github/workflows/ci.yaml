@@ -16,9 +16,7 @@ jobs:
               run: npm run version
             - name: Lint
               run: npm run lint
-            - name: Build mjs
-              run: npm run build:mjs
-            - name: Build cjs
-              run: npm run build:cjs
+            - name: Build
+              run: npm run build
             - name: Test + coverage
               run: npm run cover:ci
