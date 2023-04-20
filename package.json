@@ -2,21 +2,21 @@
     "name": "openapi3-ts",
     "version": "4.1.1",
     "description": "TS Model & utils for OpenAPI 3.x specification.",
-    "main": "dist/cjs/index.js",
-    "module": "dist/mjs/index.js",
-    "typings": "dist/mjs/index.d.ts",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/mjs/index.d.ts",
     "exports": {
         ".": {
-            "import": "./dist/mjs/index.js",
-            "require": "./dist/cjs/index.js"
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.js"
         },
         "./oas30": {
-            "import": "./dist/mjs/oas30.js",
-            "require": "./dist/cjs/oas30.js"
+            "import": "./dist/oas30.mjs",
+            "require": "./dist/oas30.js"
         },
         "./oas31": {
-            "import": "./dist/mjs/oas31.js",
-            "require": "./dist/cjs/oas31.js"
+            "import": "./dist/oas31.mjs",
+            "require": "./dist/oas31.js"
         }
     },
     "repository": {
