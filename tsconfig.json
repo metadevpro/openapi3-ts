@@ -20,5 +20,5 @@
     },
     "buildOnSave": true,
     "compileOnSave": true,
-    "exclude": ["**/*.spec.ts", "bin", "dist", "vite.config.ts", "node_modules/**"]
+    "exclude": ["**/*.spec.ts", "bin", "dist", "test", "vite.config.ts", "node_modules/**"]
 }

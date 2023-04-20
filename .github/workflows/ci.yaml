@@ -20,3 +20,11 @@ jobs:
               run: npm run build
             - name: Test + coverage
               run: npm run cover:ci
+            - name: Integration Test
+              run: |
+                cd test
+                npm i
+                npm run test:cjs
+                npm run test:mjs
+                npm run test:ts-node16
+                npm run test:ts-esm-node16
