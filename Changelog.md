@@ -1,5 +1,15 @@
 # Changelog: openapi3-ts
 
+## Version 4.1.2
+
+2023.04.25
+
+- Fix [#113](https://github.com/metadevpro/openapi3-ts/pull/113) Fix nullable on 3.0 types by @samchungy
+- Fix [#116](https://github.com/metadevpro/openapi3-ts/pull/116) Export with .mjs extension by @koooge
+- Fix [#117](https://github.com/metadevpro/openapi3-ts/pull/117) Support subpath for tsc with moduleResolutin node by @koooge
+- Fix [#118](https://github.com/metadevpro/openapi3-ts/pull/118) Bump yaml from 2.2.1 to 2.2.2 
+- Update dependencies to latest.
+
 ## Version 4.1.1
 
 2023.04.15
