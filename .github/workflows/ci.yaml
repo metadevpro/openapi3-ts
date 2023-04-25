@@ -26,5 +26,7 @@ jobs:
                 npm i
                 npm run test:cjs
                 npm run test:mjs
+                npm run test:ts
+                npm run test:ts-esm
                 npm run test:ts-node16
                 npm run test:ts-esm-node16

@@ -7,14 +7,17 @@
     "types": "dist/index.d.ts",
     "exports": {
         ".": {
+            "types": "./dist/index.d.ts",
             "import": "./dist/index.mjs",
             "require": "./dist/index.js"
         },
         "./oas30": {
+            "types": "./dist/oas30.d.ts",
             "import": "./dist/oas30.mjs",
             "require": "./dist/oas30.js"
         },
         "./oas31": {
+            "types": "./dist/oas31.d.ts",
             "import": "./dist/oas31.mjs",
             "require": "./dist/oas31.js"
         }
