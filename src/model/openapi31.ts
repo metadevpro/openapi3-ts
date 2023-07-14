@@ -36,6 +36,7 @@ export interface ContactObject extends ISpecificationExtension {
 }
 export interface LicenseObject extends ISpecificationExtension {
     name: string;
+    identifier?: string;
     url?: string;
 }
 
