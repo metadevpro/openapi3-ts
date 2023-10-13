@@ -272,7 +272,7 @@ export interface SchemaObject extends ISpecificationExtension {
     externalDocs?: ExternalDocumentationObject;
     /** @deprecated use examples instead */
     example?: any;
-    examples?: any[];
+    examples?: ExamplesObject;
     deprecated?: boolean;
 
     type?: SchemaObjectType | SchemaObjectType[];
