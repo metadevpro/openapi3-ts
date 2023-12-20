@@ -1,5 +1,13 @@
 # Changelog: openapi3-ts
 
+## Version 4.2.0
+
+2023.12.20
+
+- Added [#126](https://github.com/metadevpro/openapi3-ts/pull/126) Adding contentEncoding and contentMediaType to 3.1 by @RobinTail
+- Updated dependencies
+
+
 ## Version 4.1.2
 
 2023.04.25
