@@ -5,13 +5,15 @@
   "scripts": {
     "test:cjs": "node index.cjs",
     "test:mjs": "node index.mjs",
-    "test:ts": "ts-node --project fixture/tsconfig.node.json index.ts",
-    "test:ts-esm": "ts-node --esm --project fixture/tsconfig.node.json index.ts",
-    "test:ts-node16": "ts-node --project fixture/tsconfig.node16.json index.ts",
-    "test:ts-esm-node16": "ts-node --esm --project fixture/tsconfig.node16.json index.ts"
+    "test:ts": "tsx --tsconfig fixture/tsconfig.node.json index.cts",
+    "test:ts-esm": "tsx --tsconfig fixture/tsconfig.node.json index.mts",
+    "test:ts-node16": "tsx --tsconfig fixture/tsconfig.node16.json index.cts",
+    "test:ts-esm-node16": "tsx --tsconfig fixture/tsconfig.node16.json index.mts"
   },
   "dependencies": {
-    "openapi3-ts": "file:..",
-    "ts-node": "^10.9.1"
+    "openapi3-ts": "file:.."
+  },
+  "devDependencies": {
+    "tsx": "^4.6.2"
   }
 }

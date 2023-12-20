@@ -36,6 +36,7 @@ export interface ContactObject extends ISpecificationExtension {
 }
 export interface LicenseObject extends ISpecificationExtension {
     name: string;
+    identifier?: string;
     url?: string;
 }
 
@@ -271,7 +272,7 @@ export interface SchemaObject extends ISpecificationExtension {
     externalDocs?: ExternalDocumentationObject;
     /** @deprecated use examples instead */
     example?: any;
-    examples?: any[];
+    examples?: ExamplesObject;
     deprecated?: boolean;
 
     type?: SchemaObjectType | SchemaObjectType[];
@@ -293,6 +294,7 @@ export interface SchemaObject extends ISpecificationExtension {
     items?: SchemaObject | ReferenceObject;
     properties?: { [propertyName: string]: SchemaObject | ReferenceObject };
     additionalProperties?: SchemaObject | ReferenceObject | boolean;
+    propertyNames?: SchemaObject | ReferenceObject;
     description?: string;
     default?: any;
 
@@ -315,6 +317,19 @@ export interface SchemaObject extends ISpecificationExtension {
     required?: string[];
     enum?: any[];
     prefixItems?: (SchemaObject | ReferenceObject)[];
+    /** 
+     * @desc JSON Schema compliant Content-Type, optional when specified as a key of ContentObject
+     * @example image/png
+     */
+    contentMediaType?: string;
+    /**
+     * @desc Specifies the Content-Encoding for the schema, supports all encodings from RFC4648, and "quoted-printable" from RFC2045
+     * @override format
+     * @see https://datatracker.ietf.org/doc/html/rfc4648
+     * @see https://datatracker.ietf.org/doc/html/rfc2045#section-6.7
+     * @example base64
+     */
+    contentEncoding?: string;    
 }
 
 /**
