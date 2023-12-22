@@ -1,6 +1,10 @@
 # Changelog: openapi3-ts
 
-## Version 4.2.0
+## Version 4.2.1
+
+2023.12.21
+
+- Merged [#128](https://github.com/metadevpro/openapi3-ts/pull/128) Revert [#126](https://github.com/metadevpro/openapi3-ts/pull/128) `examples` typings by @RobinTail
 
 2023.12.20
 
