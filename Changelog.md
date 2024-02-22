@@ -1,5 +1,11 @@
 # Changelog: openapi3-ts
 
+## Version 4.2.2
+
+2024.02.22
+
+- Fixed [131](https://github.com/metadevpro/openapi3-ts/pull/131) `responses` to be optional by @remidewitte 
+
 ## Version 4.2.1
 
 2023.12.21
@@ -10,7 +16,6 @@
 
 - Added [#126](https://github.com/metadevpro/openapi3-ts/pull/126) Adding contentEncoding and contentMediaType to 3.1 by @RobinTail
 - Updated dependencies
-
 
 ## Version 4.1.2
 
