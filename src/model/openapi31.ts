@@ -301,7 +301,7 @@ export interface SchemaObject extends ISpecificationExtension {
     title?: string;
     multipleOf?: number;
     maximum?: number;
-    const?: string;
+    const?: any;
     /** @desc In OpenAPI 3.1: number */
     exclusiveMaximum?: number;
     minimum?: number;
