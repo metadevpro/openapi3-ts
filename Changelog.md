@@ -1,10 +1,17 @@
 # Changelog: openapi3-ts
 
+## Version 4.3.0
+
+2024.04.01
+
+- Added support for `const` keyword [#132](https://github.com/metadevpro/openapi3-ts/pull/132) by @remidewitte
+- Update dependences.
+
 ## Version 4.2.2
 
 2024.02.22
 
-- Fixed [131](https://github.com/metadevpro/openapi3-ts/pull/131) `responses` to be optional by @remidewitte 
+- Fixed [131](https://github.com/metadevpro/openapi3-ts/pull/131) `responses` to be optional by @remidewitte
 
 ## Version 4.2.1
 
@@ -12,7 +19,7 @@
 
 - Merged [#128](https://github.com/metadevpro/openapi3-ts/pull/128) Revert [#126](https://github.com/metadevpro/openapi3-ts/pull/128) `examples` typings by @RobinTail
 
-2023.12.20
+    2023.12.20
 
 - Added [#126](https://github.com/metadevpro/openapi3-ts/pull/126) Adding contentEncoding and contentMediaType to 3.1 by @RobinTail
 - Updated dependencies
@@ -24,7 +31,7 @@
 - Fix [#113](https://github.com/metadevpro/openapi3-ts/pull/113) Fix nullable on 3.0 types by @samchungy
 - Fix [#116](https://github.com/metadevpro/openapi3-ts/pull/116) Export with .mjs extension by @koooge
 - Fix [#117](https://github.com/metadevpro/openapi3-ts/pull/117) Support subpath for tsc with moduleResolutin node by @koooge
-- Fix [#118](https://github.com/metadevpro/openapi3-ts/pull/118) Bump yaml from 2.2.1 to 2.2.2 
+- Fix [#118](https://github.com/metadevpro/openapi3-ts/pull/118) Bump yaml from 2.2.1 to 2.2.2
 - Update dependencies to latest.
 
 ## Version 4.1.1
@@ -44,7 +51,7 @@
 2023.04.10
 
 - [#108](https://github.com/metadevpro/openapi3-ts/pull/108) Bug fix: Remove any type from `paths` by @samchungy.
-- [#109](https://github.com/metadevpro/openapi3-ts/pull/109) Bug fix: Fixup types `example` & `prefixItems`  by @samchungy.
+- [#109](https://github.com/metadevpro/openapi3-ts/pull/109) Bug fix: Fixup types `example` & `prefixItems` by @samchungy.
 
 ## Version 4.0.3
 
@@ -68,7 +75,7 @@
 - PR [#97](https://github.com/metadevpro/openapi3-ts/pull/97) Export type `SchemaObjectType` by @RobinTail
 - PR [#96](https://github.com/metadevpro/openapi3-ts/pull/96) Support prefixItems by @samchungy
 
-## Version 4.0.0  
+## Version 4.0.0
 
 2023.03.27
 
