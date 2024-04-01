@@ -1,5 +1,11 @@
 # Changelog: openapi3-ts
 
+## Version 4.3.1
+
+2024.04.01
+
+- Bug fix. `const` must be of type any. [#133](https://github.com/metadevpro/openapi3-ts/pull/133) by @RobinTail
+
 ## Version 4.3.0
 
 2024.04.01
