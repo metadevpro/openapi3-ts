@@ -64,5 +64,6 @@
         "vite": "^5.2.7",
         "vitest": "^1.4.0",
         "vitest-teamcity-reporter": "^0.3.0"
-    }
+    },
+    "files": ["dist", "*.md"]
 }
