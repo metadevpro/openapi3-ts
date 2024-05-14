@@ -292,7 +292,7 @@ export interface SchemaObject extends ISpecificationExtension {
     anyOf?: (SchemaObject | ReferenceObject)[];
     not?: SchemaObject | ReferenceObject;
     items?: SchemaObject | ReferenceObject;
-    properties?: Record<string, SchemaObject | ReferenceObject>;
+    properties?: Partial<Record<string, SchemaObject | ReferenceObject>>;
     additionalProperties?: SchemaObject | ReferenceObject | boolean;
     propertyNames?: SchemaObject | ReferenceObject;
     description?: string;
