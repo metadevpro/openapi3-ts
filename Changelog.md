@@ -1,5 +1,11 @@
 # Changelog: openapi3-ts
 
+## Version 4.3.2
+
+2024.05.23
+
+- Fix [#134](https://github.com/metadevpro/openapi3-ts/pull/134) exceisve files in distributed package. PR [136](https://github.com/metadevpro/openapi3-ts/pull/136) by @RobinTail
+
 ## Version 4.3.1
 
 2024.04.01
