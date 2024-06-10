@@ -1,5 +1,11 @@
 # Changelog: openapi3-ts
 
+## Version 4.3.3
+
+2024.06.10
+
+- Add mising types definitions. PR [#138](https://github.com/metadevpro/openapi3-ts/pull/138) by @andreujuanc
+
 ## Version 4.3.2
 
 2024.05.23
