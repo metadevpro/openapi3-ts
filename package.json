@@ -37,7 +37,8 @@
         "test": "vitest",
         "test:ci": "npm run test",
         "cover": "vitest --coverage",
-        "cover:ci": "npm run cover"
+        "cover:ci": "npm run cover",
+        "publish": "npm run build:all && npm publish ."
     },
     "keywords": [
         "openapi3",
