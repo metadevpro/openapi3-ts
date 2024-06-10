@@ -51,9 +51,10 @@ Install package via **npm**:
 npm i --save openapi3-ts
 ```
 
-## Versions and Changelog
+## Documentation, Versions, and Changelog
 
-See [changelog](Changelog.md).
+* [Documentation](docs/index.md).
+* See [changelog](Changelog.md) for version and changes.
 
 ## References
 
@@ -67,4 +68,4 @@ Licensed under the MIT License.
 
 **Contact:** Pedro J. Molina | github: [pjmolina](https://github.com/pjmolina) | twitter: [pmolinam](https://twitter.com/pmolinam)
 
-(c) 2017-2023. [Pedro J. Molina](http://pjmolina.com) at Metadev S.L. [https://metadev.pro](https://metadev.pro) & contributors.
+(c) 2017-2024. [Pedro J. Molina](http://pjmolina.com) at Metadev S.L. [https://metadev.pro](https://metadev.pro) & contributors.
