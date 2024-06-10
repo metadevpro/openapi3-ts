@@ -1,5 +1,11 @@
 # Changelog: openapi3-ts
 
+## Next version
+
+yyyy.mm.dd
+
+- Added basic documentation. Fix [#75](https://github.com/metadevpro/openapi3-ts/pull/75). PR[#139](https://github.com/metadevpro/openapi3-ts/pull/139)
+
 ## Version 4.3.3
 
 2024.06.10
