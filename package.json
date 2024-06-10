@@ -69,6 +69,6 @@
         "dist",
         "*.md",
         "oas30.d.ts",
-        "oas31.d.ts",
+        "oas31.d.ts"
     ]
 }
