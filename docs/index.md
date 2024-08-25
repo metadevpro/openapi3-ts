@@ -16,7 +16,7 @@ The builder pattern, the TS compiler & the code-completion will guide you to add
 Minimal example to generate a 3.1 OAS compliant document:
 
 ```typescript
-import { OpenApiBuilder, ParameterLocation } from 'openapi3-ts/oas31'; // Pick `openapi3-ts/oas31` for 3.1.x (x)or pick `openapi3-ts/oas30` for 3.0.x
+import { OpenApiBuilder } from 'openapi3-ts/oas31'; // Pick `openapi3-ts/oas31` for 3.1.x (x)or pick `openapi3-ts/oas30` for 3.0.x
 
 function buildOas() {
     const builder = OpenApiBuilder
