@@ -16,7 +16,7 @@ The builder pattern, the TS compiler & the code-completion will guide you to add
 Minimal example to generate a 3.1 OAS compliant document:
 
 ```typescript
-import * from 'openapi3-ts/oas31'; // Pick `openapi3-ts/oas31` for 3.1.x (x)or pick `openapi3-ts/oas30` for 3.0.x
+import { OpenApiBuilder, ParameterLocation } from 'openapi3-ts/oas31'; // Pick `openapi3-ts/oas31` for 3.1.x (x)or pick `openapi3-ts/oas30` for 3.0.x
 
 function buildOas() {
     const builder = OpenApiBuilder
@@ -29,15 +29,14 @@ function buildOas() {
         .addLicense({
           name: 'Apache 2.0',
           url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
-        }),
+        })
         .addTitle('my title')
         .addPath('pet/{petId}', {
           get: {
             tags: ["pet"],
             summary: "Find pet by ID",
             description: "Returns a single pet",
-            operationId: "getPetById",
-            produces: ["application/json", "application/xml"]
+            operationId: "getPetById"            
           }
         })
         .addResponse('Created', {
@@ -49,9 +48,10 @@ function buildOas() {
         })
         .addParameter('id',  {
           name: 'id',
-          in: 'header' as ParameterLocation,
+          in: 'header',
           schema: {
             $ref: '#/components/schemas/id'
+          }
         });
     //...keep building
 
