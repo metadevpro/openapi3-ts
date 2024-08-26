@@ -45,8 +45,19 @@ export class OpenApiBuilder {
     ): string {
         return JSON.stringify(this.rootDoc, replacer, space);
     }
-    getSpecAsYaml(): string {
-        return yaml.stringify(this.rootDoc);
+    getSpecAsYaml(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        replacer?: any[] | ((key: any, value: any) => unknown) | null,
+        options?:
+            | string
+            | number
+            | (yaml.DocumentOptions &
+                  yaml.SchemaOptions &
+                  yaml.ParseOptions &
+                  yaml.CreateNodeOptions &
+                  yaml.ToStringOptions)
+    ): string {
+        return yaml.stringify(this.rootDoc, replacer, options);
     }
 
     private static isValidOpenApiVersion(v: string): boolean {
