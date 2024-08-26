@@ -46,16 +46,8 @@ export class OpenApiBuilder {
         return JSON.stringify(this.rootDoc, replacer, space);
     }
     getSpecAsYaml(
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        replacer?: any[] | ((key: any, value: any) => unknown) | null,
-        options?:
-            | string
-            | number
-            | (yaml.DocumentOptions &
-                  yaml.SchemaOptions &
-                  yaml.ParseOptions &
-                  yaml.CreateNodeOptions &
-                  yaml.ToStringOptions)
+        replacer?: Parameters<typeof yaml.stringify>[1],
+        options?: Parameters<typeof yaml.stringify>[2]
     ): string {
         return yaml.stringify(this.rootDoc, replacer, options);
     }
