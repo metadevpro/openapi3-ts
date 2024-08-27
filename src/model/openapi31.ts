@@ -225,7 +225,7 @@ export interface LinkObject extends ISpecificationExtension {
 export interface LinkParametersObject {
     [name: string]: any | string;
 }
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
+ 
 export interface HeaderObject extends BaseParameterObject {
     $ref?: string;
 }
