@@ -45,8 +45,11 @@ export class OpenApiBuilder {
     ): string {
         return JSON.stringify(this.rootDoc, replacer, space);
     }
-    getSpecAsYaml(): string {
-        return yaml.stringify(this.rootDoc);
+    getSpecAsYaml(
+        replacer?: Parameters<typeof yaml.stringify>[1],
+        options?: Parameters<typeof yaml.stringify>[2]
+    ): string {
+        return yaml.stringify(this.rootDoc, replacer, options);
     }
 
     private static isValidOpenApiVersion(v: string): boolean {
