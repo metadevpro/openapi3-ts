@@ -266,6 +266,7 @@ export type SchemaObjectType =
     | 'array';
 
 export interface SchemaObject extends ISpecificationExtension {
+    $ref?: string,
     discriminator?: DiscriminatorObject;
     readOnly?: boolean;
     writeOnly?: boolean;
