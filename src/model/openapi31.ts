@@ -50,6 +50,7 @@ export interface ComponentsObject extends ISpecificationExtension {
     securitySchemes?: { [securityScheme: string]: SecuritySchemeObject | ReferenceObject };
     links?: { [link: string]: LinkObject | ReferenceObject };
     callbacks?: { [callback: string]: CallbackObject | ReferenceObject };
+    pathItems?: { [pathItem: string]: PathItemObject | ReferenceObject };
 }
 
 /**
