@@ -1,5 +1,13 @@
 # Changelog: openapi3-ts
 
+## Version 4.5.0
+
+2025.06.24
+
+- Updated libs
+- Add missing pathItems component PR[#149](https://github.com/metadevpro/openapi3-ts/pull/149) by @samchungy
+- Allow $ref in OpenAPI 3.1.0 SchemaObjects PR[#148](https://github.com/metadevpro/openapi3-ts/pull/148) by @samchungy
+
 ## Version 4.4.0
 
 2024.08.27
