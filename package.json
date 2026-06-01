@@ -20,6 +20,11 @@
             "types": "./dist/oas31.d.ts",
             "import": "./dist/oas31.mjs",
             "require": "./dist/oas31.js"
+        },
+        "./oas32": {
+            "types": "./dist/oas32.d.ts",
+            "import": "./dist/oas32.mjs",
+            "require": "./dist/oas32.js"
         }
     },
     "repository": {
@@ -72,6 +77,7 @@
         "dist",
         "*.md",
         "oas30.d.ts",
-        "oas31.d.ts"
+        "oas31.d.ts",
+        "oas32.d.ts"
     ]
 }
