@@ -14,6 +14,20 @@ TypeScript library to help building OpenAPI 3.x compliant API contracts.
 
 Version 4.0 Adds explicit support for OAS 3.0 and OAS 3.1 as separate implementations.
 
+OAS 3.2 is available as a third parallel implementation (`oas32`). The JSON Schema dialect is unchanged between 3.1 and 3.2 (Draft 2020-12); 3.2 adds document-structure fields such as streaming `itemSchema`/`itemEncoding`/`prefixEncoding` on the Media Type Object, the reusable `mediaTypes` component bucket, the `query` HTTP method and `additionalOperations`, Tag hierarchies, the XML `nodeType`, and the OAuth device authorization flow.
+
+### To use version 3.2 import
+
+```js
+import { oas32 } from 'openapi3-ts';
+```
+
+Or directly import from subpath:
+
+```js
+import { OpenAPIObject, OpenApiBuilder } from 'openapi3-ts/oas32';
+```
+
 ### To use version 3.1 import
 
 ```js
@@ -58,6 +72,7 @@ npm i --save openapi3-ts
 
 ## References
 
+* OpenAPI spec 3.2.0. [https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.2.0.md](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.2.0.md)
 * OpenAPI spec 3.1.0. [https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.1.0.md](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.1.0.md)
 
 ## License

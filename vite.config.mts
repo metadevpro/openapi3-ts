@@ -8,7 +8,8 @@ export default defineConfig({
             entry: {
                 index: resolve(__dirname, 'src/index.ts'),
                 oas30: resolve(__dirname, 'src/oas30.ts'),
-                oas31: resolve(__dirname, 'src/oas31.ts')
+                oas31: resolve(__dirname, 'src/oas31.ts'),
+                oas32: resolve(__dirname, 'src/oas32.ts')
             },
             name: 'OpenApi3TS'
         },
