@@ -10,7 +10,7 @@ TypeScript library to help building OpenAPI 3.x compliant API contracts.
 
 ## Version 4
 
-*Breaking change notice:*
+_Breaking change notice:_
 
 Version 4.0 Adds explicit support for OAS 3.0 and OAS 3.1 as separate implementations.
 
@@ -54,8 +54,8 @@ import { OpenAPIObject, OpenApiBuilder } from 'openapi3-ts/oas30';
 
 ## Includes
 
-* `/src/model` TS typed interfaces for helping building a contract.
-* `/src/dsl` Fluent DSL for building a contract.
+- `/src/model` TS typed interfaces for helping building a contract.
+- `/src/dsl` Fluent DSL for building a contract.
 
 ## Install
 
@@ -67,13 +67,13 @@ npm i --save openapi3-ts
 
 ## Documentation, Versions, and Changelog
 
-* [Documentation](docs/index.md).
-* See [changelog](Changelog.md) for version and changes.
+- [Documentation](docs/index.md).
+- See [changelog](Changelog.md) for version and changes.
 
 ## References
 
-* OpenAPI spec 3.2.0. [https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.2.0.md](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.2.0.md)
-* OpenAPI spec 3.1.0. [https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.1.0.md](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.1.0.md)
+- OpenAPI spec 3.2.0. [https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.2.0.md](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.2.0.md)
+- OpenAPI spec 3.1.0. [https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.1.0.md](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.1.0.md)
 
 ## License
 

@@ -19,39 +19,38 @@ Minimal example to generate a 3.1 OAS compliant document:
 import { OpenApiBuilder } from 'openapi3-ts/oas31'; // Pick `openapi3-ts/oas32` for 3.2.x, `openapi3-ts/oas31` for 3.1.x, (x)or `openapi3-ts/oas30` for 3.0.x
 
 function buildOas() {
-    const builder = OpenApiBuilder
-        .create()
+    const builder = OpenApiBuilder.create()
         .addOpenApiVersion('3.1.0')
         .addInfo({
-          title: 'app',
-          version: 'version'
+            title: 'app',
+            version: 'version'
         })
         .addLicense({
-          name: 'Apache 2.0',
-          url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+            name: 'Apache 2.0',
+            url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
         })
         .addTitle('my title')
         .addPath('pet/{petId}', {
-          get: {
-            tags: ["pet"],
-            summary: "Find pet by ID",
-            description: "Returns a single pet",
-            operationId: "getPetById"            
-          }
+            get: {
+                tags: ['pet'],
+                summary: 'Find pet by ID',
+                description: 'Returns a single pet',
+                operationId: 'getPetById'
+            }
         })
         .addResponse('Created', {
-          description: 'Object created'
+            description: 'Object created'
         })
         .addSchema('Email', {
-          type: 'string',
-          format: 'email'
+            type: 'string',
+            format: 'email'
         })
-        .addParameter('id',  {
-          name: 'id',
-          in: 'header',
-          schema: {
-            $ref: '#/components/schemas/id'
-          }
+        .addParameter('id', {
+            name: 'id',
+            in: 'header',
+            schema: {
+                $ref: '#/components/schemas/id'
+            }
         });
     //...keep building
 
@@ -59,7 +58,6 @@ function buildOas() {
     const docJson = builder.getSpecAsJson();
     const docYaml = builder.getSpecAsYaml();
 }
-
 ```
 
 ## Dependencies
@@ -69,9 +67,9 @@ The unique dependency in runtime is `yaml` to provide the YAML from/to conversio
 ## Code Organization
 
 - `src` contains the production code.
-  - `dsl` provides the API of the library following the [intenal DSL style](https://martinfowler.com/bliki/InternalDslStyle.html) (or _fluent interface_) with two flavours: 3.0.x & 3.1.x to allow conformance with both versions of the spec.
-  - `model` provides a DOM (Document Object Model) describing the concepts defined in the OpenAPI spec. Again in two flavours: 3.0.x and 3.1.x.
-  - Finally `oas30.ts` & `oas31.ts` expose the types as separate namespaces.
+    - `dsl` provides the API of the library following the [intenal DSL style](https://martinfowler.com/bliki/InternalDslStyle.html) (or _fluent interface_) with two flavours: 3.0.x & 3.1.x to allow conformance with both versions of the spec.
+    - `model` provides a DOM (Document Object Model) describing the concepts defined in the OpenAPI spec. Again in two flavours: 3.0.x and 3.1.x.
+    - Finally `oas30.ts` & `oas31.ts` expose the types as separate namespaces.
 - `test` constains the unit tests.
 
 ## License

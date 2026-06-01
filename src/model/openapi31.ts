@@ -59,7 +59,7 @@ export interface ComponentsObject extends ISpecificationExtension {
  */
 export interface PathsObject extends ISpecificationExtension {
     // [path: string]: PathItemObject;
-    [path: string]: PathItemObject
+    [path: string]: PathItemObject;
 }
 
 /**
@@ -226,7 +226,7 @@ export interface LinkObject extends ISpecificationExtension {
 export interface LinkParametersObject {
     [name: string]: any | string;
 }
- 
+
 export interface HeaderObject extends BaseParameterObject {
     $ref?: string;
 }
@@ -266,7 +266,7 @@ export type SchemaObjectType =
     | 'array';
 
 export interface SchemaObject extends ISpecificationExtension {
-    $ref?: string,
+    $ref?: string;
     discriminator?: DiscriminatorObject;
     readOnly?: boolean;
     writeOnly?: boolean;
@@ -320,7 +320,7 @@ export interface SchemaObject extends ISpecificationExtension {
     required?: string[];
     enum?: any[];
     prefixItems?: (SchemaObject | ReferenceObject)[];
-    /** 
+    /**
      * @desc JSON Schema compliant Content-Type, optional when specified as a key of ContentObject
      * @example image/png
      */
@@ -332,7 +332,7 @@ export interface SchemaObject extends ISpecificationExtension {
      * @see https://datatracker.ietf.org/doc/html/rfc2045#section-6.7
      * @example base64
      */
-    contentEncoding?: string;    
+    contentEncoding?: string;
 }
 
 /**

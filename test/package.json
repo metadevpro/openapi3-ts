@@ -1,19 +1,19 @@
 {
-  "name": "openapi3-ts-test",
-  "version": "1.0.0",
-  "main": "index.cjs",
-  "scripts": {
-    "test:cjs": "node index.cjs",
-    "test:mjs": "node index.mjs",
-    "test:ts": "tsx --tsconfig fixture/tsconfig.node.json index.cts",
-    "test:ts-esm": "tsx --tsconfig fixture/tsconfig.node.json index.mts",
-    "test:ts-node16": "tsx --tsconfig fixture/tsconfig.node16.json index.cts",
-    "test:ts-esm-node16": "tsx --tsconfig fixture/tsconfig.node16.json index.mts"
-  },
-  "dependencies": {
-    "openapi3-ts": "file:.."
-  },
-  "devDependencies": {
-    "tsx": "^4.6.2"
-  }
+    "name": "openapi3-ts-test",
+    "version": "1.0.0",
+    "main": "index.cjs",
+    "scripts": {
+        "test:cjs": "node index.cjs",
+        "test:mjs": "node index.mjs",
+        "test:ts": "tsx --tsconfig fixture/tsconfig.node.json index.cts",
+        "test:ts-esm": "tsx --tsconfig fixture/tsconfig.node.json index.mts",
+        "test:ts-node16": "tsx --tsconfig fixture/tsconfig.node16.json index.cts",
+        "test:ts-esm-node16": "tsx --tsconfig fixture/tsconfig.node16.json index.mts"
+    },
+    "dependencies": {
+        "openapi3-ts": "file:.."
+    },
+    "devDependencies": {
+        "tsx": "^4.6.2"
+    }
 }

@@ -12,7 +12,8 @@
             "args": [
                 "-u",
                 "tdd",
-                "--compilers", "ts:ts-node/register",
+                "--compilers",
+                "ts:ts-node/register",
                 "--timeout",
                 "999999",
                 "--colors",

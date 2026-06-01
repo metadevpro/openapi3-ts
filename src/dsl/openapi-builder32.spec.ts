@@ -121,7 +121,8 @@ describe('OpenApiBuilder 3.2', () => {
                 securitySchemes: {
                     oauthDevice: {
                         type: 'oauth2',
-                        oauth2MetadataUrl: 'https://example.com/.well-known/oauth-authorization-server',
+                        oauth2MetadataUrl:
+                            'https://example.com/.well-known/oauth-authorization-server',
                         deprecated: false,
                         flows: {
                             deviceAuthorization: {

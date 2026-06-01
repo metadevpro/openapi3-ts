@@ -45,7 +45,7 @@ export class OpenApiBuilder {
     ): string {
         return JSON.stringify(this.rootDoc, replacer, space);
     }
-    getSpecAsYaml(        
+    getSpecAsYaml(
         replacer?: Parameters<typeof yaml.stringify>[1],
         options?: Parameters<typeof yaml.stringify>[2]
     ): string {

@@ -55,7 +55,7 @@ export interface ComponentsObject extends ISpecificationExtension {
  */
 export interface PathsObject extends ISpecificationExtension {
     // [path: string]: PathItemObject;
-    [path: string]: PathItemObject
+    [path: string]: PathItemObject;
 }
 
 /**
@@ -219,7 +219,7 @@ export interface LinkObject extends ISpecificationExtension {
 export interface LinkParametersObject {
     [name: string]: any | string;
 }
- 
+
 export interface HeaderObject extends BaseParameterObject {
     $ref?: string;
 }
