@@ -121,13 +121,7 @@ export type ParameterLocation = 'query' | 'header' | 'path' | 'cookie';
  * https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#style-values
  */
 export type ParameterStyle =
-    | 'matrix'
-    | 'label'
-    | 'form'
-    | 'simple'
-    | 'spaceDelimited'
-    | 'pipeDelimited'
-    | 'deepObject';
+    'matrix' | 'label' | 'form' | 'simple' | 'spaceDelimited' | 'pipeDelimited' | 'deepObject';
 
 export interface BaseParameterObject extends ISpecificationExtension {
     description?: string;
@@ -248,13 +242,7 @@ export function isReferenceObject(obj: any): obj is ReferenceObject {
 }
 
 export type SchemaObjectType =
-    | 'integer'
-    | 'number'
-    | 'string'
-    | 'boolean'
-    | 'object'
-    | 'null'
-    | 'array';
+    'integer' | 'number' | 'string' | 'boolean' | 'object' | 'null' | 'array';
 
 export type SchemaObjectFormat =
     | 'int32'

@@ -1,5 +1,11 @@
 # Changelog: openapi3-ts
 
+## Version 4.6.1
+
+2026.28.07
+
+- Update build dependencies.
+
 ## Version 4.6.0
 
 2026.06.01
