@@ -31,7 +31,7 @@ export default defineConfig({
         testTimeout: 5000,
         isolate: false,
         passWithNoTests: true,
-        reporters: ['verbose', new TeamCityReporter.default()],
+        reporters: ['verbose', new TeamCityReporter()],
         coverage: {
             reporter: ['text', 'json', 'html', 'lcov']
         }
