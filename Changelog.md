@@ -1,8 +1,14 @@
 # Changelog: openapi3-ts
 
+## Version 4.6.2
+
+2026.10.15
+
+- Update build dependencies.
+
 ## Version 4.6.1
 
-2026.28.07
+2026.07.28
 
 - Update build dependencies.
 
@@ -175,10 +181,10 @@
 2022.08.07
 
 - PR [#80](https://github.com/metadevpro/openapi3-ts/pull/80) contributed by @jonluca
-    - Updated libs
-    - Breaking change: Changed build system to output esm as well as cjs (folders `dist/mjs` and `dist/cjs` now respectively, instead of `dist` for cjs previously).
-    - Changed test system to use vite
-    - Added stricter extension prefix typing
+  - Updated libs
+  - Breaking change: Changed build system to output esm as well as cjs (folders `dist/mjs` and `dist/cjs` now respectively, instead of `dist` for cjs previously).
+  - Changed test system to use vite
+  - Added stricter extension prefix typing
 
 ## Version 2.0.2
 
